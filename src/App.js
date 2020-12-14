@@ -6,7 +6,6 @@ import React,{useState, useEffect} from 'react'
 
 import HomePage from './Container/HomePage'
 import ItemsContainer from './Container/ItemsContainer'
-import UserContextConsumer from './Context/UserContextConsumer'
 
 
 
@@ -39,11 +38,9 @@ const App = () => {
       </Menu>
       <UserContext.Provider  value={{user,login,logout}} >
           <Route exact path="/" render ={(routerProps)=><HomePage />} />
-          {/* <Route exact path="/items" render ={(routerProps)=><ItemsContainer/>} /> */}
           <Route exact path="/items" render ={(routerProps)=><ItemsContainer/>} />
 
       </UserContext.Provider>
-      {/* <HomePage > Luis</HomePage> */}
     </div>
   );
 }
