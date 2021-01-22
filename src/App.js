@@ -16,7 +16,9 @@ const App = () => {
 
   useEffect(()=>{
 
-    setUser("reyes is my swagger name")
+    // setUser("reyes is my swagger name")
+
+    ping()
   },[])
 
   const login = (token) =>{
@@ -27,16 +29,55 @@ const App = () => {
     setUser(null)
   }
 
+
+  const ping =()=>{
+  
+
+    if (localStorage.getItem("user")){
+      const user = JSON.parse(localStorage.getItem("user"))
+      const body = {user:{
+          
+          email: user.email,
+          password: "fakefakefake"
+          }
+      }
+      console.log(user["email"])
+      const options = {
+        method: "POST",
+        
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+          
+        },
+        credentials: 'include',       
+        body: JSON.stringify(body)
+      }
+
+
+      fetch("http://localhost:3000/api/v1/session",options)
+      .then(response=> response.json())
+      .then(userObject =>{
+
+        localStorage.setItem("user",JSON.stringify(userObject))
+        // login(userObject.email)
+        console.log("it succeeded")
+        console.table(userObject)
+
+      })
+    }
+  }
+
   return (
 
 
 
     <div className="App">
       Luis is the greatest
-      <Menu  name="swag" active={true}>
+      <Menu  name="swag" active={"true"}>
         <Menu.Item> swag</Menu.Item>
       </Menu>
-      <UserContext.Provider  value={{user,login,logout}} >
+      <UserContext.Provider  value={{user,login,logout,ping}} >
           <Route exact path="/" render ={(routerProps)=><HomePage />} />
           <Route exact path="/items" render ={(routerProps)=><ItemsContainer/>} />
 

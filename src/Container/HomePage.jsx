@@ -8,7 +8,7 @@ import UserContextConsumer from '../Context/UserContextConsumer'
 const HomePage =(props)=>{
     
     useEffect(()=>{
-        props.login("The original username")
+        // props.login("The original username")
     },[props])
 
     return (

@@ -1,3 +1,8 @@
+# Heads up
+added cors and tried to make the cors dynamic. I wanted to have the domain be different depending the environment. So I added the domains inside the credentials file. and nested them inside a production and development build. I think alls gonna work well. Here is a stackoverflow link explaining what I did. [stackoverflow link](https://stackoverflow.com/questions/49985642/rails-5-1-cors-how-to-set-different-origins-for-different-environments)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
