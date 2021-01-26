@@ -27,9 +27,7 @@ const ItemsContainer =(props)=>{
           fetch("http://localhost:3000/api/v1/login",options)
           .then(response=> response.json())
           .then(userObject =>{
-    
-            localStorage.setItem("user",JSON.stringify(userObject))
-            props.login(userObject.email)
+            props.login(userObject)
     
           })
 
@@ -40,7 +38,7 @@ const ItemsContainer =(props)=>{
         <>
         "This is the item page swag swag swag"
         <p> {props.user}</p>
-        <button onClick={()=>props.login(loggingIn)} />
+        <button onClick={loggingIn} />
         </>
     )
 }

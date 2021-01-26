@@ -11,7 +11,8 @@ import ItemsContainer from './Container/ItemsContainer'
 
 
 const App = () => {
-  const [user,setUser] = useState("luis is the user")
+  const beginningUserObject = JSON.parse(localStorage.getItem("user"))
+  const [user,setUser] = useState(beginningUserObject? beginningUserObject["email"]:null)
 
 
   useEffect(()=>{
@@ -21,11 +22,14 @@ const App = () => {
     ping()
   },[])
 
-  const login = (token) =>{
-    setUser(token)
+  const login = (userObject) =>{
+
+    localStorage.setItem("user",JSON.stringify(userObject))
+    setUser(userObject.email)
   }
 
   const logout = () =>{
+    localStorage.removeItem("user")
     setUser(null)
   }
 
@@ -34,21 +38,18 @@ const App = () => {
   
 
     if (localStorage.getItem("user")){
-      const user = JSON.parse(localStorage.getItem("user"))
+      const userObject = JSON.parse(localStorage.getItem("user"))
       const body = {user:{
           
-          email: user.email,
+          email: userObject.email,
           password: "fakefakefake"
           }
       }
-      console.log(user["email"])
       const options = {
         method: "POST",
-        
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"
-          
         },
         credentials: 'include',       
         body: JSON.stringify(body)
@@ -56,13 +57,22 @@ const App = () => {
 
 
       fetch("http://localhost:3000/api/v1/session",options)
-      .then(response=> response.json())
-      .then(userObject =>{
+      .then(response=> {
+        if(!response.ok){
+          throw new Error(response.status)
+       }
+        else return response.json()
+      }
+      
+      )
+      .then(newUserObject =>{
+        login(newUserObject)
 
-        localStorage.setItem("user",JSON.stringify(userObject))
-        // login(userObject.email)
-        console.log("it succeeded")
-        console.table(userObject)
+      })
+      .catch((error)=>{
+        logout()
+        
+
 
       })
     }
