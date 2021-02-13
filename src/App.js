@@ -2,10 +2,14 @@ import './App.css';
 import {Route, Redirect} from 'react-router-dom'
 import {Menu} from 'semantic-ui-react'
 import UserContext from './Context/UserContext'
+import MobileContext from './Context/MobileContext'
+
 import React,{useState, useEffect} from 'react'
 
 import HomePage from './Container/HomePage'
 import ItemsContainer from './Container/ItemsContainer'
+import MenuBar from './Container/MenuBar'
+
 
 
 
@@ -13,17 +17,14 @@ import ItemsContainer from './Container/ItemsContainer'
 const App = () => {
   const beginningUserObject = JSON.parse(localStorage.getItem("user"))
   const [user,setUser] = useState(beginningUserObject? beginningUserObject["email"]:null)
+  const [mobile,setMobile] =  useState(window.innerWidth <= 760)
 
 
   useEffect(()=>{
-
-    // setUser("reyes is my swagger name")
-
     ping()
   },[])
 
   const login = (userObject) =>{
-
     localStorage.setItem("user",JSON.stringify(userObject))
     setUser(userObject.email)
   }
@@ -78,20 +79,25 @@ const App = () => {
     }
   }
 
+
+
+
+
   return (
 
+    
+    <div className="App" style={{backgroundColor: "orange"}}>  
+      
+    <MobileContext.Provider value={{mobile}}>
+        <UserContext.Provider  value={{user,login,logout,ping}} >
+        <MenuBar />
 
 
-    <div className="App">
-      Luis is the greatest
-      <Menu  name="swag" active={"true"}>
-        <Menu.Item> swag</Menu.Item>
-      </Menu>
-      <UserContext.Provider  value={{user,login,logout,ping}} >
-          <Route exact path="/" render ={(routerProps)=><HomePage />} />
-          <Route exact path="/items" render ={(routerProps)=><ItemsContainer/>} />
+            <Route exact path="/" render ={(routerProps)=><HomePage />} />
+            <Route exact path="/items" render ={(routerProps)=><ItemsContainer/>} />
 
-      </UserContext.Provider>
+        </UserContext.Provider>
+      </MobileContext.Provider>
     </div>
   );
 }

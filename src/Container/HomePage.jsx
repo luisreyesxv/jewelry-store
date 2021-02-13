@@ -1,6 +1,7 @@
 import React,{useContext, useEffect} from 'react'
 import UserContext from '../Context/UserContext'
 import UserContextConsumer from '../Context/UserContextConsumer'
+import {Segment} from 'semantic-ui-react'
 
 
 
@@ -12,10 +13,10 @@ const HomePage =(props)=>{
     },[props])
 
     return (
-        <>
+        <Segment basic>
         "This is the home page swag swag swag"
         <p> {props.user}</p>
-        </>
+        </Segment>
     )
 }
 
