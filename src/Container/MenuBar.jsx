@@ -1,8 +1,12 @@
 import React,{useState, useEffect} from 'react'
 import UserContextConsumer from '../Context/UserContextConsumer'
 import MobileContextConsumer from '../Context/MobileContextConsumer'
+import DropdownComponent from '../Component/Menu/DropdownComponent'
+import {Link} from 'react-router-dom'
 
-import {Menu, Button, Container,Segment,Sidebar, Icon} from 'semantic-ui-react'
+
+
+import {Menu, Button, Container,Segment,Sidebar, Icon, Accordion} from 'semantic-ui-react'
 
 
 
@@ -10,14 +14,29 @@ import {Menu, Button, Container,Segment,Sidebar, Icon} from 'semantic-ui-react'
 const MenuBar =(props)=>{
 
     const [sidebarOpened,setSidebarOpened] = useState(false)
+    const [activeTab,setActiveTab] = useState()
 
-    const mobileDropDown = ()=> {
+    const customForms = [
+        {text: "Custom Jewelry Inquiry", link: "/inquiry/CustomJewelry"},
+        {text: "Luxury Timepiece Inquiry", link: "/inquiry/LuxuryTimePiece"},
+        {text: "Repair Inquiry", link: "/inquiry/Repair"},
+        {text: "2nd Chance Inquiry", link: "/inquiry/2ndChance"}
+    ]
+
+    const collectionCategories =[
+        {text: "Watches", link: "/collections/Watches"},
+        {text: "Necklaces", link: "/collections/Necklaces"}
+    ]
+
+
+    const mobileDropdown = ()=> {
        
        
        return (
            <>
             <Sidebar 
             as={Menu}
+            id="sidebar-main-menu"
             animation = "overlay"
             inverted = {true}
             onHide ={()=>setSidebarOpened(false)}
@@ -27,7 +46,7 @@ const MenuBar =(props)=>{
                 <Menu.Item onClick={()=>   setSidebarOpened(false)} position = "left">
                     <Icon name="arrow left" />
                 </Menu.Item>
-                {MenuItems()}
+                    {MenuItems()}
             </Sidebar>
 
             <Menu.Item onClick={()=> setSidebarOpened(true)} compact>
@@ -48,9 +67,11 @@ const MenuBar =(props)=>{
     const MenuItems = () => {
        return ( 
              <>
-                    <Menu.Item> swag</Menu.Item>
-                    <Menu.Item> Luis</Menu.Item>
-                    <Menu.Item> {props.mobile?"mobile":"PC"}</Menu.Item>
+                    <Menu.Item as={Link} to="/" name="Home"  onClick={()=>setSidebarOpened(false)}> Home</Menu.Item>
+
+                    <DropdownComponent title="Collections" items={collectionCategories} name="Collections" setActive={setActiveTab} active={activeTab} setSidebarOpen={setSidebarOpened}/>
+                   
+                    <DropdownComponent title="Custom Work Inquiry" items={customForms} name="Custom Work Inquiry" setActive={setActiveTab}  active={activeTab} setSidebarOpen={setSidebarOpened} />
                     <Menu.Item> Luis</Menu.Item>
                     {props.user? <Menu.Item> {props.user}</Menu.Item> : null}
                     <Menu.Item position='right' compact>
@@ -78,7 +99,7 @@ const MenuBar =(props)=>{
             inverted       
             >
                 <Container >
-                    {props.mobile? mobileDropDown():MenuItems()}
+                    {props.mobile? mobileDropdown():MenuItems()}
                     
                     
 
