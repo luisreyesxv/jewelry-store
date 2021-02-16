@@ -1,6 +1,5 @@
-import './App.css';
-import {Route, Redirect} from 'react-router-dom'
-import {Menu} from 'semantic-ui-react'
+import './App.scss';
+import {Route} from 'react-router-dom'
 import UserContext from './Context/UserContext'
 import MobileContext from './Context/MobileContext'
 
@@ -17,12 +16,25 @@ import MenuBar from './Container/MenuBar'
 const App = () => {
   const beginningUserObject = JSON.parse(localStorage.getItem("user"))
   const [user,setUser] = useState(beginningUserObject? beginningUserObject["email"]:null)
-  const [mobile,setMobile] =  useState(window.innerWidth <= 760)
-
+  // const [mobile,setMobile] =  useState(window.innerWidth <= 760)
+  let mobile = window.innerWidth <= 760
+  const [windowSize,setWindowSize] = useState(window.innerWidth)
 
   useEffect(()=>{
     ping()
   },[])
+
+  useEffect(()=>{
+  
+    
+      //register the window resize listener
+      window.addEventListener("resize", windowResize)
+      //un-register the listener
+      return () => window.removeEventListener("resize",windowResize)
+    
+  },[setWindowSize])
+
+  
 
   const login = (userObject) =>{
     localStorage.setItem("user",JSON.stringify(userObject))
@@ -32,6 +44,16 @@ const App = () => {
   const logout = () =>{
     localStorage.removeItem("user")
     setUser(null)
+  }
+
+  const windowResize=()=>{
+    setWindowSize(window.innerWidth)
+    
+    let currentWindow = windowSize <= 760
+    
+    if(currentWindow !== mobile){
+      mobile = currentWindow
+    }
   }
 
 
@@ -86,7 +108,7 @@ const App = () => {
   return (
 
     
-    <div className="App" style={{backgroundColor: "orange"}}>  
+    <div className="App">  
       
     <MobileContext.Provider value={{mobile}}>
         <UserContext.Provider  value={{user,login,logout,ping}} >
@@ -95,6 +117,9 @@ const App = () => {
 
             <Route exact path="/" render ={(routerProps)=><HomePage />} />
             <Route exact path="/items" render ={(routerProps)=><ItemsContainer/>} />
+
+
+            
 
         </UserContext.Provider>
       </MobileContext.Provider>

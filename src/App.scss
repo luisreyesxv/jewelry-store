@@ -1,0 +1,37 @@
+$palette-majority: #EBE2CA;
+$palette-accent-first: #F7B85A;
+$palette-accent-second: #CB4101 ;
+$palette-accent-third: #571009;
+$palette-accent-fourth: #9B200B; 
+
+#root { background-color: $palette-majority;}
+
+.App {
+  text-align: center;
+  background-color: $palette-majority;
+  height: 100em;
+}
+
+
+
+
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+#primary-menu-bar{
+  background-color: $palette-accent-first;
+}

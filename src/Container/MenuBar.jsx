@@ -67,16 +67,15 @@ const MenuBar =(props)=>{
 
 
     return (
-
+<>
         <Segment basic>
-            <Menu  name="swag" 
+            <Menu  id="primary-menu-bar" 
             fixed="top"
             size = "large"
             basic
             
             borderless={true} 
             inverted       
-            style={{backgroundColor:"transparent"}}    
             >
                 <Container >
                     {props.mobile? mobileDropDown():MenuItems()}
@@ -88,6 +87,8 @@ const MenuBar =(props)=>{
 
             </Menu>
         </Segment>
+
+    </>
     )
 }
 
