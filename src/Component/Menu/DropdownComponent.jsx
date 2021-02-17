@@ -17,9 +17,9 @@ const DropDownComponent =(props)=>{
     const pcComponent = () => {
 
         return(
-        <Dropdown item  text={props.title} >
-                        <Dropdown.Menu >
-                            {props.items.map((element)=> <Dropdown.Item as={Link} to={element.link}  onClick={()=> props.setSidebarOpen(false)}> {element.text}</Dropdown.Item>)}
+        <Dropdown item className="menu-bar-link"  text={props.title} >
+                        <Dropdown.Menu className="menu-bar-link" >
+                            {props.items.map((element)=> <Dropdown.Item className="menu-bar-link" key={"dropdown "+ element.text +" option"}  as={Link} to={element.link}  onClick={()=> props.setSidebarOpen(false)}> {element.text}</Dropdown.Item>)}
                         </Dropdown.Menu>
         </Dropdown>
         )
@@ -28,8 +28,8 @@ const DropDownComponent =(props)=>{
     const mobileComponent = () =>{
 
         return (
-            <Accordion  as={Menu.Item} >
-                <Accordion.Title as={Menu.Item} active={props.name=== props.active} onClick={changeActive}>
+            <Accordion  as={Menu.Item} className="mobile-menu-bar-link" >
+                <Accordion.Title className="mobile-menu-bar-link" as={Menu.Item} active={props.name=== props.active} onClick={changeActive}>
                     <>
                         {props.title} 
                         <Icon name='dropdown' />
@@ -37,7 +37,7 @@ const DropDownComponent =(props)=>{
                 </Accordion.Title>
                 <Transition visible={props.name=== props.active} animation='slide down' duration={150} >
                 <Accordion.Content as={Menu.Item} active={props.name=== props.active}>
-                    {props.items.map((element)=> <Menu.Item as={Link} to={element.link} onClick={()=> props.setSidebarOpen(false)}> {element.text}</Menu.Item>) }
+                    {props.items.map((element)=> <Menu.Item className="mobile-menu-bar-link" key={"accordion "+ element.text +" option"} as={Link} to={element.link} onClick={()=> props.setSidebarOpen(false)}> {element.text}</Menu.Item>) }
                 </Accordion.Content>
                 </Transition>
             </Accordion>

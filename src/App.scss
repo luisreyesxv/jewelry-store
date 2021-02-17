@@ -4,6 +4,16 @@ $palette-accent-second: #CB4101 ;
 $palette-accent-third: #571009;
 $palette-accent-fourth: #9B200B; 
 
+$lengthLarge1:  4rem;
+$lengthLarge2: 3rem;
+$lengthLarge3: 2rem;
+$lengthMedium1: 1.5rem;
+$lengthMedium2: 1.25rem;
+$lengthMedium3: 1rem;
+$lengthSmall1: .5rem;
+$lengthSmall2: .375rem;
+$lengthSmall3: .25rem;
+
 #root { background-color: $palette-majority;}
 
 .App {
@@ -14,6 +24,13 @@ $palette-accent-fourth: #9B200B;
 
 #sidebar-main-menu{
   background-color: $palette-accent-third
+}
+
+.menu-bar-link{
+  font-size: $lengthMedium3;
+}
+.mobile-menu-bar-link{
+  font-size: $lengthMedium2;
 }
 
 
@@ -36,5 +53,33 @@ $palette-accent-fourth: #9B200B;
 }
 
 #primary-menu-bar{
-  background-color: $palette-accent-first;
+  background-color: $palette-accent-first; 
+  margin-bottom: .75em;
 }
+
+#shopping-cart-icon
+{
+  color: $palette-accent-third
+}
+
+.badge{
+  color: $palette-majority;
+  font-size: $lengthMedium3;
+  
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+  }
+
+  #shopping-cart-icon-number{
+    
+      font-size: $lengthMedium2;
+      font-weight: bolder;
+      color: $palette-accent-fourth;
+      padding: 0 5px;
+      vertical-align: top;
+      margin-left: -25px; 
+      margin-bottom: 25px;
+  }
