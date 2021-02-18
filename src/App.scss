@@ -9,7 +9,7 @@ $lengthLarge2: 3rem;
 $lengthLarge3: 2rem;
 $lengthMedium1: 1.5rem;
 $lengthMedium2: 1.25rem;
-$lengthMedium3: 1rem;
+$lengthMedium3: .75rem;
 $lengthSmall1: .5rem;
 $lengthSmall2: .375rem;
 $lengthSmall3: .25rem;
@@ -75,11 +75,11 @@ $lengthSmall3: .25rem;
 
   #shopping-cart-icon-number{
     
-      font-size: $lengthMedium2;
+      font-size: 1rem;
       font-weight: bolder;
       color: $palette-accent-fourth;
       padding: 0 5px;
       vertical-align: top;
       margin-left: -25px; 
-      margin-bottom: 25px;
+      margin-bottom: 5px;
   }

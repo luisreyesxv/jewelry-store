@@ -14,6 +14,13 @@ const DropDownComponent =(props)=>{
 
     const changeActive=()=> props.setActive(props.name=== props.active? "":props.name)
 
+
+
+    const resolutionComponent=()=>{
+
+        return props.mobile? mobileComponent():pcComponent()
+    }
+
     const pcComponent = () => {
 
         return(
@@ -27,7 +34,10 @@ const DropDownComponent =(props)=>{
 
     const mobileComponent = () =>{
 
-        return (
+
+
+
+        return ( 
             <Accordion  as={Menu.Item} className="mobile-menu-bar-link" >
                 <Accordion.Title className="mobile-menu-bar-link" as={Menu.Item} active={props.name=== props.active} onClick={changeActive}>
                     <>
@@ -45,6 +55,19 @@ const DropDownComponent =(props)=>{
         )
     }
 
+    const passedDownComponent=()=>{
+
+        return(
+                // <Dropdown item className="mobile-menu-bar-link" key={"accordion "+ props.title +" option"} >
+                //      <Dropdown.Menu >
+                //          {props.component}
+                //     </Dropdown.Menu>
+                // </Dropdown>
+                <Dropdown search fluid />
+
+        )
+    }
+
 
     
 
@@ -52,7 +75,7 @@ const DropDownComponent =(props)=>{
 
     return (
         <>
-         {props.mobile? mobileComponent():pcComponent()}
+         {props.component? passedDownComponent():resolutionComponent()}
 
          </>
     )
