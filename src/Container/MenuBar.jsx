@@ -6,6 +6,7 @@ import MobileContextConsumer from '../Context/MobileContextConsumer'
 import DropdownComponent from '../Component/Menu/DropdownComponent'
 import ShoppingCartComponent from '../Component/Menu/ShoppingCart'
 import SearchBarContainer from './SearchBarContainer'
+import LogInButton from '../Component/Log-In/LogInButton'
 
 import logoSVG from '../Component/Logos/logo'
 
@@ -33,6 +34,8 @@ const MenuBar =(props)=>{
         {text: "Necklaces", link: "/collections/Necklaces"}
     ]
 
+    const accountOrRegister = props.user?{text:"My Account",link: "/account"} : {text:"Sign Up",link:"/register"}
+
 
     const mobileDropdown = ()=> {     
        return (
@@ -58,14 +61,10 @@ const MenuBar =(props)=>{
             <Menu.Item as={Link} to="/" name="Home">
                  <Image src={logoSVG} size="tiny"/>
             </Menu.Item>
-            <Menu.Item position="right">
-                <SearchBarContainer />
-            </Menu.Item>
+            
             <Menu.Menu position="right" compact>
-                
-                <Menu.Item >
+                <SearchBarContainer />
                      <ShoppingCartComponent />
-                </Menu.Item>
             </Menu.Menu>
 
 
@@ -93,7 +92,7 @@ const MenuBar =(props)=>{
                         <SearchBarContainer />
                     </Menu.Item>
                     <ShoppingCartComponent />
-                <DropdownComponent title="Account" items={[{text:"Login",link:"/account"}]} name="Account" setActive={setActiveTab}  active={activeTab} setSidebarOpen={setSidebarOpened} />
+                <DropdownComponent title="Account" items={[accountOrRegister,{text:"Login",component:<LogInButton />}]} name="Account" setActive={setActiveTab}  active={activeTab} setSidebarOpen={setSidebarOpened} />
 
 
 
@@ -122,21 +121,10 @@ const MenuBar =(props)=>{
                     <DropdownComponent title="Collections" items={collectionCategories} name="Collections" setActive={setActiveTab} active={activeTab} setSidebarOpen={setSidebarOpened}/>
                  
                     <DropdownComponent title="Custom Work Inquiry" items={customForms} name="Custom Work Inquiry" setActive={setActiveTab}  active={activeTab} setSidebarOpen={setSidebarOpened} />
-               
-                {/* <Menu.Item className={props.mobile?"mobile-menu-bar-link":"menu-bar-link"}> Luis</Menu.Item> */ }
                     {props.user? <Menu.Item> {props.user}</Menu.Item> : null}
                    
-                   {/* <Menu.Item className={props.mobile?"mobile-menu-bar-link":"menu-bar-link"} position={props.mobile?null:"right"} compact>
-                        <Button as='a' inverted={false} >
-                            Log in
-                        </Button>
-                        <Button as='a' inverted={false} primary={true} style={{ marginLeft: '0.5em' }}>
-                            Sign Up
-                        </Button>
-                        Account
-                    </Menu.Item> */}
                     {props.mobile?
-                    <DropdownComponent title="Account" items={[{text:"Login",link:"/account"}]} name="Account" setActive={setActiveTab}  active={activeTab} setSidebarOpen={setSidebarOpened} />
+                        <DropdownComponent title="Account" items={[accountOrRegister,{text:"Login",component:<LogInButton />}]} name="Account" setActive={setActiveTab}  active={activeTab} setSidebarOpen={setSidebarOpened} />
                     :
                     null}
                
@@ -144,41 +132,19 @@ const MenuBar =(props)=>{
        )
     }
 
-{/* <Menu fixed="top" inverted>
-    <Menu.Item>
-      <Image size="mini" src="https://react.semantic-ui.com/logo.png" />
-    </Menu.Item>
-    {_.map(leftItems, (item) => (
-      <Menu.Item {...item} />
-    ))}
-    <Menu.Menu position="left">
-      {_.map(rightItems, (item) => (
-        <Menu.Item {...item} />
-      ))}
-    </Menu.Menu>
-  </Menu> */}
+
 
 
     return (
 <>
-        {/* <Segment basic> */}
             <Menu  id="primary-menu-bar" 
         //    fixed="top"
             borderless={true} 
             inverted 
-            // compact={props.mobile?true:false} 
             fluid  
-            // widths={props.mobile?null:"6" }
             >
-
-                {/* <Container textAlign="center" fluid> */}
                     {props.mobile? mobileDropdown():pcMenu()}
-                    
-                    
-                {/* </Container> */}
-
             </Menu>
-        {/* </Segment> */}
 
     </>
     )

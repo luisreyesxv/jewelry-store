@@ -5,8 +5,7 @@ import MobileContext from './Context/MobileContext'
 
 import React,{useState, useEffect} from 'react'
 
-import HomePage from './Container/HomePage'
-import ItemsContainer from './Container/ItemsContainer'
+import RoutesContainer from './Container/RoutesContainer'
 import MenuBar from './Container/MenuBar'
 
 
@@ -115,9 +114,8 @@ const App = () => {
         <MenuBar />
 
 
-            <Route exact path="/" render ={(routerProps)=><HomePage />} />
-            <Route exact path="/items" render ={(routerProps)=><ItemsContainer/>} />
-
+            
+        <RoutesContainer />
 
             
 

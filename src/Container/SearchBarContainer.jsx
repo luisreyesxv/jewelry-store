@@ -30,7 +30,7 @@ const SearchBarContainer =(props)=>{
             </Sidebar>
     
     
-            <Menu.Item position ="right" onClick={()=> setSearchSidebarOpened(true)} >
+            <Menu.Item  onClick={()=> setSearchSidebarOpened(true)} >
                 <Icon name="search" size="large" />
             </Menu.Item>
     

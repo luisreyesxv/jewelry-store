@@ -14,11 +14,10 @@ $lengthSmall1: .5rem;
 $lengthSmall2: .375rem;
 $lengthSmall3: .25rem;
 
-#root { background-color: $palette-majority;}
+
 
 .App {
   text-align: center;
-  background-color: $palette-majority;
   height: 100em;
 }
 
@@ -53,7 +52,7 @@ $lengthSmall3: .25rem;
 }
 
 #primary-menu-bar{
-  background-color: $palette-accent-first; 
+  background-image: linear-gradient( to left top,rgba($palette-accent-first,1), rgba($palette-accent-fourth,.5)); 
   margin-bottom: .75em;
 }
 
