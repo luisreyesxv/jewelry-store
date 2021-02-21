@@ -17,8 +17,7 @@ $lengthSmall3: .25rem;
 
 
 .App {
-  text-align: center;
-  height: 100em;
+  width: 100vw;
 }
 
 #sidebar-main-menu{
@@ -86,4 +85,11 @@ $lengthSmall3: .25rem;
 
   #content-not-found-page{
    
+  }
+
+  #footer{
+    margin-top: 5vh;
+    background-color: $palette-accent-third;
+    color: $palette-majority;
+    font-weight: bolder;
   }

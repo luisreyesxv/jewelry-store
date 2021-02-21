@@ -7,6 +7,9 @@ import React,{useState, useEffect} from 'react'
 
 import RoutesContainer from './Container/RoutesContainer'
 import MenuBar from './Container/MenuBar'
+import Footer from './Container/Footer'
+
+
 
 
 
@@ -117,7 +120,8 @@ const App = () => {
             
         <RoutesContainer />
 
-            
+
+        <Footer />
 
         </UserContext.Provider>
       </MobileContext.Provider>
