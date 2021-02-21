@@ -32,7 +32,7 @@ const ShoppingCartComponent =(props)=>{
 
 
        </Sidebar>
-       <Menu.Item onClick={()=> setShoppingCartOpened(true)} compact position="right">
+       <Menu.Item onClick={()=> setShoppingCartOpened(true)} compact="true" position="right">
            
       <Icon.Group>
       <div >26</div>

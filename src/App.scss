@@ -53,6 +53,7 @@ $lengthSmall3: .25rem;
 
 #primary-menu-bar{
   background-image: linear-gradient( to left top,rgba($palette-accent-first,1), rgba($palette-accent-fourth,.5)); 
+  border-radius: 0;
   // margin-bottom: .75em;
 }
 
@@ -88,8 +89,13 @@ $lengthSmall3: .25rem;
   }
 
   #footer{
+
     margin-top: 5vh;
     background-color: $palette-accent-third;
     color: $palette-majority;
     font-weight: bolder;
+  }
+
+  .subtext404{
+   font-size: $lengthMedium3;
   }

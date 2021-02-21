@@ -55,14 +55,14 @@ const MenuBar =(props)=>{
                     {MenuItems()}
             </Sidebar>
 
-            <Menu.Item onClick={()=> setSidebarOpened(true)} compact>
+            <Menu.Item onClick={()=> setSidebarOpened(true)} compact="true">
                     <Icon name='sidebar'  size="large"/>
             </Menu.Item>
             <Menu.Item as={Link} to="/" name="Home">
                  <Image src={logoSVG} size="tiny"/>
             </Menu.Item>
             
-            <Menu.Menu position="right" compact>
+            <Menu.Menu position="right" compact="true">
                 <SearchBarContainer />
                      <ShoppingCartComponent />
             </Menu.Menu>
