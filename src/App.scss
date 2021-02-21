@@ -51,9 +51,10 @@ $lengthSmall3: .25rem;
   color: #61dafb;
 }
 
+
 #primary-menu-bar{
   background-image: linear-gradient( to left top,rgba($palette-accent-first,1), rgba($palette-accent-fourth,.5)); 
-  margin-bottom: .75em;
+  // margin-bottom: .75em;
 }
 
 #shopping-cart-icon
@@ -81,4 +82,8 @@ $lengthSmall3: .25rem;
       vertical-align: top;
       margin-left: -25px; 
       margin-bottom: 5px;
+  }
+
+  #content-not-found-page{
+   
   }

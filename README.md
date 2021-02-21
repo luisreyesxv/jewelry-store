@@ -3,6 +3,11 @@ added cors and tried to make the cors dynamic. I wanted to have the domain be di
 
 
 
+
+# Credits for "outside sources"
+Some svgs were brought from  <a href="https://storyset.com/web">Illustration by Freepik Storyset</a> as of now the 404 page
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

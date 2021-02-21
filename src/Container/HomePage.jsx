@@ -17,7 +17,8 @@ const HomePage =(props)=>{
 
 
     return (
-        "homepage"
+        <div>homepage</div>
+        
     )
 
     // let {user} =  useParams()

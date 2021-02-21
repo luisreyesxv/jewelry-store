@@ -1,8 +1,9 @@
 import React from 'react'
-import {Route,Switch} from 'react-router-dom'
+import {Route,Switch, Redirect} from 'react-router-dom'
 
 import HomePage from './HomePage'
 import ItemsContainer from './ItemsContainer'
+import Normal404Page from '../Component/404/Normal404Page'
 
 
 
@@ -13,7 +14,10 @@ return (
     <>
     <Switch>
             <Route exact path="/items" render ={(routerProps)=><ItemsContainer/>} />
-            <Route  path="/"  render={(browserProps)=> <HomePage {...browserProps}/>}/>
+            <Route exact path='/404' render ={(browserProps)=> <Normal404Page />} />
+            
+            <Route  exact path="/"  render={(browserProps)=> <HomePage {...browserProps}/>}/>
+            <Redirect to="/404" />
                 
     </Switch>
     </>
