@@ -14,10 +14,15 @@ return (
     <>
     <Switch>
             <Route exact path="/items" render ={(routerProps)=><ItemsContainer/>} />
-            <Route exact path='/404' render ={(browserProps)=> <Normal404Page />} />
+            <Route path="/inquiry" render={(browserProps)=> "Inquiry"} />
+            <Route path="/collections" render={(browserProps)=> "Collections"} />
+            <Route path="/account" render={(browserProps)=> "Account"} />
+            <Route path="/About" render={(browserProps)=> "About Us"} />
+
             
             <Route  exact path="/"  render={(browserProps)=> <HomePage {...browserProps}/>}/>
-            <Redirect to="/404" />
+            <Route exact path='*' render ={(browserProps)=> <Normal404Page  {...browserProps}/>} />
+            {/* <Redirect to="/404" /> */}
                 
     </Switch>
     </>

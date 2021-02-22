@@ -99,3 +99,15 @@ $lengthSmall3: .25rem;
   .subtext404{
    font-size: $lengthMedium3;
   }
+
+  .showcaseCardHeader{
+    white-space: nowrap;
+    overflow: hidden;
+    font-size:$lengthMedium3;
+    text-overflow: ellipsis;
+    
+  }
+
+  .showcaseCardMeta{
+    font-size: $lengthSmall1;
+  }

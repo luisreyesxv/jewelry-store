@@ -1,8 +1,13 @@
-import React,{useContext, useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import UserContext from '../Context/UserContext'
 import UserContextConsumer from '../Context/UserContextConsumer'
-import {Segment} from 'semantic-ui-react'
-import {useParams,useQuery, useLocation, Route, Switch} from 'react-router-dom'
+import {Container,Grid, Placeholder, Segment, Image } from 'semantic-ui-react'
+import { Route, Switch,Link} from 'react-router-dom'
+
+
+import ItemCard from '../Component/Items/ItemCard'
+
+// import {useParams,useQuery, useLocation, Route, Switch} from 'react-router-dom'
 
 
 
@@ -11,13 +16,122 @@ const HomePage =(props)=>{
     
     useEffect(()=>{
         // props.login("The original username")
+
+        getShowcaseItems()
     },[props])
+
+    const [showcaseItems,setShowcaseItems]= useState()
+
+    const communicateWithServer=({params,options})=>{
+        return( 
+            fetch("http://localhost:3000/api/v1/"+params,options)
+            .then(response=> response.json())
+        )
+    }
+
+
+    const getShowcaseItems=()=>{
+        communicateWithServer({params:"showcase"})
+        .then(showcaseItemsObject=>{
+            setShowcaseItems(showcaseItemsObject)
+        })
+    }
+
+
+    const placeholderShowcaseItems=()=>{
+        return(
+            <Grid.Row centered columns={5}>
+                <Grid.Column>
+                    <Placeholder>
+                        <Placeholder.Header image>
+                            <Placeholder.Line />
+                            <Placeholder.Line />
+                        </Placeholder.Header>
+                        <Placeholder.Paragraph>
+                            <Placeholder.Line length='medium' />
+                            <Placeholder.Line length='short' />
+                        </Placeholder.Paragraph>
+                    </Placeholder>
+                </Grid.Column>
+                <Grid.Column>
+                    <Placeholder>
+                        <Placeholder.Header image>
+                            <Placeholder.Line />
+                            <Placeholder.Line />
+                        </Placeholder.Header>
+                        <Placeholder.Paragraph>
+                            <Placeholder.Line length='medium' />
+                            <Placeholder.Line length='medium' />
+                            <Placeholder.Line length='short' />
+                        </Placeholder.Paragraph>
+                    </Placeholder>
+                </Grid.Column>
+                <Grid.Column>
+                    <Placeholder>
+                        <Placeholder.Header image>
+                            <Placeholder.Line />
+                            <Placeholder.Line />
+                        </Placeholder.Header>
+                        <Placeholder.Paragraph>
+                            <Placeholder.Line length='medium' />
+                            <Placeholder.Line length='short' />
+                        </Placeholder.Paragraph>
+                    </Placeholder>
+                </Grid.Column>
+            </Grid.Row>
+        )
+    }
+
+    const displayShowcaseItemCards =()=>{
+        const itemCards = showcaseItems.map((element)=>{
+
+            return (
+
+          
+            <Grid.Column>
+               <ItemCard key={element.slug} {...element}/> 
+            </Grid.Column>
+            )
+
+           })
+
+           return (
+               <>
+                <Grid.Row centered={true} only="computer tablet" columns="5"  >
+                    {itemCards}
+                </Grid.Row>
+                <Grid.Row centered={true} only="mobile" columns="2" stackable="true" >
+                    {itemCards}
+                </Grid.Row>
+                </>
+           )
+
+       
+    }
+    
 
 
 
 
     return (
-        <div>homepage</div>
+        <Container >
+            <Grid doubling>
+                <Grid.Row centered>
+                    <Image size="large" >
+                        <Placeholder fluid>
+                            <Placeholder.Paragraph>
+                            <Placeholder.Image rectangular content="blahblahblahblah" />
+                            </Placeholder.Paragraph>
+                        </Placeholder>
+                    </Image>
+                    {/* This is where the  large carousel goes */}
+                </Grid.Row>
+                    {showcaseItems? displayShowcaseItemCards() : placeholderShowcaseItems()}
+
+
+
+            </Grid>
+        </Container>
         
     )
 

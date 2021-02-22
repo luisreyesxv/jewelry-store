@@ -5,8 +5,9 @@ import {Link} from 'react-router-dom'
 import {normal404Icon} from '../Logos/404'
 
 
-const Normal404Page =()=>{
+const Normal404Page =(props)=>{
 
+    console.log(props)
 
     return (
         <Container text={true}  id="content-not-found-page">
@@ -20,9 +21,9 @@ const Normal404Page =()=>{
                            Oops! Can't Find The Page
                         </Header>
                         <div  className="subtext404">
-                            We couldn't find the page you were looking for. Try going back to the 
+                            We couldn't find the page you were looking for at <aside><strong> {window.location.href}</strong></aside> Try going back to the 
                             <Link to="/"> HomePage</Link>
-                            , or click on one of the categories from the Menu above.
+                            , click on one of the options from the menu above.
                         </div>
                     </Grid.Column>
 
