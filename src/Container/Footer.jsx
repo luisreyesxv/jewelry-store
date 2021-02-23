@@ -8,7 +8,6 @@ const Footer = ()=>{
 
 
     return (
-
         <Segment vertical divided="true" id="footer" >
             {/* <Container textAlign='center'>
         

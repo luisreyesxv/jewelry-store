@@ -100,14 +100,36 @@ $lengthSmall3: .25rem;
    font-size: $lengthMedium3;
   }
 
-  .showcaseCardHeader{
-    white-space: nowrap;
+  .itemCardHeader{
+    white-space: break-spaces;
+    // overflow-wrap: break-word;
     overflow: hidden;
     font-size:$lengthMedium3;
     text-overflow: ellipsis;
     
   }
 
-  .showcaseCardMeta{
-    font-size: $lengthSmall1;
+  .itemCardPrice{
+    font-size: $lengthMedium3;
   }
+
+  .card{
+    box-shadow: none !important;
+  }
+
+  .card:nth-child(4){
+    background-color:black;
+  }
+
+  .column:nth-child(3n+1) > .itemCard > a> img{
+    background-color: $palette-accent-second;
+  }
+  .column:nth-child(3n+2) > .itemCard > a> img{
+    background-color: $palette-accent-third;
+  }
+
+  .column:nth-child(3n+3) > .itemCard > a> img{
+    background-color: $palette-accent-fourth;
+  }
+
+

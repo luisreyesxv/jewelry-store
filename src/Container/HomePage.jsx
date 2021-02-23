@@ -18,7 +18,7 @@ const HomePage =(props)=>{
         // props.login("The original username")
 
         getShowcaseItems()
-    },[props])
+    },[])
 
     const [showcaseItems,setShowcaseItems]= useState()
 
@@ -127,6 +127,7 @@ const HomePage =(props)=>{
                     {/* This is where the  large carousel goes */}
                 </Grid.Row>
                     {showcaseItems? displayShowcaseItemCards() : placeholderShowcaseItems()}
+
 
 
 
