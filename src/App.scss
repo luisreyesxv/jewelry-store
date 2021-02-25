@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+
 $palette-majority: #EBE2CA;
 $palette-accent-first: #F7B85A;
 $palette-accent-second: #CB4101 ;
@@ -13,6 +15,8 @@ $lengthMedium3: .75rem;
 $lengthSmall1: .5rem;
 $lengthSmall2: .375rem;
 $lengthSmall3: .25rem;
+
+$header-font-stack: 'Noto Sans', sans-serif;  ;
 
 
 
@@ -52,7 +56,9 @@ $lengthSmall3: .25rem;
 
 
 #primary-menu-bar{
-  background-image: linear-gradient( to left top,rgba($palette-accent-first,1), rgba($palette-accent-fourth,.5)); 
+  // background-image: linear-gradient( to left top,rgba($palette-accent-first,1), rgba($palette-accent-fourth,.5)); 
+  background-image: linear-gradient( to left top,rgba($palette-accent-second,1), rgba($palette-accent-third,.5));
+
   border-radius: 0;
   // margin-bottom: .75em;
 }
@@ -101,35 +107,114 @@ $lengthSmall3: .25rem;
   }
 
   .itemCardHeader{
-    white-space: break-spaces;
-    // overflow-wrap: break-word;
+    white-space: nowrap;
+    overflow-wrap: break-word;
+    // max-width: 20ch;
     overflow: hidden;
     font-size:$lengthMedium3;
     text-overflow: ellipsis;
+    // max-width: 15ch;
+    font-family: $header-font-stack !important;
+    display:inline-block;
+    margin-top: .5em;
+  }
+
+
+  .itemCardPrice{
+    font-size: $lengthMedium2;
+    font-family: $header-font-stack;
+    color:$palette-accent-third;
+    float: right;
+    text-align: right; 
+    margin-top: .5em;
+
+  }
+
+  .itemCard{
+    height:100%;
+    display: grid;
+    grid-template-rows: 1fr max-content;
+    
+    // background: red;
+  }
+  .itemCardMaterials{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5em;
+  }
+
+
+
+
+  .itemCardContent{
+    width: 100%;
+    padding: 10%;
+  }
+  .itemCardImageContainer{
+    width:170px;
+    display:block;
+
     
   }
 
-  .itemCardPrice{
-    font-size: $lengthMedium3;
+  .itemImage{
+    // width:20%;
+    display:block;
+    max-height:150px;
+    max-width: 150px;
+    // width:auto;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    
+    // height:50px;
+    // width:50px;
+    // height:100%;
+    // object-fit: contain
+
   }
 
   .card{
     box-shadow: none !important;
   }
 
-  .card:nth-child(4){
-    background-color:black;
+  .column:nth-child(even) .itemCardImageContainer{
+    background-image: linear-gradient( to left top,rgba($palette-accent-second,1), rgba($palette-accent-third,1));
+
+  }
+   .column:nth-child(odd) .itemCardImageContainer{
+    background-image: linear-gradient( to left top,rgba($palette-accent-third,1), rgba($palette-accent-fourth,1));
+
   }
 
-  .column:nth-child(3n+1) > .itemCard > a> img{
-    background-color: $palette-accent-second;
+  .column:nth-child(3n+3) .itemCardImageContainer{
+    background-image: linear-gradient( to left top,rgba($palette-accent-fourth,1), rgba($palette-accent-first,1));
   }
-  .column:nth-child(3n+2) > .itemCard > a> img{
-    background-color: $palette-accent-third;
+  
+
+
+  // .column:nth-child(3n+1) > .itemCard > div > a> img{
+  //   // background-color: $palette-accent-second;
+  //   background-image: linear-gradient( to left top,rgba($palette-accent-second,1), rgba($palette-accent-third,1)); 
+  // }
+  // .column:nth-child(3n+2) > .itemCard > div > a> img{
+  //   // background-color: $palette-accent-third;
+  //   background-image: linear-gradient( to left top,rgba($palette-accent-third,1), rgba($palette-accent-fourth,1));
+  // }
+
+  // .column:nth-child(3n+3) > .itemCard > div > a> img{
+  //   // background-color: $palette-accent-fourth;
+  //   background-image: linear-gradient( to left top,rgba($palette-accent-fourth,1), rgba($palette-accent-first,1));
+  // }
+
+
+  a:link {
+    color: $palette-accent-fourth
   }
 
-  .column:nth-child(3n+3) > .itemCard > a> img{
-    background-color: $palette-accent-fourth;
+  A:visited{
+    color: $palette-accent-second
   }
 
 

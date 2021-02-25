@@ -88,7 +88,7 @@ const HomePage =(props)=>{
             return (
 
           
-            <Grid.Column>
+            <Grid.Column key={element.name}>
                <ItemCard key={element.slug} {...element}/> 
             </Grid.Column>
             )
@@ -97,10 +97,10 @@ const HomePage =(props)=>{
 
            return (
                <>
-                <Grid.Row centered={true} only="computer tablet" columns="5"  >
+                <Grid.Row stretched centered={true} only="computer tablet" columns="5"  >
                     {itemCards}
                 </Grid.Row>
-                <Grid.Row centered={true} only="mobile" columns="2" stackable="true" >
+                <Grid.Row  stretched centered={true} only="mobile" columns="2" stackable="true" >
                     {itemCards}
                 </Grid.Row>
                 </>
