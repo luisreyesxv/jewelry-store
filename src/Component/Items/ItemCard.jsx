@@ -3,6 +3,7 @@ import {Card, Button, Grid, Icon} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
 import materialColors from '../Materials/MaterialButtons'
+import SmoothLoadingImage from '../SmoothLoadingImage'
 
 
 
@@ -70,7 +71,9 @@ const ItemCard=(props)=>{
             {/* <ul className="itemCardUi" > */}
             <div className="itemCardImageContainer" >
             <Link to={itemURL} >
-                <img
+                <SmoothLoadingImage
+
+               
                 className="itemImage" 
                 src={props.images[0].image_url}
                 
