@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route,Switch, Redirect} from 'react-router-dom'
 
-import HomePage from './HomePage'
+import HomePage from './HomePage/HomePage'
 import ItemsContainer from './ItemsContainer'
 import Normal404Page from '../Component/404/Normal404Page'
 

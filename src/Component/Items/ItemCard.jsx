@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Card, Button, Grid, Icon} from 'semantic-ui-react'
+import { Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
 import materialColors from '../Materials/MaterialButtons'
@@ -70,16 +70,16 @@ const ItemCard=(props)=>{
         <div className="itemCard" >
             {/* <ul className="itemCardUi" > */}
             <div className="itemCardImageContainer" >
-            <Link to={itemURL} >
-                <SmoothLoadingImage
+                <Link to={itemURL} >
+                    <SmoothLoadingImage
 
-               
-                className="itemImage" 
-                src={props.images[0].image_url}
                 
-                />
+                    className="itemImage" 
+                    src={props.images[0].image_url}
+                    
+                    />
 
-            </Link>
+                </Link>
             </div>
             
                     <Link className="itemCardHeader"  to={itemURL}>

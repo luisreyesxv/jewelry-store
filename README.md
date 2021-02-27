@@ -7,6 +7,12 @@ added cors and tried to make the cors dynamic. I wanted to have the domain be di
 # Credits for "outside sources"
 Some svgs were brought from  <a href="https://storyset.com/web">Illustration by Freepik Storyset</a> as of now the 404 page
 
+Homepage category credits
+
+* Watch Photo by <a href="https://burst.shopify.com/@thenomadbrodie?utm_campaign=photo_credit&amp;utm_content=Free+Tying+Up+Boot+Laces+Photo+%E2%80%94+High+Res+Pictures&amp;utm_medium=referral&amp;utm_source=credit">Brodie Vissers</a> from <a href="https://burst.shopify.com/tie?utm_campaign=photo_credit&amp;utm_content=Free+Tying+Up+Boot+Laces+Photo+%E2%80%94+High+Res+Pictures&amp;utm_medium=referral&amp;utm_source=credit">Burst</a>
+* Ring Photo by <a href="https://burst.shopify.com/@shopifypartners?utm_campaign=photo_credit&amp;utm_content=Free+Stock+Photo+of+Fist+With+Pride+Ring+%E2%80%94+HD+Images&amp;utm_medium=referral&amp;utm_source=credit">Shopify Partners</a> from <a href="https://burst.shopify.com/ring?utm_campaign=photo_credit&amp;utm_content=Free+Stock+Photo+of+Fist+With+Pride+Ring+%E2%80%94+HD+Images&amp;utm_medium=referral&amp;utm_source=credit">Burst</a>
+* Grills Photo by  <a href="https://www.toothologydental.com/grills-history/"> Toothology Dental </a>
+
 
 # Getting Started with Create React App
 

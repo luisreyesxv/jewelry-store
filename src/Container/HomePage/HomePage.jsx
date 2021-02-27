@@ -1,11 +1,12 @@
 import React,{useEffect,useState} from 'react'
-import UserContext from '../Context/UserContext'
-import UserContextConsumer from '../Context/UserContextConsumer'
+import UserContext from '../../Context/UserContext'
+import UserContextConsumer from '../../Context/UserContextConsumer'
 import {Container,Grid, Placeholder, Segment, Image } from 'semantic-ui-react'
 import { Route, Switch,Link} from 'react-router-dom'
 
 
-import ItemCard from '../Component/Items/ItemCard'
+import ItemCard from '../../Component/Items/ItemCard'
+import HomePageCategories from './HomepageCategories'
 
 // import {useParams,useQuery, useLocation, Route, Switch} from 'react-router-dom'
 
@@ -97,10 +98,10 @@ const HomePage =(props)=>{
 
            return (
                <>
-                <Grid.Row stretched centered={true} only="computer tablet" columns="5"  >
+                <Grid.Row stretched centered={true} only="computer" columns="5"  >
                     {itemCards}
                 </Grid.Row>
-                <Grid.Row  stretched centered={true} only="mobile" columns="2" stackable="true" >
+                <Grid.Row  stretched centered={true} only="mobile tablet" columns="2" stackable="true" >
                     {itemCards}
                 </Grid.Row>
                 </>
@@ -126,6 +127,7 @@ const HomePage =(props)=>{
                     </Image>
                     {/* This is where the  large carousel goes */}
                 </Grid.Row>
+                <HomePageCategories />
                     {showcaseItems? displayShowcaseItemCards() : placeholderShowcaseItems()}
 
 
