@@ -67,7 +67,7 @@ const App = () => {
       const body = {user:{
           
           email: userObject.email,
-          password: "fakefakefake"
+          // password: "fakefakefake"
           }
       }
       const options = {

@@ -238,6 +238,77 @@ $header-font-stack: 'Noto Sans', sans-serif;  ;
   background-size: 100% 100%;}
   
 
+  #homepage-hero{
+    // background-image: url(https://images.nappy.co/uploads/large/81596240559elidpvwvuisi8su7074mbcw2gk2svuemo3xrzmiryjit7qdugi7pozovzactyb5xdwbab7ijtcx54lpk5gtkrv0lc5yke4jtj5fp.jpg?auto=format&fm=jpg&w=1280&q=75);
+    // background-size: 50% 100%;
+    // background-color:rgba( $palette-accent-second,.75);
+    // background-blend-mode: overlay;
+    // background-repeat: no-repeat;
+    // background-position: 100% 0;
+
+    // background:  url(https://images.nappy.co/uploads/large/81596240559elidpvwvuisi8su7074mbcw2gk2svuemo3xrzmiryjit7qdugi7pozovzactyb5xdwbab7ijtcx54lpk5gtkrv0lc5yke4jtj5fp.jpg?auto=format&fm=jpg&w=1280&q=75), linear-gradient( to right, rgba( $palette-accent-second,.75), rgba( $palette-accent-second,.5)) ;
+    // background-size: 40% 200%, 100%;
+    // // background-color:rgba( $palette-accent-second,.75);
+    // background-blend-mode: multiply;
+    // background-repeat: no-repeat;
+    // background-position: 100% 0, center;
+
+
+    //this is for having center background, and 1 grid column
+    background:  url(http://localhost:3001/images/homepage/transparent%20Hero.png), linear-gradient( to right, rgba( $palette-accent-second,.75), rgba( $palette-accent-second,.5)) ;
+    background-size: 40% 200%, 100%;
+    // background-color:rgba( $palette-accent-second,.75);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-position: 50% 0, center;
+    text-align:center;
+
+
+
+  }
+
+  
+
+  .homepage-hero-text-container{
+    height:100%;
+    display: grid;
+    grid-template-rows: 1fr max-content;
+    padding: 2em;
+  }
+
+  #homepage-hero-header{
+    color: $palette-majority;
+    font-size: $lengthLarge2;
+    font-family: $header-font-stack;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    padding:.5em;
+    // height: $lengthLarge1;
+    
+
+
+    white-space: nowrap;
+    overflow-wrap:anywhere;
+    overflow: hidden;
+  }
+
+  #homepage-hero-small-text{
+    color: $palette-majority;
+    font-size: $lengthMedium2;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    background-color: rgba($palette-accent-second,.1)
+
+
+    // font-family: $header-font-stack;
+  }
+
 
   // .column:nth-child(3n+1) > .itemCard > div > a> img{
   //   // background-color: $palette-accent-second;
