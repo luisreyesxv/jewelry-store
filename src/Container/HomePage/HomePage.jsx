@@ -10,6 +10,7 @@ import { Route, Switch,Link} from 'react-router-dom'
 import ItemCard from '../../Component/Items/ItemCard'
 import HomePageCategories from './HomepageCategories'
 import HomePageHero from '../../Component/HomePage/HomePageHero'
+import HomePageCustomInquiryBanner from '../../Component/HomePage/HomePageCustomInquiryBanner'
 
 
 // import {useParams,useQuery, useLocation, Route, Switch} from 'react-router-dom'
@@ -121,13 +122,10 @@ const HomePage =(props)=>{
     return (
         <Container fluid={!props.mobile} >
             <Grid doubling>
-                        <HomePageHero />
+                <HomePageHero />
                 <HomePageCategories />
-                    {showcaseItems? displayShowcaseItemCards() : placeholderShowcaseItems()}
-
-
-
-
+                <HomePageCustomInquiryBanner />
+                {showcaseItems? displayShowcaseItemCards() : placeholderShowcaseItems()}
             </Grid>
         </Container>
         

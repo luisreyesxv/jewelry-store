@@ -255,7 +255,7 @@ $header-font-stack: 'Noto Sans', sans-serif;  ;
 
 
     //this is for having center background, and 1 grid column
-    background:  url(http://localhost:3001/images/homepage/transparent%20Hero.png), linear-gradient( to right, rgba( $palette-accent-second,.75), rgba( $palette-accent-second,.5)) ;
+    background:  url(http://localhost:3001/images/homepage/transparent%20Hero.png), linear-gradient( to right, rgba( $palette-accent-second,.8), rgba( $palette-accent-second,.9)) ;
     background-size: 40% 200%, 100%;
     // background-color:rgba( $palette-accent-second,.75);
     background-blend-mode: multiply;
@@ -283,17 +283,22 @@ $header-font-stack: 'Noto Sans', sans-serif;  ;
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: .5em;
-    margin-bottom: .5em;
-    padding:.5em;
-    // height: $lengthLarge1;
-    
+  
+    padding:.5em;    
 
-
-    white-space: nowrap;
+    text-overflow: ellipsis;
     overflow-wrap:anywhere;
     overflow: hidden;
   }
+  .homepage-custom-banner-text{
+    color: $palette-majority;
+    font-size: $lengthMedium2;
+    font-family: $header-font-stack;
+    overflow-wrap:break-word;
+    overflow: hidden;
+  }
+
+  
 
   #homepage-hero-small-text{
     color: $palette-majority;
@@ -304,9 +309,17 @@ $header-font-stack: 'Noto Sans', sans-serif;  ;
     margin-top: .5em;
     margin-bottom: .5em;
     background-color: rgba($palette-accent-second,.1)
+  }
+
+  #homepage-custom-banner{
+    background-image: url(https://burst.shopifycdn.com/photos/mens-watch-and-ring.jpg?width=500&format=pjpg&exif=0&iptc=0);
+    background-color: rgba($palette-accent-third,.75);
+    background-size: 100% auto;
+    background-position: 0 45%;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
 
 
-    // font-family: $header-font-stack;
   }
 
 
