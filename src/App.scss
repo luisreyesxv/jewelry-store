@@ -147,6 +147,19 @@ $header-font-stack: 'Noto Sans', sans-serif;  ;
     margin-right: auto;
     margin-top: .5em;
   }
+  .itemCardMaterialsButton{
+    display: inline-block;
+    text-align:center;
+    line-height: .75;
+    border-radius:50%; 
+    width:2.5ch;
+    height:2.5ch;
+    margin: 1em;
+    border-color:black;
+    border-style:solid;
+    border-width: thin;
+
+  }
 
 
 
