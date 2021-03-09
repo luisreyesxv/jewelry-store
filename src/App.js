@@ -81,7 +81,7 @@ const App = () => {
       }
 
 
-      fetch("http://localhost:3000/api/v1/session",options)
+      fetch(process.env.REACT_APP_API_URL+"session",options)
       .then(response=> {
         if(!response.ok){
           throw new Error(response.status)

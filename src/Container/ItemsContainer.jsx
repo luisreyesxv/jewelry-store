@@ -24,7 +24,7 @@ const ItemsContainer =(props)=>{
           }
     
     
-          fetch("http://localhost:3000/api/v1/login",options)
+          fetch(process.env.REACT_APP_API_URL+"login",options)
           .then(response=> response.json())
           .then(userObject =>{
             props.login(userObject)

@@ -1,28 +1,21 @@
-import React from 'react'
+import React,{useState} from 'react'
 import UserContextConsumer from '../../Context/UserContextConsumer'
 
 
 
 
+const LogIn =(props)=>{
+    const [email,setEmail]= useState("")
+    const [password,setPassword] = useState("")
 
-
-const LogInButton =(props)=>{
-    const logInOrLogOut=()=>{
-
-        return(
-            props.user? <span onClick={()=>props.logout() } >Log Out</span> : <span onClick={()=>loggingIn()} >  Log In </span>
-    
-    
-        )
-    }
-
-
+    // email: "testing@email.com",
+    //             password: "fakefakefake"
 
     const loggingIn =()=>{
 
         const body = {user:{
-                email: "testing@email.com",
-                password: "fakefakefake"
+                email: email,
+                password: password
             }
         }
 
@@ -45,21 +38,14 @@ const LogInButton =(props)=>{
           })
         }
 
-return (
-    logInOrLogOut()
 
-)
 
+
+    return(
+
+        process.env.REACT_APP_API_URL
+    )
 }
 
 
-
-
-
-
-
-
-
-
-
-export default UserContextConsumer(LogInButton)
+export default UserContextConsumer(LogIn)

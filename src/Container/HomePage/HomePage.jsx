@@ -30,7 +30,7 @@ const HomePage =(props)=>{
 
     const communicateWithServer=({params,options})=>{
         return( 
-            fetch("http://localhost:3000/api/v1/"+params,options)
+            fetch(process.env.REACT_APP_API_URL + params,options)
             .then(response=> response.json())
         )
     }
