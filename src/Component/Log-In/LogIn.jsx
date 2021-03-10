@@ -83,7 +83,7 @@ const LogIn =(props)=>{
 
 
             return(
-                <Grid textAlign="center" verticalAlign="middle" id="log-in-register-grid" >
+                <Grid textAlign="center" verticalAlign="middle" id="log-in-register-grid" className="page-container-grid" >
                 <Grid.Column id="log-in-register-column">
                     <Header as="h2" textAlign="center" >
                         <Image src={logoSVG}  size="massive"/> Log-in to your Account

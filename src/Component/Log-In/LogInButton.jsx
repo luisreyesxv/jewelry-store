@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import UserContextConsumer from '../../Context/UserContextConsumer'
 
 
@@ -10,7 +11,8 @@ const LogInButton =(props)=>{
     const logInOrLogOut=()=>{
 
         return(
-            props.user? <span onClick={()=>props.logout() } >Log Out</span> : <span onClick={()=>loggingIn()} >  Log In </span>
+            // props.user? <span onClick={()=>props.logout() } >Log Out</span> : <span onClick={()=>loggingIn()} >  Log In </span>
+            props.user? <span onClick={()=>props.logout() } >Log Out</span>  : <Link style={{color:"black"}} to="/LogIn"> Log In </Link>
     
     
         )
