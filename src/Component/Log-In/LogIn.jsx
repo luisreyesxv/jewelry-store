@@ -1,7 +1,10 @@
-import React,{useState} from 'react'
-import {Container,Form, Button, Message} from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
+import React,{useState,useEffect} from 'react'
+import {Grid,Form, Button, Message, Image, Header} from 'semantic-ui-react'
+import {Link, Redirect} from 'react-router-dom'
+
 import UserContextConsumer from '../../Context/UserContextConsumer'
+
+import logoSVG from '../Logos/logo'
 
 
 
@@ -9,16 +12,25 @@ import UserContextConsumer from '../../Context/UserContextConsumer'
 const LogIn =(props)=>{
     const [login,setLogin]= useState({email:"",password:""})
     const [error,setError]= useState({status:false, message: "Please make sure both fields are filled in"})
+    const [loading,setLoading]= useState(false)
+
+
+    useEffect(()=>{
+        document.title="Log-In - "+ process.env.REACT_APP_TITLE
+
+         }     ,[])
 
 
    const onSubmitHandler =()=>{
        if(login.email && login.password){
+           setLoading(true)
            loggingIn()
        }
        else errorHandler("Please make sure both fields are filled in")
    }
 
    const errorHandler=(message)=>{
+    setLoading(false)
     setError({status:true, message: message})
     setLogin({...login,password:""})
 
@@ -50,11 +62,74 @@ const LogIn =(props)=>{
     
     
           fetch(process.env.REACT_APP_API_URL+"login",options)
-          .then(response=> response.json())
+          .then(response=> {
+            if(!response.ok){
+                throw new Error(response.status)
+             }
+              else return response.json()})
           .then(userObject =>{
-            props.login(userObject)
-    
+              setLoading(false)
+              props.login(userObject)
           })
+          .catch(errorMessage=>{
+            const errorResponseMessage = errorMessage.message==="401"? "User/password combination does not exist. Please Try Again" : "There was a problem with logging in. Please try again later."
+              setError({status:true, message: errorResponseMessage})
+              setLoading(false)
+          })
+        }
+
+        const renderPageComponents=()=>{
+
+
+
+            return(
+                <Grid textAlign="center" verticalAlign="middle" id="log-in-register-grid" >
+                <Grid.Column id="log-in-register-column">
+                    <Header as="h2" textAlign="center" >
+                        <Image src={logoSVG}  size="massive"/> Log-in to your Account
+                    </Header>
+                    
+                        <Form  loading={loading} size="large" className="log-in-register-form" onSubmit={onSubmitHandler} error={error.status}>
+                            <Form.Input  
+                            className="log-in-register-form-label" 
+                            label="Email"
+                            name="email"
+                            type="email"
+                            placeholder="Enter Email Address"
+                            value={login.email}
+                            onChange={onChangeHandler}
+                            icon ="user circle"
+                            iconColor="green"
+                            iconPosition="left"
+                            />  
+
+                            <Form.Input   
+                            className="log-in-register-form-label" 
+                            label="Password"
+                            name="password"
+                            type="password"
+                            placeholder="Enter Password"
+                            value={login.password}
+                            onChange={onChangeHandler}
+                            icon ="lock"
+                            iconPosition="left"
+                        />   
+
+                            <Button type="submit">Submit</Button>
+                            <Message error header="Error" content={error.message}/>
+
+                        </Form>
+                    {/* </Segment> */}
+
+                    <Message>
+                        New Here? 
+                        <Link to="/register" style={{fontWeight:"bolder"}}> Register Account </Link>
+                         with us
+                        </Message>
+                </Grid.Column>
+            </Grid>
+
+            )
         }
 
 
@@ -64,23 +139,8 @@ const LogIn =(props)=>{
 
 
     return(
-            <Container text>
-                    <Form onSubmit={onSubmitHandler} error={error.status}>
-                        <Form.Field>
-                            <label> Email</label>
-                            <input name ="email" type="email" placeholder="example@email.com" value={login.email} onChange={onChangeHandler}/>
-                        </Form.Field>
-                        <Form.Field>
-                            <label> password</label>
-                            <input name="password" type="password" placeholder="password" value={login.password} onChange={onChangeHandler}/>
-                        </Form.Field>
-                        <Button type="submit">Submit</Button>
-                        <Button as={Link} to="/register" >register Account</Button>
+        props.user? <Redirect to="/" /> :renderPageComponents()
 
-                        <Message error header="Error" content={error.message}/>
-
-                    </Form>
-            </Container>
     )
 }
 

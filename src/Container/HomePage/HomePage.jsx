@@ -22,7 +22,7 @@ const HomePage =(props)=>{
     
     useEffect(()=>{
         // props.login("The original username")
-
+        document.title="Welcome to "+ process.env.REACT_APP_TITLE
         getShowcaseItems()
     },[])
 

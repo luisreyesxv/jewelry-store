@@ -331,8 +331,29 @@ $header-font-stack: 'Noto Sans', sans-serif;  ;
     background-position: 0 45%;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
+  }
 
+  #log-in-register-grid{
+    height: 80vh;
+    margin-left: 0 !important;
+    margin-right: 0!important;
+    text-align: center;
+  }
 
+  #log-in-register-column{
+    max-width: 450px;
+    // background-image: linear-gradient( to left top,rgba($palette-accent-second,1), rgba($palette-accent-third,1));
+  }
+  .log-in-register-form{
+        background-image: radial-gradient( farthest-corner, rgba($palette-accent-third,1), rgba($palette-accent-fourth,1)) !important;
+      border-radius: 5%;
+      padding: 5%;
+      box-shadow: 10px 5px 5px rgba($palette-accent-fourth,.15);
+  }
+  .log-in-register-form .field>label{
+    font-family: $header-font-stack !important;
+    color: $palette-majority!important;
+    
   }
 
 
