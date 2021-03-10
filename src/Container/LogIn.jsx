@@ -2,9 +2,9 @@ import React,{useState,useEffect} from 'react'
 import {Grid,Form, Button, Message, Image, Header} from 'semantic-ui-react'
 import {Link, Redirect} from 'react-router-dom'
 
-import UserContextConsumer from '../../Context/UserContextConsumer'
+import UserContextConsumer from '../Context/UserContextConsumer'
 
-import logoSVG from '../Logos/logo'
+import logoSVG from '../Component/Logos/logo'
 
 
 
@@ -89,7 +89,7 @@ const LogIn =(props)=>{
                         <Image src={logoSVG}  size="massive"/> Log-in to your Account
                     </Header>
                     
-                        <Form  loading={loading} size="large" className="log-in-register-form" onSubmit={onSubmitHandler} error={error.status}>
+                        <Form loading={loading} size="large" className="log-in-register-form" onSubmit={onSubmitHandler} error={error.status}>
                             <Form.Input  
                             className="log-in-register-form-label" 
                             label="Email"

@@ -6,7 +6,9 @@ import {Route,Switch, Redirect} from 'react-router-dom'
 import HomePage from './HomePage/HomePage'
 import ItemsContainer from './ItemsContainer'
 import Normal404Page from '../Component/404/Normal404Page'
-import LogIn from '../Component/Log-In/LogIn'
+import LogIn from './LogIn'
+import Register from './Forms/Register'
+
 
 
 
@@ -21,7 +23,7 @@ return (
             <Route path="/account" render={(browserProps)=> "Account"} />
             <Route path="/About" render={(browserProps)=> "About Us"} />
             <Route path="/LogIn" render={(browserProps)=> <LogIn />} />
-            <Route path="/Register" render={(browserProps)=> "register"} />
+            <Route path="/Register" render={(browserProps)=> <Register />} />
             
             <Route  exact path="/"  render={(browserProps)=> <HomePage {...browserProps}/>}/>
             <Route exact path='*' render ={(browserProps)=> <Normal404Page  {...browserProps}/>} />
