@@ -120,7 +120,7 @@ const HomePage =(props)=>{
 
 
     return (
-        <Container fluid={!props.mobile} style={{paddingBottom:"3em"}} className="page-container-grid">
+        <Container style={{paddingBottom:"3em"}} className="page-container-grid">
             <Grid doubling>
                 <HomePageHero />
                 <HomePageCategories />
