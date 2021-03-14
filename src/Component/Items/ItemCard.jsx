@@ -9,22 +9,19 @@ import SmoothLoadingImage from '../SmoothLoadingImage'
 
 const ItemCard=(props)=>{
 
-    const [materialPicked,setMaterialPicked]= useState(0)
+    const [materialPicked,setMaterialPicked]= useState(props.materials[0].name)
     
-
     const changeMaterial =(e)=>{
        e.preventDefault()
-        setMaterialPicked(parseInt(e.target.dataset.name))
+        setMaterialPicked(e.target.dataset.name)
     }
 
-    const itemURL= `items/${props.slug}?material:${props.item_materials[materialPicked].name}`
+    const itemURL= `items/${props.slug}?material:${materialPicked}`
 
 
 
     const metaDescriptions =()=>{  
-            return props.item_materials.map((element,index)=> {
-                console.log(element.name)
-
+            return props.materials.map((element,index)=> {
                                     if(index===4){
                                         return (
                                                 <Link to={itemURL} title= "see more styles" >
@@ -40,11 +37,11 @@ const ItemCard=(props)=>{
                                                     <div 
                                                     key={props.name+" "+element.name}
                                                     title= {element.name}
-                                                    data-name={index}
+                                                    data-name={element.name}
                                                     className ="itemCardMaterialsButton" 
                                                     style={
                                                         {backgroundColor: materialColors[element.name],
-                                                        opacity: materialPicked=== index? "50%":null}} 
+                                                        opacity: materialPicked=== element.name? "50%":null}} 
                                                         onClick={changeMaterial}  
                                                         />
                                         )
@@ -62,7 +59,7 @@ const ItemCard=(props)=>{
                 <Link to={itemURL} >
                     <SmoothLoadingImage     
                         className="itemImage" 
-                        src={props.item_materials[materialPicked].images[0]}
+                        src={props.images[materialPicked][0]}
                     />
                 </Link>
             </div>
