@@ -35,6 +35,10 @@ $header-font-stack: 'Noto Sans', sans-serif;  ;
   font-size: $lengthMedium2;
 }
 
+h1{
+  font-family: $header-font-stack;
+}
+
 
 
 
@@ -359,6 +363,19 @@ $header-font-stack: 'Noto Sans', sans-serif;  ;
     font-family: $header-font-stack !important;
     color: $palette-majority!important;
     
+  }
+
+  #items-page-main{
+    height: 300px;
+  }
+
+  #items-thumbnail-image-container{
+    max-height: 100px;
+
+  }
+
+  .items-thumbnail-image{
+    height: 50px;
   }
 
 
