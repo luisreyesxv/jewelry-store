@@ -1,10 +1,8 @@
 import React,{useEffect,useState} from 'react'
-import UserContext from '../../Context/UserContext'
 import UserContextConsumer from '../../Context/UserContextConsumer'
 import MobileContextConsumer from '../../Context/MobileContextConsumer'
 
 import {Container,Grid, Placeholder } from 'semantic-ui-react'
-import { Route, Switch,Link} from 'react-router-dom'
 
 
 import ItemCard from '../../Component/Items/ItemCard'

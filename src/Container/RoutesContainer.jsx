@@ -17,7 +17,7 @@ const RoutesContainer = ()=>{
 
 return (
      <Switch> 
-            <Route path="/items" render ={(routerProps)=><ItemsContainer/>} />
+            <Route path="/items/:slug" render ={(routerProps)=><ItemsContainer/>} />
             <Route path="/inquiry" render={(browserProps)=> "Inquiry"} />
             <Route path="/collections" render={(browserProps)=> "Collections"} />
             <Route path="/account" render={(browserProps)=> "Account"} />
