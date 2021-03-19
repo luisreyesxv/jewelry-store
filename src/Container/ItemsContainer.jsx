@@ -6,6 +6,7 @@ import {Grid,Container} from 'semantic-ui-react'
 
 import Normal404Page from '../Component/404/Normal404Page'
 import ItemsImage from '../Component/Items/ItemsImage'
+import ItemsBasicInfo from "../Component/Items/ItemsBasicInfo"
 
 
 
@@ -23,9 +24,13 @@ const ItemsContainer =(props)=>{
 
   useEffect(()=>{
     getItemInformation()
+    document.title= "Loading Item"+ process.env.REACT_APP_TITLE
+
   },[])
   useEffect(()=>{
-    
+    if(item){
+        document.title=item.name + " - "+ process.env.REACT_APP_TITLE 
+    }
     currentMaterial()
   },[item])
   
@@ -71,21 +76,21 @@ const ItemsContainer =(props)=>{
     const fileExists = ()=>{
 
             return (
-              <Container>
+              <Container className="page-container-grid">
                 <Grid  verticalAlign="middle" className="page-container-grid" >
-                  <Grid.Row centered="true">
+                  {/* <Grid.Row centered="true">
                       <h1>{item?.name}</h1>
                         <p> {props.user}</p>
-                  </Grid.Row>
+                  </Grid.Row> */}
                   <Grid.Row columns="2" >
-                      <Grid.Column mobile="16" computer ="8" tablet="8">
+                      <Grid.Column mobile="9" computer ="8" tablet="8">
                           {/* <img src={item?.images[material]?.[0]} /> */}
                           <ItemsImage  images={item?.images[material]} />
                       </Grid.Column>
                       <Grid.Column mobile="16" computer ="8" tablet="8">
-                        {slug}
-                        <p>{item?.description + item?.description }</p>
-                        {"luis"+material}
+                        <ItemsBasicInfo item={item} materialPicked={material} setMaterial={setMaterial}/>
+                        {/* <p>{item?.description + item?.description }</p> */}
+                        {/* {"luis"+material} */}
                       </Grid.Column>
                   </Grid.Row>
                 </Grid>

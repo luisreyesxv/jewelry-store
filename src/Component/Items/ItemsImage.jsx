@@ -102,7 +102,7 @@ const ItemsImage = (props)=>{
         // placeholders()
         <Grid stackable={false} columns="2" divided>
                 <Grid.Column width="4" >
-                    <List selection={props.images}>
+                    <List selection={!!props.images}>
                         {props.images? thumbnails(): placeholderThumbnails()}
                     </List>
                 </Grid.Column>

@@ -18,7 +18,6 @@ import Footer from './Container/Footer'
 const App = () => {
   const beginningUserObject = JSON.parse(localStorage.getItem("user"))
   const [user,setUser] = useState(beginningUserObject? beginningUserObject["email"]:null)
-  // const [mobile,setMobile] =  useState(window.innerWidth <= 760)
   let mobile = window.innerWidth <= 760
   const [windowSize,setWindowSize] = useState(window.innerWidth)
 
@@ -67,7 +66,6 @@ const App = () => {
       const body = {user:{
           
           email: userObject.email,
-          // password: "fakefakefake"
           }
       }
       const options = {
