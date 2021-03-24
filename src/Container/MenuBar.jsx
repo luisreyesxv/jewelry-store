@@ -124,7 +124,7 @@ const MenuBar =(props)=>{
                     {props.user? <Menu.Item> {props.user}</Menu.Item> : null}
                    
                     {props.mobile?
-                        <DropdownComponent title="Account" items={[accountOrRegister,{text:"Login",component:<LogInButton />}]} name="Account" setActive={setActiveTab}  active={activeTab} setSidebarOpen={setSidebarOpened} />
+                        <DropdownComponent title="Account" items={[accountOrRegister,{text:"Login",link: "/LogIn"}]} name="Account" setActive={setActiveTab}  active={activeTab} setSidebarOpen={setSidebarOpened} />
                     :
                     null}
                

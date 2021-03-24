@@ -1,5 +1,8 @@
 import React,{useState} from 'react'
-import {Grid,Placeholder, Divider, List} from 'semantic-ui-react'
+import CartContextConsumer from '../../Context/CartContextConsumer'
+
+
+import {Grid,Placeholder, Divider, Button, List} from 'semantic-ui-react'
 
 import materialColors from '../Materials/MaterialButtons'
 
@@ -70,6 +73,24 @@ const ItemsBasicInfo = (props)=>{
     }
 
 
+    const cartOnClick =(e)=>{
+        e.preventDefault()
+        props.changeCart(
+            {instruction:"add",
+        cartItem: {
+            name: props.item.name,
+            slug:props.item.slug,
+            material: props.materialPicked,
+            image: props.item?.images[props.materialPicked][0],
+            price: props.item.price
+        }}
+
+        )
+
+
+    }
+
+
     return (
 
             <Grid stackable={true} >
@@ -79,11 +100,18 @@ const ItemsBasicInfo = (props)=>{
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
+                
                     <Grid.Column>
                         <div className="itemCardPrice">
 
                         {price()}
                         </div>
+                    </Grid.Column>
+                    
+                </Grid.Row>
+                <Grid.Row>
+                    <Grid.Column>
+                        <Button color="green" onClick={cartOnClick}>Add to Cart</Button>
                     </Grid.Column>
                 </Grid.Row>
                 <Divider  fitted={true}/>
@@ -116,4 +144,4 @@ const ItemsBasicInfo = (props)=>{
     )
 }
 
-export default ItemsBasicInfo
+export default CartContextConsumer(ItemsBasicInfo)

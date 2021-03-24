@@ -378,6 +378,40 @@ h1{
     height: 40px;
   }
 
+  .shopping-cart-item{
+    background: $palette-majority;
+  }
+  .shopping-cart-image{
+    max-height: 80px;
+    
+    
+  }
+
+  .shopping-cart-item-name{
+    padding-top: .5em;
+    margin-right: .5em;
+
+    white-space: nowrap;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size:$lengthMedium3;
+    font-family: $header-font-stack !important;
+
+  }
+
+  .shopping-cart-item-price{
+    
+      font-size: $lengthMedium2;
+      font-family: $header-font-stack;
+      color:$palette-accent-third;
+      float: right;
+      text-align: right;
+      
+
+  }
+  
+
 
   // .column:nth-child(3n+1) > .itemCard > div > a> img{
   //   // background-color: $palette-accent-second;

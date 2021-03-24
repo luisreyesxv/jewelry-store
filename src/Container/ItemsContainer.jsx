@@ -7,6 +7,10 @@ import {Grid,Container} from 'semantic-ui-react'
 import Normal404Page from '../Component/404/Normal404Page'
 import ItemsImage from '../Component/Items/ItemsImage'
 import ItemsBasicInfo from "../Component/Items/ItemsBasicInfo"
+import ItemsDetails from "../Component/Items/ItemsDetails"
+
+import ShoppingCartItemsContainer from "./ShoppingCart/ShoppingCartItemsContainer"
+
 
 
 
@@ -26,7 +30,7 @@ const ItemsContainer =(props)=>{
     getItemInformation()
     document.title= "Loading Item"+ process.env.REACT_APP_TITLE
 
-  },[])
+  },[slug])
   useEffect(()=>{
     if(item){
         document.title=item.name + " - "+ process.env.REACT_APP_TITLE 
@@ -69,6 +73,9 @@ const ItemsContainer =(props)=>{
         if(!item.images[material]){
           setMaterial( Object.keys(item.images)[0])
         }
+        else if (material !== urlQueryValues.get("material")){
+          setMaterial(urlQueryValues.get("material"))
+        }
       }
     }
 
@@ -92,6 +99,14 @@ const ItemsContainer =(props)=>{
                         {/* <p>{item?.description + item?.description }</p> */}
                         {/* {"luis"+material} */}
                       </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <ItemsDetails item={item}/>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <ShoppingCartItemsContainer cart={JSON.parse(localStorage.getItem("cart"))} />
+                    </Grid.Column>
                   </Grid.Row>
                 </Grid>
               </Container>

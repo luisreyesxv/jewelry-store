@@ -2,8 +2,9 @@ import './App.scss';
 import {Route} from 'react-router-dom'
 import UserContext from './Context/UserContext'
 import MobileContext from './Context/MobileContext'
+import CartContext from './Context/CartContext'
 
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, createContext} from 'react'
 
 import RoutesContainer from './Container/RoutesContainer'
 import MenuBar from './Container/MenuBar'
@@ -17,9 +18,11 @@ import Footer from './Container/Footer'
 
 const App = () => {
   const beginningUserObject = JSON.parse(localStorage.getItem("user"))
+  const beginningCart = JSON.parse(localStorage.getItem("cart"))
   const [user,setUser] = useState(beginningUserObject? beginningUserObject["email"]:null)
   let mobile = window.innerWidth <= 760
   const [windowSize,setWindowSize] = useState(window.innerWidth)
+  const [cart,setCart] = useState(beginningCart? beginningCart : [])
 
   useEffect(()=>{
     ping()
@@ -46,6 +49,7 @@ const App = () => {
     localStorage.removeItem("user")
     setUser(null)
   }
+  
 
   const windowResize=()=>{
     setWindowSize(window.innerWidth)
@@ -101,6 +105,38 @@ const App = () => {
     }
   }
 
+  const changeCart = ({instruction,cartItem,quantity=1})=>{
+    let tempCart = [...cart]
+    let cartIndex = tempCart.findIndex((element)=> element.slug===cartItem.slug && element.material === cartItem.material)
+    let saveCart = ()=>{
+
+      localStorage.setItem("cart",JSON.stringify(tempCart))
+      setCart(tempCart)
+    }
+
+      if(cartIndex !== -1){
+            switch(instruction) {
+              case "add":
+                tempCart[cartIndex].quantity++
+                break;
+              case "modify":
+                if(quantity===0){
+                  tempCart.splice(cartIndex,1)
+                }
+                else tempCart[cartIndex].quantity = quantity
+                break;
+              case "delete":
+                tempCart.splice(cartIndex,1)
+                break;
+            }
+            saveCart()
+        }
+        else if (instruction==="add"){
+          tempCart.push({...cartItem,quantity: quantity})
+          saveCart()
+        }
+  }
+
 
 
 
@@ -111,16 +147,17 @@ const App = () => {
     <div className="App">  
       
     <MobileContext.Provider value={{mobile}}>
-        <UserContext.Provider  value={{user,login,logout,ping}} >
-        <MenuBar />
+        <UserContext.Provider  value={{user,login,logout}} >
+          <CartContext.Provider value={{cart,changeCart}} >
+               <MenuBar />
 
 
-            
-        <RoutesContainer />
+                  
+              <RoutesContainer />
 
 
-        <Footer />
-
+              <Footer />
+          </CartContext.Provider>
         </UserContext.Provider>
       </MobileContext.Provider>
     </div>
