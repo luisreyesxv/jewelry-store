@@ -31,6 +31,22 @@ $header-font-stack: 'Noto Sans', sans-serif;  ;
 .menu-bar-link{
   font-size: $lengthMedium3;
 }
+#menu-bar-cart{
+color: $palette-majority;
+text-align: center;
+
+
+  div{
+    text-align: center;
+    vertical-align: middle;
+    font-size: $lengthMedium3;
+    margin-top: 5px;
+  }
+
+
+
+}
+
 .mobile-menu-bar-link{
   font-size: $lengthMedium2;
 }
@@ -407,8 +423,29 @@ h1{
       color:$palette-accent-third;
       float: right;
       text-align: right;
-      
+  }
 
+  .shopping-cart-header{
+
+    color: $palette-majority;
+    font-size: $lengthLarge3;
+    font-family: $header-font-stack;
+  }
+
+  .shopping-cart-subheader{
+    color: $palette-majority !important;
+    font-size: $lengthMedium2;
+    font-family: $header-font-stack;
+  }
+
+  .shopping-cart-subtotal{
+      font-family: $header-font-stack;
+      color:$palette-majority;
+  }
+
+  #shopping-cart-button{
+    background-color: $palette-accent-first;
+    
   }
   
 

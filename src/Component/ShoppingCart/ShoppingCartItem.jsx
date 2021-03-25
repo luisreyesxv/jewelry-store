@@ -10,6 +10,7 @@ const ShoppingCartItem =(props)=>{
     return(
                    
                         <Container className="shopping-cart-item">
+                            
                            <Grid style={{marginLeft: 0, marginRight: 0}} columns="equal">
                                 <Grid.Row>
                                     <Grid.Column width="4">

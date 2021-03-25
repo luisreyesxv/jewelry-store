@@ -3,7 +3,7 @@ import MobileContextConsumer from '../../Context/MobileContextConsumer'
 import CartContextConsumer from '../../Context/CartContextConsumer'
 
 // import {Menu, Button, Container,Segment,Sidebar, Icon, Dropdown} from 'semantic-ui-react'
-import {Menu, Button, Container,Segment,Sidebar, Icon, Image} from 'semantic-ui-react'
+import {Menu, Button, Container,Segment,Sidebar, Icon, Image, Header} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import {shoppingCartSVG} from '../Logos/logo'
 
@@ -38,16 +38,17 @@ const ShoppingCartComponent =(props)=>{
                 <Menu.Item onClick={()=>   setShoppingCartOpened(false)} position = "right">
                     <Icon name="close" />
                 </Menu.Item>
-            <ShoppingCartItemsContainer/>
+            <ShoppingCartItemsContainer setShoppingCartOpened={setShoppingCartOpened}/>
 
 
        </Sidebar>
        <Menu.Item onClick={()=> setShoppingCartOpened(true)} compact="true" position="right">
            
-      <Icon.Group>
-      <div >{props.cart,props.cart.reduce(cartQuantityReducer,0)}</div>
-      <Image src={shoppingCartSVG} size="mini" name='shopping bag'/>
-      </Icon.Group>
+  
+      <Icon.Group as="div" icon id="menu-bar-cart" size="small">
+        <Icon name="cart"  size="large" />
+        <div >{props.cart,props.cart.reduce(cartQuantityReducer,0)}</div>
+    </Icon.Group>
   
             </Menu.Item>
        </>
