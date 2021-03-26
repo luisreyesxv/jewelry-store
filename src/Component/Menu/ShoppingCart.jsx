@@ -2,10 +2,7 @@ import React,{useState} from 'react'
 import MobileContextConsumer from '../../Context/MobileContextConsumer'
 import CartContextConsumer from '../../Context/CartContextConsumer'
 
-// import {Menu, Button, Container,Segment,Sidebar, Icon, Dropdown} from 'semantic-ui-react'
 import {Menu, Button, Container,Segment,Sidebar, Icon, Image, Header} from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
-import {shoppingCartSVG} from '../Logos/logo'
 
 import ShoppingCartItemsContainer from "../../Container/ShoppingCart/ShoppingCartItemsContainer"
 

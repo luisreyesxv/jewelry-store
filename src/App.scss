@@ -447,6 +447,20 @@ h1{
     background-color: $palette-accent-first;
     
   }
+
+  
+
+  .ui.search{
+
+    .results{
+      overflow-y: scroll;
+      height: 300px;
+
+      .result{
+        height: 100px;
+      }
+    }
+  }
   
 
 

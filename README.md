@@ -4,6 +4,12 @@ added cors and tried to make the cors dynamic. I wanted to have the domain be di
 
 * The colors for the Material Button is inside a /Component/Materials. This file should store the colors that will fill up the little button showing what the materials are. THis iwll be used a bit, and should be handy if we ever have to show multiple colors at once (like Red/Green, or zebra)
 
+
+
+# Libraries
+lodash.debounce
+
+
 # Credits for "outside sources"
 Some svgs were brought from  <a href="https://storyset.com/web">Illustration by Freepik Storyset</a> as of now the 404 page
 

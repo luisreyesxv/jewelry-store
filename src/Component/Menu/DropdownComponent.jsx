@@ -1,8 +1,6 @@
 import React,{useState} from 'react'
 import MobileContextConsumer from '../../Context/MobileContextConsumer'
 
-
-// import {Menu, Button, Container,Segment,Sidebar, Icon, Dropdown} from 'semantic-ui-react'
 import {Accordion,Dropdown, Menu, Icon, Transition} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
