@@ -1,10 +1,12 @@
 import React,{useState,useEffect} from 'react'
-import {Grid,Form, Button, Message, Image, Header} from 'semantic-ui-react'
+import {Form, Button, Message, Image, Header} from 'semantic-ui-react'
 import {Link, Redirect} from 'react-router-dom'
 
-import UserContextConsumer from '../Context/UserContextConsumer'
+import UserContextConsumer from '../../Context/UserContextConsumer'
+import FormContainer from './FormContainer'
 
-import logoSVG from '../Component/Logos/logo'
+
+import logoSVG from '../../Component/Logos/logo'
 
 
 
@@ -83,8 +85,7 @@ const LogIn =(props)=>{
 
 
             return(
-                <Grid textAlign="center" verticalAlign="middle" id="log-in-register-grid" className="page-container-grid" >
-                <Grid.Column id="log-in-register-column">
+               <>
                     <Header as="h2" textAlign="center" >
                         <Image src={logoSVG}  size="massive"/> Log-in to your Account
                     </Header>
@@ -126,9 +127,7 @@ const LogIn =(props)=>{
                         <Link to="/register" style={{fontWeight:"bolder"}}> Register Account </Link>
                          with us
                         </Message>
-                </Grid.Column>
-            </Grid>
-
+            </>
             )
         }
 
@@ -145,4 +144,4 @@ const LogIn =(props)=>{
 }
 
 
-export default UserContextConsumer(LogIn)
+export default FormContainer(UserContextConsumer(LogIn))

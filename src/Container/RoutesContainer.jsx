@@ -6,8 +6,9 @@ import {Route,Switch, Redirect} from 'react-router-dom'
 import HomePage from './HomePage/HomePage'
 import ItemsContainer from './ItemsContainer'
 import Normal404Page from '../Component/404/Normal404Page'
-import LogIn from './LogIn'
+import LogIn from './Forms/LogIn'
 import Register from './Forms/Register'
+import PasswordRecoveryContainer from './Forms/PasswordRecoveryContainer'
 
 
 
@@ -24,10 +25,12 @@ return (
             <Route path="/About" render={(browserProps)=> "About Us"} />
             <Route path="/LogIn" render={(browserProps)=> <LogIn />} />
             <Route path="/Register" render={(browserProps)=> <Register />} />
+            <Route path="/PasswordRecovery" render={(browserProps)=> <PasswordRecoveryContainer {...browserProps}/>} />
+
+
             
             <Route  exact path="/"  render={(browserProps)=> <HomePage {...browserProps}/>}/>
             <Route exact path='*' render ={(browserProps)=> <Normal404Page  {...browserProps}/>} />
-            {/* <Redirect to="/404" /> */}
                 
      </Switch>
 )

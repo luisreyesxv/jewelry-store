@@ -1,8 +1,9 @@
 import React,{useState,useEffect} from 'react'
-import {Grid,Form, Button, Message, Image, Header} from 'semantic-ui-react'
+import {Form, Button, Message, Image, Header} from 'semantic-ui-react'
 import {Link, Redirect} from 'react-router-dom'
 
 import UserContextConsumer from '../../Context/UserContextConsumer'
+import FormContainer from './FormContainer'
 import logoSVG from '../../Component/Logos/logo'
 
 
@@ -93,8 +94,7 @@ const Register =(props)=>{
 
 
             return(
-            <Grid textAlign="center" verticalAlign="middle" id="log-in-register-grid" className="page-container-grid"  >
-                <Grid.Column id="log-in-register-column" style={{maxWidth: 550}}>
+           <>
                     <Header as="h2" textAlign="center" >
                         <Image src={logoSVG}  size="massive"/> Register New Account
                     </Header>
@@ -168,8 +168,7 @@ const Register =(props)=>{
                         Already have an account? 
                         <Link to="/login" style={{fontWeight:"bolder"}}> Log-in </Link>
                         </Message>
-            </Grid.Column>
-        </Grid>
+          </>
 
             )
         }
@@ -187,4 +186,4 @@ const Register =(props)=>{
 }
 
 
-export default UserContextConsumer(Register)
+export default FormContainer( UserContextConsumer(Register))
