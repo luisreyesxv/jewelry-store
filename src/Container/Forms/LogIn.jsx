@@ -117,16 +117,20 @@ const LogIn =(props)=>{
                         />   
 
                             <Button type="submit">Submit</Button>
+                            <Message size="mini">
+                                <Link to="/passwordrecovery" style={{fontWeight:"bold"}}> Forgot Password? </Link>
+                            </Message>
                             <Message error header="Error" content={error.message}/>
 
                         </Form>
                     {/* </Segment> */}
+                    
 
                     <Message>
                         New Here? 
                         <Link to="/register" style={{fontWeight:"bolder"}}> Register Account </Link>
                          with us
-                        </Message>
+                    </Message>
             </>
             )
         }

@@ -74,13 +74,15 @@ const PasswordRecoveryForm = (props)=>{
              }
               else return response.json()})
           .then(userObject =>{
-              setComplete(true)
+              successHandler()
           })
           .catch(errorMessage=>{
             const errorResponseMessage = errorMessage.message==="400"? "Email Address not found. Please check and try again." : "There was a problem with recovering the password. Please try again later."
             errorHandler(errorResponseMessage)
           })
         }
+
+       
 
 
 
@@ -90,7 +92,6 @@ return (
                 <Image src={logoSVG}  size="massive"/> Forgot Password
             </Header>
             <Form loading={loading} size="large" className="log-in-register-form" onSubmit={onSubmitHandler} error={error.status}>
-                <Form.Group widths="equal">
                     <Form.Input  
                     className="log-in-register-form-label" 
                     label="Email"
@@ -116,11 +117,6 @@ return (
                     iconPosition="left"
                     />  
                 
-
-                    
-                
-                </Form.Group>
-
                 <Button type="submit">Reset Password</Button>
                 <Message error header="Error" content={error.message}/>
 
