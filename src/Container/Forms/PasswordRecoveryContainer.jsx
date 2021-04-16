@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {Route,Switch, Redirect, Link} from 'react-router-dom'
 
 import FormContainer from './FormContainer'
@@ -8,6 +8,10 @@ import CompletePasswordRecoveryForm from '../../Component/PasswordRecovery/Compl
 
 
 const PasswordRecoveryContainer = (props) =>{
+
+    useEffect(()=>{
+        document.title= "Password Recovery -"+ process.env.REACT_APP_TITLE
+    },[])
 
     const renderPageComponents =()=>{
 

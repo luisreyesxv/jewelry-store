@@ -81,8 +81,9 @@ const ItemsBasicInfo = (props)=>{
             name: props.item.name,
             slug:props.item.slug,
             material: props.materialPicked,
-            image: props.item?.images[props.materialPicked][0],
-            price: props.item.price
+            image: props.item?.extra[props.materialPicked].images[0],
+            price: props.item.price,
+            id: props.item?.extra[props.materialPicked].id
         }}
 
         )

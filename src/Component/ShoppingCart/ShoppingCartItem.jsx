@@ -29,7 +29,7 @@ const ShoppingCartItem =(props)=>{
                                         </Grid.Row>
                                     </Grid.Column>
                                     <Grid.Column verticalAlign="middle" textAlign="right">
-                                        <Button icon="trash" color="red" size="tiny" onClick={()=> props.changeCart({cartItem: props.item, instruction: "delete"})} />
+                                        <Button disabled={props.disabled} icon="trash" color="red" size="tiny" onClick={()=> props.changeCart({cartItem: props.item, instruction: "delete"}) } />
 
                                     </Grid.Column>
                                     
@@ -39,9 +39,9 @@ const ShoppingCartItem =(props)=>{
                                     <Grid.Column width="8" >
                                                 < Button.Group >
                                                    <Label basic style={{border: "none",background:"transparent"}}> Qty</Label>
-                                                        <Button icon="minus" size="mini" attached="left" onClick={()=> props.changeCart({cartItem: props.item, instruction: "modify", quantity: props.quantity-1}) }/>
+                                                        <Button disabled={props.disabled} icon="minus" size="mini" attached="left" onClick={()=> props.changeCart({cartItem: props.item, instruction: "modify", quantity: props.quantity-1}) } />
                                                         <Label  style={{border: "none"}} basic>{props.quantity}</Label>
-                                                        <Button icon="plus" size="mini" attached="right" onClick={()=> props.changeCart({cartItem: props.item, instruction: "modify", quantity: props.quantity+1}) }/>
+                                                        <Button disabled={props.disabled} icon="plus" size="mini" attached="right" onClick={()=> props.changeCart({cartItem: props.item, instruction: "modify", quantity: props.quantity+1}) }/>
                                                 </Button.Group>
                                          
                                     </Grid.Column>

@@ -59,7 +59,7 @@ const ItemCard=(props)=>{
                 <Link to={itemURL} >
                     <SmoothLoadingImage     
                         className="itemImage" 
-                        src={props.images[materialPicked][0]}
+                        src={props.extra[materialPicked].images[0]}
                     />
                 </Link>
             </div>

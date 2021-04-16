@@ -9,6 +9,8 @@ import Normal404Page from '../Component/404/Normal404Page'
 import LogIn from './Forms/LogIn'
 import Register from './Forms/Register'
 import PasswordRecoveryContainer from './Forms/PasswordRecoveryContainer'
+import CheckoutContainer from './Checkout'
+
 
 
 
@@ -26,6 +28,9 @@ return (
             <Route path="/LogIn" render={(browserProps)=> <LogIn />} />
             <Route path="/Register" render={(browserProps)=> <Register />} />
             <Route path="/PasswordRecovery" render={(browserProps)=> <PasswordRecoveryContainer {...browserProps}/>} />
+            <Route path="/checkout" render={(browserProps)=> <CheckoutContainer />} />
+
+
 
 
             

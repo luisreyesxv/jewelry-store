@@ -31,6 +31,7 @@ const ItemsContainer =(props)=>{
     document.title= "Loading Item"+ process.env.REACT_APP_TITLE
 
   },[slug])
+
   useEffect(()=>{
     if(item){
         document.title=item.name + " - "+ process.env.REACT_APP_TITLE 
@@ -70,11 +71,12 @@ const ItemsContainer =(props)=>{
 
     const currentMaterial = () =>{
       if(item){
-        if(!item.images[material]){
-          setMaterial( Object.keys(item.images)[0])
+        if(!item.extra[urlQueryValues.get("material")]){
+          setMaterial( Object.keys(item.extra)[0])
         }
         else if (material !== urlQueryValues.get("material")){
           setMaterial(urlQueryValues.get("material"))
+          console.log("luis",urlQueryValues.get("material"))
         }
       }
     }
@@ -92,7 +94,7 @@ const ItemsContainer =(props)=>{
                   <Grid.Row columns="2" >
                       <Grid.Column mobile="9" computer ="8" tablet="8">
                           {/* <img src={item?.images[material]?.[0]} /> */}
-                          <ItemsImage  images={item?.images[material]} />
+                          <ItemsImage  images={item?.extra[material]?.images} />
                       </Grid.Column>
                       <Grid.Column mobile="16" computer ="8" tablet="8">
                         <ItemsBasicInfo item={item} materialPicked={material} setMaterial={setMaterial}/>
@@ -105,7 +107,7 @@ const ItemsContainer =(props)=>{
                   </Grid.Row>
                   <Grid.Row>
                     <Grid.Column>
-                      <ShoppingCartItemsContainer cart={JSON.parse(localStorage.getItem("cart"))} />
+                      <ShoppingCartItemsContainer cart={JSON.parse(localStorage.getItem("cart"))}  disabled={true}/>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>

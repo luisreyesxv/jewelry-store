@@ -1,6 +1,6 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {Grid, Container,Icon, Header, Divider, Button} from "semantic-ui-react"
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 
 import CartContextConsumer from '../../Context/CartContextConsumer'
 import ShoppingCartItem from '../../Component/ShoppingCart/ShoppingCartItem'
@@ -8,12 +8,20 @@ import ShoppingCartItem from '../../Component/ShoppingCart/ShoppingCartItem'
 
 const ShoppingCartItemsContainer = (props)=>{
 
+    const {pathname} = useLocation()
+    let disabled = (pathname === "/checkout")
+
+    useEffect(()=>{
+        disabled = (pathname === "/checkout")
+
+    },[pathname])
+
     const mappingItems =()=>{
 
         return props.cart.map(item =>{
             return(
                 <Grid.Row>
-                    < ShoppingCartItem key={`shopping cart ${item.slug} - ${item.material}`}  {...item} item={item} changeCart={props.changeCart}/>
+                    < ShoppingCartItem key={`shopping cart ${item.slug} - ${item.material}`}  {...item} item={item} changeCart={props.changeCart} disabled={disabled}/>
                 </Grid.Row>
                     
             )

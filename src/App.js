@@ -1,10 +1,10 @@
 import './App.scss';
-import {Route} from 'react-router-dom'
+import {useLocation} from 'react-router-dom'
 import UserContext from './Context/UserContext'
 import MobileContext from './Context/MobileContext'
 import CartContext from './Context/CartContext'
 
-import React,{useState, useEffect, createContext} from 'react'
+import React,{useState, useEffect, useLayoutEffect} from 'react'
 
 import RoutesContainer from './Container/RoutesContainer'
 import MenuBar from './Container/MenuBar'
@@ -24,6 +24,8 @@ const App = () => {
   const [windowSize,setWindowSize] = useState(window.innerWidth)
   const [cart,setCart] = useState(beginningCart? beginningCart : [])
 
+  const {pathname} = useLocation()
+
   useEffect(()=>{
     ping()
   },[])
@@ -37,6 +39,10 @@ const App = () => {
       return () => window.removeEventListener("resize",windowResize)
     
   },[setWindowSize])
+
+  useLayoutEffect(()=>{
+    window.scrollTo(0,0)
+  },[pathname])
 
   
 
@@ -105,9 +111,9 @@ const App = () => {
     }
   }
 
-  const changeCart = ({instruction,cartItem,quantity=1})=>{
+  const changeCart = ({instruction,cartItem,replacementCart, quantity=1})=>{
     let tempCart = [...cart]
-    let cartIndex = tempCart.findIndex((element)=> element.slug===cartItem.slug && element.material === cartItem.material)
+    let cartIndex = cartItem? tempCart.findIndex((element)=> element.slug===cartItem.slug && element.material === cartItem.material) : -1
     let saveCart = ()=>{
 
       localStorage.setItem("cart",JSON.stringify(tempCart))
@@ -128,11 +134,17 @@ const App = () => {
               case "delete":
                 tempCart.splice(cartIndex,1)
                 break;
+             
+                
             }
             saveCart()
         }
         else if (instruction==="add"){
           tempCart.push({...cartItem,quantity: quantity})
+          saveCart()
+        }
+        else if (instruction ==="replace_all"){
+          tempCart = replacementCart
           saveCart()
         }
   }

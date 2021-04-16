@@ -35,7 +35,7 @@ const ShoppingCartComponent =(props)=>{
                 <Menu.Item onClick={()=>   setShoppingCartOpened(false)} position = "right">
                     <Icon name="close" />
                 </Menu.Item>
-            <ShoppingCartItemsContainer setShoppingCartOpened={setShoppingCartOpened}/>
+            <ShoppingCartItemsContainer setShoppingCartOpened={setShoppingCartOpened} disabled={false}/>
 
 
        </Sidebar>
