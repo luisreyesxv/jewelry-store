@@ -461,6 +461,26 @@ h1{
       }
     }
   }
+
+  .checkout-cart-header{
+
+    color: $palette-accent-fourth;
+    font-size: $lengthLarge3;
+    font-family: $header-font-stack;
+  }
+
+  .checkout-accordion{
+   
+    background-image: linear-gradient( to left top,rgba($palette-accent-second,1), rgba($palette-accent-third,.90)) !important;
+
+    .title{
+      color: rgba($palette-majority,.75) !important;
+      :hover{
+        color: rgba($palette-majority,1) !important;
+      }
+    }
+    
+  }
   
 
 
