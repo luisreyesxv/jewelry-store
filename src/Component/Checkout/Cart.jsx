@@ -49,11 +49,11 @@ const CartComponents = (props)=>{
             </Grid>
             <Grid.Row>
                 <Button.Group fluid>
-                    <Button id="shopping-cart-button"   onClick={()=>props.setCartFinalized(!props.cartFinalized)}>
+                    <Button id={props.cartFinalized? "checkout-cart-edit-button" : "checkout-cart-finalize-button"}   onClick={()=>props.setCartFinalized(!props.cartFinalized)}>
                         {props.cartFinalized? "Edit Cart" : "Finalize Cart"}
                     </Button>
                     <Button.Or />
-                    <Button id="shopping-cart-button" successful  onClick={()=>props.setActiveAccordion("shipping")} disabled={!props.cartFinalized}>
+                    <Button className="shopping-cart-button" onClick={()=>props.setActiveAccordion("shipping")} disabled={!props.cartFinalized}>
                         Confirm
                     </Button>
                 </Button.Group>

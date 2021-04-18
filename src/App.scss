@@ -443,9 +443,8 @@ h1{
       color:$palette-majority;
   }
 
-  #shopping-cart-button{
-    background-color: $palette-accent-first;
-    
+  .shopping-cart-button{
+    background-color: $palette-accent-first !important;
   }
 
   
@@ -464,7 +463,7 @@ h1{
 
   .checkout-cart-header{
 
-    color: $palette-accent-fourth;
+    color: $palette-majority;
     font-size: $lengthLarge3;
     font-family: $header-font-stack;
   }
@@ -479,8 +478,32 @@ h1{
         color: rgba($palette-majority,1) !important;
       }
     }
+     label{
+      color:$palette-accent-first !important;
+    }
     
   }
+
+  #checkout-cart-edit-button{
+    background: linear-gradient(to left,$palette-accent-third 50%, $palette-majority 50%);
+    transition: all ease-in .5s;
+    background-position: left;
+    background-size: 200%;
+
+  }
+  
+ 
+
+  #checkout-cart-finalize-button{
+    // background: linear-gradient(to left,$palette-majority 50%, $palette-accent-fourth 50%) left;
+    background: linear-gradient(to left,$palette-accent-third 50%, $palette-majority 50%);
+    color: $palette-majority;
+
+    transition: all ease-in .5s;
+    -webkit-transition:  all ease-in .5s;
+    -moz-transition: all ease-in .5s;
+    background-position: right;
+    background-size: 200%;  }
   
 
 
