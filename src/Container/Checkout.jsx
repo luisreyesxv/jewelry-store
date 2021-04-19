@@ -1,11 +1,13 @@
 import React,{useState,useEffect,useCallback} from 'react'
-import {Grid,Container, Button, Accordion, Icon, Card} from 'semantic-ui-react'
+import {Grid,Container, Button, Accordion, Icon} from 'semantic-ui-react'
+import {Elements, StripeProvider} from 'react-stripe-elements'
 
 import CartContextConsumer from '../Context/CartContextConsumer'
 import debounce from 'lodash.debounce'
 
 import CartComponents from '../Component/Checkout/Cart'
 import OrderSummary from '../Component/Checkout/OrderSummary'
+import CCPaymentForm from '../Component/Checkout/CCPaymentForm'
 import ShippingAddress from './Forms/ShippingAddress'
 import BillingAddress from './Forms/BillingAddress'
 
@@ -22,9 +24,9 @@ const CheckoutContainer = (props)=>{
         checkout() },[])
 
     const [cartFinalized, setCartFinalized] = useState(true)   
-    const [activeAccordion,setActiveAccordion] = useState("cart") 
-    const [shipping, setShipping] = useState({firstName: "", lastName: "", street:"",city: "", state: "", country: "", zip: ""})   
-    const [billing, setBilling] = useState({sameShipping: false, firstName: "", lastName: "",street:"",city: "", state: "", country: "", zip: ""})   
+    const [activeAccordion,setActiveAccordion] = useState("shipping") 
+    const [token,setToken] = useState()
+    const [ address, setAddress]= useState({shipping:{firstName: "", lastName: "", street:"",city: "", state: "", zip: ""}, billing: {sameShipping: false, firstName: "", lastName: "",street:"",city: "", state: "", zip: ""} }) 
 
     const checkout=()=>{
         const body ={orders: {items: props.cart}}
@@ -75,41 +77,12 @@ const CheckoutContainer = (props)=>{
     props.changeCart({instruction: "replace_all", replacementCart: cart})  
     }
 
-    const formChangeHandlers = ({form, event, countryField}) =>{
-        const setStateDictionary = {
-            shipping: {state: shipping, setState: setShipping},
-            billing: {state: billing, setState: setBilling}
-                                    }
-        
-
-        if(countryField){
-            setStateDictionary[form].setState({...setStateDictionary[form].state,
-                country: event})
-        }
-        else{
-            event.preventDefault()
-        setStateDictionary[form].setState({...setStateDictionary[form].state,
-            [event.target.name]:event.target.value}
-            )
-            if(form==="shipping" && billing.sameShipping) setBilling({...billing,
-                [event.target.name]:event.target.value
-            })
-
-        }
 
         
         
 
-    }
+    
 
-    const sameAsBilling = ()=>{
-        if(billing.sameShipping){
-            setBilling( {sameShipping: false, firstName: "", lastName: "",street:"",city: "", state: "", country: "", zip: ""})
-        }
-        else {
-            setBilling({...shipping, sameShipping: true})
-        }
-    }
 
 
 
@@ -123,7 +96,7 @@ const CheckoutContainer = (props)=>{
                 <Grid.Row columns="4" >
                     <Grid.Column width="12">
                         <Accordion fluid styled className="checkout-accordion"> 
-                            <Accordion.Title active={activeAccordion==="cart"}  onClick={()=>activeAccordion==="cart"?setActiveAccordion("none"):setActiveAccordion("cart")} >
+                            <Accordion.Title active={activeAccordion==="cart"} >
                                <h2>
                                    <Icon name="dropdown"/>
                                    Cart
@@ -132,32 +105,52 @@ const CheckoutContainer = (props)=>{
                             <Accordion.Content active={activeAccordion==="cart"}>
                                 <CartComponents cart={props.cart}   cartFinalized={cartFinalized} setCartFinalized={setCartFinalized} changeCart={props.changeCart} setActiveAccordion={setActiveAccordion}/>
                             </Accordion.Content>
-                            <Accordion.Title active={activeAccordion==="shipping"}  onClick={()=>activeAccordion==="shipping"?setActiveAccordion("none"):setActiveAccordion("shipping")} >
+                            <Accordion.Title active={activeAccordion==="shipping"} >
                                 <h2>
                                     <Icon name="dropdown"/>
                                     Shipping
                                 </h2>
                             </Accordion.Title>
                             <Accordion.Content active={activeAccordion==="shipping"}>
-                                <ShippingAddress formChangeHandlers={formChangeHandlers} shipping={shipping} setActiveAccordion={setActiveAccordion}/>
+                                <ShippingAddress address={address} setAddress={setAddress} setActiveAccordion={setActiveAccordion}/>
                             </Accordion.Content>
-                            <Accordion.Title active={activeAccordion==="billing"}  onClick={()=>activeAccordion==="billing"?setActiveAccordion("none"):setActiveAccordion("billing")} >
+                            <Accordion.Title active={activeAccordion==="billing"} >
                                 <h2>
                                     <Icon name="dropdown"/>
                                     Billing
                                 </h2>
                             </Accordion.Title>
                             <Accordion.Content active={activeAccordion==="billing"}>
-                                <BillingAddress formChangeHandlers={formChangeHandlers} billing={billing} sameAsBilling={sameAsBilling} setActiveAccordion={setActiveAccordion}/>
+                                <BillingAddress address={address} setAddress={setAddress} setActiveAccordion={setActiveAccordion}/>
                             </Accordion.Content>
-                            <Accordion.Title active={activeAccordion==="CC"}  onClick={()=>activeAccordion==="CC"?setActiveAccordion("none"):setActiveAccordion("CC")} >
+                            <Accordion.Title active={activeAccordion==="CC"}  >
                                 <h2>
                                     <Icon name="dropdown"/>
                                     Credit Card Information
                                 </h2>
                             </Accordion.Title>
                             <Accordion.Content active={activeAccordion==="CC"}>
-                                Stripe Card Form
+                                    <StripeProvider apiKey={process.env.REACT_APP_STRIPE_KEY} >
+                                        <Elements 
+                                            >
+
+                                            <CCPaymentForm  setActiveAccordion={setActiveAccordion} setToken={setToken}/>
+                                        </Elements>
+                                    </StripeProvider>
+
+
+                            </Accordion.Content>
+
+                            <Accordion.Content active={activeAccordion==="complete"}>
+                            <Button.Group fluid>
+                                <Button id="checkout-cart-finalize-button"   onClick={()=>setActiveAccordion("shipping")}>
+                                    {props.cartFinalized? "Edit Cart" : "Finalize Cart"}
+                                </Button>
+                                <Button.Or />
+                                <Button className="shopping-cart-button" onClick={()=>setActiveAccordion("shipping")}>
+                                    Confirm Payment
+                                </Button>
+                            </Button.Group>
                             </Accordion.Content>
                             
                     </Accordion>
@@ -166,6 +159,7 @@ const CheckoutContainer = (props)=>{
                         <OrderSummary cart={props.cart} />
                     </Grid.Column>
                 </Grid.Row>
+                
                 
             </Grid>
         </Container>

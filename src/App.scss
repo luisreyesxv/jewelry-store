@@ -504,6 +504,33 @@ h1{
     -moz-transition: all ease-in .5s;
     background-position: right;
     background-size: 200%;  }
+
+    
+
+
+
+    .checkout-cart-success-button{
+      background: linear-gradient(to left,$palette-accent-third 50%, $palette-accent-first 50%)!important;
+      transition: all ease-in 1s!important;
+      -webkit-transition:  all ease-in 1s!important;
+      -moz-transition: all ease-in 1s!important;
+      background-position: left !important;
+      background-size: 200%!important;;
+  
+    }
+    
+   
+  
+    .checkout-cart-incomplete-button{
+      // background: linear-gradient(to left,$palette-majority 50%, $palette-accent-fourth 50%) left;
+      color: $palette-majority!important;
+      background: linear-gradient(to left,$palette-accent-first 50%, $palette-accent-third 50% )!important;
+  
+      transition: all ease-in .75s!important;
+      -webkit-transition:  all ease-in .75s!important;
+      -moz-transition: all ease-in .75s!important;
+      background-position: right !important;
+      background-size: 200%!important;  }
   
 
 

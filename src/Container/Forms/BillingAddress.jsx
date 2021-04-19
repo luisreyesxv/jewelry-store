@@ -1,19 +1,52 @@
-import React from "react"
+import React, {useState} from "react"
 import {Form, Button, Checkbox} from 'semantic-ui-react'
 
 
 
-import {countries} from '../../Component/countries'
+// import {countries} from '../../Component/countries'
 
 
 
 const BillingAddress =(props)=>{
+    const [error,setError] = useState()
+
+    const submitHandler = () =>{
+        const {firstName, lastName, street,city, state, zip} = props.address.billing
+        if(firstName && lastName && street && city && state && zip){
+            props.setActiveAccordion("CC")
+        }
+        else setError(true)
+    }
+
+
+    const changeHandler = ( event)=>{
+            
+        event?.preventDefault()
+        setError()
+                props.setAddress({...props.address,
+                    billing: {...props.address.billing,
+                        [event.target.name]:event.target.value}
+                    })
+
+    }
+
+    const sameAsBilling = ()=>{
+        if(props.address.billing.sameShipping){
+            props.setAddress( {...props.address,
+                billing: {sameShipping: false, firstName: "", lastName: "",street:"",city: "", state: "", country: "", zip: ""} })
+        }
+        else {
+            setError()
+            props.setAddress( {...props.address,
+                billing: {...props.address.shipping, sameShipping: true} })
+        }
+    }
 
     return(
     <>
-        <Checkbox checked={props.billing.sameShipping} label= "Same as Shipping Address?" onClick={props.sameAsBilling}/>
+        <Checkbox checked={props.address.billing.sameShipping} label= "Same as Shipping Address?" onClick={sameAsBilling}/>
         
-        <Form  widths="equal" onSubmit={()=>props.setActiveAccordion("CC")} className="page-container-grid">
+        <Form  widths="equal" onSubmit={submitHandler} className="page-container-grid">
             <Form.Group widths="equal" >
                             <Form.Input  
                             className="log-in-register-form-label" 
@@ -21,9 +54,9 @@ const BillingAddress =(props)=>{
                             name="firstName"
                             type="text"
                             placeholder="First Name"
-                            disabled={props.billing.sameShipping}
-                            value={props.billing.firstName}
-                            onChange={(event)=> props.formChangeHandlers({form:"billing", event:event})}
+                            disabled={props.address.billing.sameShipping}
+                            value={props.address.billing.firstName}
+                            onChange={changeHandler}
                             icon ="address book"
                             iconPosition="left"
                             /> 
@@ -33,9 +66,9 @@ const BillingAddress =(props)=>{
                             name="lastName"
                             type="text"
                             placeholder="Last Name"
-                            disabled={props.billing.sameShipping}
-                            value={props.billing.lastName}
-                            onChange={(event)=> props.formChangeHandlers({form:"billing", event:event})}
+                            disabled={props.address.billing.sameShipping}
+                            value={props.address.billing.lastName}
+                            onChange={changeHandler}
                             icon ="address book"
                             iconPosition="left"
                             /> 
@@ -46,9 +79,9 @@ const BillingAddress =(props)=>{
                             name="street"
                             type="text"
                             placeholder="Street Name and Number"
-                            disabled={props.billing.sameShipping}
-                            value={props.billing.street}
-                            onChange={(event)=> props.formChangeHandlers({form:"billing", event:event})}
+                            disabled={props.address.billing.sameShipping}
+                            value={props.address.billing.street}
+                            onChange={changeHandler}
                             icon ="address book"
                             iconPosition="left"
                             />  
@@ -59,9 +92,9 @@ const BillingAddress =(props)=>{
                             name="city"
                             type="text"
                             placeholder="City"
-                            disabled={props.billing.sameShipping}
-                            value={props.billing.city}
-                            onChange={(event)=> props.formChangeHandlers({form:"billing", event:event})}
+                            disabled={props.address.billing.sameShipping}
+                            value={props.address.billing.city}
+                            onChange={changeHandler}
                             icon ="address book"
                             iconPosition="left"
                             /> 
@@ -71,44 +104,34 @@ const BillingAddress =(props)=>{
                             name="state"
                             type="text"
                             placeholder="State"
-                            disabled={props.billing.sameShipping}
-                            value={props.billing.state}
-                            onChange={(event)=> props.formChangeHandlers({form:"billing", event:event})}
+                            disabled={props.address.billing.sameShipping}
+                            value={props.address.billing.state}
+                            onChange={changeHandler}
                             icon ="address book"
                             iconPosition="left"
                             />
             </Form.Group>
-                            <Form.Select
-                            options={countries}
-                            className="log-in-register-form-label" 
-                            label="Country"
-                            name="country"
-                            type="text"
-                            placeholder="Country"
-                            disabled={props.billing.sameShipping}
-                            value={props.billing.country}
-                            onChange={(event,{value})=> props.formChangeHandlers({form:"billing", event:value, countryField:true})}
-                            icon ="address book"
-                            iconPosition="left"
-                            />
+                            
                             <Form.Input   
                             className="log-in-register-form-label" 
                             label="Postal Code"
                             name="zip"
                             type="text"
                             placeholder="Enter Postal Code"
-                            disabled={props.billing.sameShipping}
-                            value={props.billing.zip}
-                            onChange={(event)=> props.formChangeHandlers({form:"billing", event:event})}
+                            disabled={props.address.billing.sameShipping}
+                            value={props.address.billing.zip}
+                            onChange={changeHandler}
                             icon ="address book"
                             iconPosition="left"
                             />      
 
-                            <Button fluid className="shopping-cart-button" type="submit" >Confirm Billing Address</Button>
+                            <Button disabled={error} fluid className={error?"checkout-cart-incomplete-button":"checkout-cart-success-button"} type="submit" >
+                                
+                                {error? "Please Fill All Fields" : "Confirm Billing Address"}
+                                
+                            </Button>
 
                         </Form>
-
-
     </>
                     
     )

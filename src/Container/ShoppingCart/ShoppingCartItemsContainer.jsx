@@ -11,10 +11,10 @@ const ShoppingCartItemsContainer = (props)=>{
     const {pathname} = useLocation()
     let disabled = (pathname === "/checkout")
 
-    useEffect(()=>{
-        disabled = (pathname === "/checkout")
+    // useEffect(()=>{
+    //     disabled = (pathname === "/checkout")
 
-    },[pathname])
+    // },[pathname])
 
     const mappingItems =()=>{
 
