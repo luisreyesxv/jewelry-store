@@ -531,6 +531,21 @@ h1{
       -moz-transition: all ease-in .75s!important;
       background-position: right !important;
       background-size: 200%!important;  }
+
+      #success-modal-image{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+       
+      }
+
+      #order-summary{
+        background-image: linear-gradient( to left top,rgba($palette-accent-second,1), rgba($palette-accent-third,.90));
+        padding: 10px;
+        color: $palette-majority;
+
+      }
   
 
 

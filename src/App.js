@@ -147,6 +147,10 @@ const App = () => {
           tempCart = replacementCart
           saveCart()
         }
+        else if(instruction ==="delete_all"){
+          localStorage.removeItem("cart",JSON.stringify(tempCart))
+      setCart([])
+        }
   }
 
 

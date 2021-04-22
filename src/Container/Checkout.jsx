@@ -1,12 +1,17 @@
 import React,{useState,useEffect,useCallback} from 'react'
+import {Link} from 'react-router-dom'
 import {Grid,Container, Button, Accordion, Icon} from 'semantic-ui-react'
 import {Elements, StripeProvider} from 'react-stripe-elements'
 
 import CartContextConsumer from '../Context/CartContextConsumer'
+import UserContextConsumer from '../Context/UserContextConsumer'
+
 import debounce from 'lodash.debounce'
 
 import CartComponents from '../Component/Checkout/Cart'
 import OrderSummary from '../Component/Checkout/OrderSummary'
+import PurchaseModal from '../Component/Checkout/PurchaseModal'
+
 import CCPaymentForm from '../Component/Checkout/CCPaymentForm'
 import ShippingAddress from './Forms/ShippingAddress'
 import BillingAddress from './Forms/BillingAddress'
@@ -24,9 +29,10 @@ const CheckoutContainer = (props)=>{
         checkout() },[])
 
     const [cartFinalized, setCartFinalized] = useState(true)   
-    const [activeAccordion,setActiveAccordion] = useState("shipping") 
+    const [activeAccordion,setActiveAccordion] = useState("cart") 
     const [token,setToken] = useState()
     const [ address, setAddress]= useState({shipping:{firstName: "", lastName: "", street:"",city: "", state: "", zip: ""}, billing: {sameShipping: false, firstName: "", lastName: "",street:"",city: "", state: "", zip: ""} }) 
+    const [success,setSuccess] = useState("success")
 
     const checkout=()=>{
         const body ={orders: {items: props.cart}}
@@ -47,6 +53,63 @@ const CheckoutContainer = (props)=>{
         .then(itemsObj =>  createItems(itemsObj))
         .catch(()=> console.log("whoopsie"))
     }
+
+    const purchase = ()=>{
+        setSuccess("loading")
+        const body = {orders:{
+            token: token,
+            shipping: address.shipping
+            }
+        }
+
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+              },
+              credentials: 'include',
+              body: JSON.stringify(body)
+            }
+
+            fetch(process.env.REACT_APP_API_URL + "checkout/purchase" , options)
+            .then(response => {if(!response.ok){
+                throw new Error(response.status)
+             }
+                else return response.json()
+            })
+             .then(messageResponse => {
+                 
+                
+                purchaseSuccess()
+                
+             })
+             .catch(()=> window.alert("whoopsie"))
+
+
+
+
+    }
+
+    const purchaseSuccess = (itemsObject)=>{
+        props.changeCart({instruction: "delete_all"})
+        setSuccess("success")
+        setAddress({shipping:{firstName: "", lastName: "", street:"",city: "", state: "", zip: ""}, billing: {sameShipping: false, firstName: "", lastName: "",street:"",city: "", state: "", zip: ""} })
+        setToken()
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
 
     const debouncedFunction = useCallback(debounce(checkout,2000),[cartFinalized])
 
@@ -141,30 +204,45 @@ const CheckoutContainer = (props)=>{
 
                             </Accordion.Content>
 
-                            <Accordion.Content active={activeAccordion==="complete"}>
+                            <Accordion.Content active={activeAccordion==="complete" && props.user}>
                             <Button.Group fluid>
-                                <Button id="checkout-cart-finalize-button"   onClick={()=>setActiveAccordion("shipping")}>
-                                    {props.cartFinalized? "Edit Cart" : "Finalize Cart"}
+                                <Button id="checkout-cart-finalize-button"   onClick={()=>setActiveAccordion("cart")}>
+                                    Restart
                                 </Button>
-                                <Button.Or />
-                                <Button className="shopping-cart-button" onClick={()=>setActiveAccordion("shipping")}>
-                                    Confirm Payment
+                                {props.cart.length >0?
+                                        <>
+                                                    <Button.Or />
+                                        
+                                                <Button className="shopping-cart-button" onClick={()=>purchase()}>
+                                                    Confirm Payment
+                                                </Button>
+                                        </>
+                                : null}
+                            </Button.Group>
+                            </Accordion.Content>
+
+                            <Accordion.Content active={!props.user}>
+                            <Button.Group fluid>
+                                
+                                <Button as={Link} to="/LogIn" className="shopping-cart-button">
+                                    Need to Login to Purchase
                                 </Button>
                             </Button.Group>
                             </Accordion.Content>
                             
                     </Accordion>
                     </Grid.Column>
-                    <Grid.Column width="4"  style={{background:"green"}}>
+                    <Grid.Column width="4" id="order-summary">
                         <OrderSummary cart={props.cart} />
                     </Grid.Column>
                 </Grid.Row>
                 
                 
             </Grid>
+            <PurchaseModal status={success} setSuccess={setSuccess} user={props.user} />
         </Container>
 
     )
 }
 
-export default CartContextConsumer(CheckoutContainer)
+export default CartContextConsumer(UserContextConsumer (CheckoutContainer))

@@ -8,7 +8,7 @@ const OrderSummary = (props)=>{
 
     let sum = props.cart.reduce(totalPriceReducer,0)
     let tax = props.cart.reduce(totalTaxReducer,0)
-    let shipping = 25;
+    let shipping = props.cart.length? 25:0;
 
   
 
@@ -20,8 +20,8 @@ const OrderSummary = (props)=>{
 
 
     return (
-        <Container>
-            <Grid container>
+        <Container >
+            <Grid container >
                 <Grid.Row>
                     <h1 >Order Summary</h1>
                 </Grid.Row>
