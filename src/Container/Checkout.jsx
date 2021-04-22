@@ -11,6 +11,7 @@ import debounce from 'lodash.debounce'
 import CartComponents from '../Component/Checkout/Cart'
 import OrderSummary from '../Component/Checkout/OrderSummary'
 import PurchaseModal from '../Component/Checkout/PurchaseModal'
+import LogInModal from '../Component/Checkout/LogInModal'
 
 import CCPaymentForm from '../Component/Checkout/CCPaymentForm'
 import ShippingAddress from './Forms/ShippingAddress'
@@ -32,7 +33,8 @@ const CheckoutContainer = (props)=>{
     const [activeAccordion,setActiveAccordion] = useState("cart") 
     const [token,setToken] = useState()
     const [ address, setAddress]= useState({shipping:{firstName: "", lastName: "", street:"",city: "", state: "", zip: ""}, billing: {sameShipping: false, firstName: "", lastName: "",street:"",city: "", state: "", zip: ""} }) 
-    const [success,setSuccess] = useState("success")
+    const [success,setSuccess] = useState()
+    const [unAuthorized,setUnAuthorized] = useState(!props.user)
 
     const checkout=()=>{
         const body ={orders: {items: props.cart}}
@@ -51,7 +53,7 @@ const CheckoutContainer = (props)=>{
          }
           else return response.json()})
         .then(itemsObj =>  createItems(itemsObj))
-        .catch(()=> console.log("whoopsie"))
+        .catch(()=> setUnAuthorized(true))
     }
 
     const purchase = ()=>{
@@ -79,12 +81,9 @@ const CheckoutContainer = (props)=>{
                 else return response.json()
             })
              .then(messageResponse => {
-                 
-                
-                purchaseSuccess()
-                
+                purchaseSuccess() 
              })
-             .catch(()=> window.alert("whoopsie"))
+             .catch(()=> setSuccess("failure"))
 
 
 
@@ -101,15 +100,6 @@ const CheckoutContainer = (props)=>{
 
 
     }
-
-
-
-
-
-
-
-
-
 
     const debouncedFunction = useCallback(debounce(checkout,2000),[cartFinalized])
 
@@ -139,15 +129,6 @@ const CheckoutContainer = (props)=>{
 
     props.changeCart({instruction: "replace_all", replacementCart: cart})  
     }
-
-
-        
-        
-
-    
-
-
-
 
     return(
         
@@ -240,6 +221,7 @@ const CheckoutContainer = (props)=>{
                 
             </Grid>
             <PurchaseModal status={success} setSuccess={setSuccess} user={props.user} />
+            <LogInModal status={unAuthorized}  />
         </Container>
 
     )

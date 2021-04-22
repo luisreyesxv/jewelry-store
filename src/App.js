@@ -51,9 +51,28 @@ const App = () => {
     setUser(userObject.email)
   }
 
-  const logout = () =>{
+  const loggingOut = () =>{
+    const options ={
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      credentials: 'include'
+    }
+      fetch(process.env.REACT_APP_API_URL+"/login",options)
+      .then(()=>{
+
+       logout()
+
+      })
+    
+  }
+
+  const logout=()=>{
     localStorage.removeItem("user")
-    setUser(null)
+        setUser(null)
+
   }
   
 
@@ -163,7 +182,7 @@ const App = () => {
     <div className="App">  
       
     <MobileContext.Provider value={{mobile}}>
-        <UserContext.Provider  value={{user,login,logout}} >
+        <UserContext.Provider  value={{user,login,logout, loggingOut}} >
           <CartContext.Provider value={{cart,changeCart}} >
                <MenuBar />
 

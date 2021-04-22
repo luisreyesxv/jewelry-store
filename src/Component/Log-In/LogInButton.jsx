@@ -12,7 +12,7 @@ const LogInButton =(props)=>{
 
         return(
             // props.user? <span onClick={()=>props.logout() } >Log Out</span> : <span onClick={()=>loggingIn()} >  Log In </span>
-            props.user? <span onClick={()=>props.logout() } >Log Out</span>  : <Link style={{color:"black"}} to="/LogIn"> Log In </Link>
+            props.user? <span onClick={()=>props.loggingOut() } >Log Out</span>  : <Link style={{color:"black"}} to="/LogIn"> Log In </Link>
     
     
         )
