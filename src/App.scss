@@ -357,9 +357,10 @@ h1{
   }
 
   #log-in-register-grid{
-    height: 80vh;
+    // height: 80vh;
     margin-left: 0 !important;
     margin-right: 0!important;
+    padding-bottom: 50px;
     text-align: center;
     background-image: radial-gradient( farthest-corner, rgba($palette-accent-first,1), rgba($palette-majority,1));
 

@@ -24,9 +24,9 @@ const MenuBar =(props)=>{
 
     const customForms = [
         {text: "Custom Jewelry Inquiry", link: "/inquiry/CustomJewelry"},
-        {text: "Luxury Timepiece Inquiry", link: "/inquiry/LuxuryTimePiece"},
+        // {text: "Luxury Timepiece Inquiry", link: "/inquiry/LuxuryTimePiece"},
         {text: "Repair Inquiry", link: "/inquiry/Repair"},
-        {text: "2nd Chance Inquiry", link: "/inquiry/2ndChance"}
+        {text: "Repurpose Jewelry Inquiry", link: "/inquiry/Repurpose"}
     ]
 
     const collectionCategories =[
@@ -85,8 +85,7 @@ const MenuBar =(props)=>{
                 <Menu.Item>
                     {MenuItems()}
                 </Menu.Item>
-                {/* </Grid.Column> */}
-                {/* <Grid.Column> */}
+              
                 <Menu.Menu position="right">
                     <Menu.Item>
                         <SearchBarContainer />
@@ -97,10 +96,6 @@ const MenuBar =(props)=>{
 
 
                 </Menu.Menu>
-                {/* <Menu.Item >
-                     <ShoppingCartComponent />
-                </Menu.Item> */}
-                {/* </Grid.Column> */}
                 
             </>
         )

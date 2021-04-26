@@ -10,6 +10,7 @@ import LogIn from './Forms/LogIn'
 import Register from './Forms/Register'
 import PasswordRecoveryContainer from './Forms/PasswordRecoveryContainer'
 import CheckoutContainer from './Checkout'
+import InquiryContainer from './Inquiry'
 
 
 
@@ -21,7 +22,7 @@ const RoutesContainer = ()=>{
 return (
      <Switch> 
             <Route exact path="/items/:slug" render ={(routerProps)=><ItemsContainer/>} />
-            <Route path="/inquiry" render={(browserProps)=> "Inquiry"} />
+            <Route path="/inquiry" render={(browserProps)=> <InquiryContainer {...browserProps}/>} />
             <Route path="/collections" render={(browserProps)=> "Collections"} />
             <Route path="/account" render={(browserProps)=> "Account"} />
             <Route path="/About" render={(browserProps)=> "About Us"} />
