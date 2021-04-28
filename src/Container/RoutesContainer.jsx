@@ -10,7 +10,7 @@ import LogIn from './Forms/LogIn'
 import Register from './Forms/Register'
 import PasswordRecoveryContainer from './Forms/PasswordRecoveryContainer'
 import CheckoutContainer from './Checkout'
-import InquiryContainer from './Inquiry'
+import InquiryContainer from './Inquiry/Inquiry'
 
 
 

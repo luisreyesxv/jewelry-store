@@ -249,14 +249,14 @@ h1{
     background-image: linear-gradient( to left top,rgba($palette-accent-fourth,1), rgba($palette-accent-first,1));
   }
 
-.homepage-categories .column:nth-child(even) .homepageCategoryCard{
+.homepage-categories .column:nth-child(even) .homepageCategoryCard, .inquiry-list-categories .column:nth-child(even) .inquiryListCard{
   // background-image: linear-gradient( to left top,rgba($palette-accent-fourth,1), rgba($palette-accent-first,1));
   // background-image:url("https://miro.medium.com/max/1400/1*doaM-B5h4HFMeMHaRTEfdQ.jpeg");
   background-color: rgba($palette-accent-second,.75);
   background-blend-mode: multiply;
   background-repeat: no-repeat;
   background-size: 100% 100%;}
-.homepage-categories .column:nth-child(odd) .homepageCategoryCard{
+.homepage-categories .column:nth-child(odd) .homepageCategoryCard, .inquiry-list-categories .column:nth-child(odd) .inquiryListCard{
   // background-image: linear-gradient( to left top,rgba($palette-accent-fourth,1), rgba($palette-accent-first,1));
   // background-image:url("https://miro.medium.com/max/1400/1*doaM-B5h4HFMeMHaRTEfdQ.jpeg");
   background-color: rgba($palette-accent-fourth,.75);
@@ -265,7 +265,7 @@ h1{
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-.homepage-categories .column:nth-child(3n+3) .homepageCategoryCard{
+.homepage-categories .column:nth-child(3n+3) .homepageCategoryCard, .inquiry-list-categories .column:nth-child(3n+3) .inquiryListCard{
   // background-image: linear-gradient( to left top,rgba($palette-accent-fourth,1), rgba($palette-accent-first,1));
   // background-image:url("https://miro.medium.com/max/1400/1*doaM-B5h4HFMeMHaRTEfdQ.jpeg");
   background-color:rgba( $palette-accent-first,.75);
@@ -547,7 +547,46 @@ h1{
         color: $palette-majority;
 
       }
-  
+
+      #inquiry-header{
+        color: $palette-majority;
+        margin: 10%;
+      }
+
+      .inquiryListCard{
+        // height:100%;
+        box-shadow: 10px 5px 5px rgba($palette-accent-fourth,.15);
+        border-radius: 5%;
+    
+    
+        display: grid;
+        grid-template-rows: 1fr max-content;
+        height: 10%;
+        width:auto;
+        font-family: $header-font-stack;
+        color:white;
+      }
+      
+      #inquiryListRow{
+        height: 100vh;
+        border-radius: 5%;
+        padding: 5%;
+      }
+
+      #inquiryMessage{
+
+        background-image: radial-gradient( farthest-corner, rgba($palette-accent-third,1), rgba($palette-accent-fourth,1)) !important;
+        color: $palette-majority;
+        padding: 5%;
+        box-shadow: 20px 20px 5px rgba($palette-accent-fourth,.15);
+    
+      }
+      .inquiry-header{
+
+        color: $palette-accent-third;
+        font-size: $lengthLarge3;
+        font-family: $header-font-stack;
+      }
 
 
   // .column:nth-child(3n+1) > .itemCard > div > a> img{
