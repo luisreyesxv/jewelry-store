@@ -42,6 +42,7 @@ const HomePage =(props)=>{
     }
 
 
+
     const placeholderShowcaseItems=()=>{
         return(
             <Grid.Row centered columns={5}>

@@ -7,6 +7,7 @@ import DropdownComponent from '../Component/Menu/DropdownComponent'
 import ShoppingCartComponent from '../Component/Menu/ShoppingCart'
 import SearchBarContainer from './SearchBarContainer'
 import LogInButton from '../Component/Log-In/LogInButton'
+import categories from '../Component/categories'
 
 import logoSVG from '../Component/Logos/logo'
 
@@ -29,10 +30,7 @@ const MenuBar =(props)=>{
         {text: "Repurpose Jewelry Inquiry", link: "/inquiry/Repurpose"}
     ]
 
-    const collectionCategories =[
-        {text: "Watches", link: "/collections/Watches"},
-        {text: "Necklaces", link: "/collections/Necklaces"}
-    ]
+    const collectionCategories = categories
 
     const accountOrRegister = props.user?{text:"My Account",link: "/account"} : {text:"Sign Up",link:"/register"}
 

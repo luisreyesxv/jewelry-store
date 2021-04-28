@@ -11,7 +11,7 @@ const HomePageCategory =(props)=>{
 
 
     return (
-        <Link as="div" to={`/collections/${props.categoryName}`}
+        <Link as="div" to={props.link}
         
         style={
             hovered?
@@ -25,7 +25,7 @@ const HomePageCategory =(props)=>{
         <div className="homepageCategoryCard" style={{backgroundImage: props.img}}>
         
                    <div style={{lineHeight:"20vh"}}>
-                   <div >{ props.categoryName}</div>
+                   <div >{ props.text}</div>
                   
                    </div>
 

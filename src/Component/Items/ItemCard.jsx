@@ -16,7 +16,7 @@ const ItemCard=(props)=>{
         setMaterialPicked(e.target.dataset.name)
     }
 
-    const itemURL= `items/${props.slug}?material=${materialPicked}`
+    const itemURL= `/items/${props.slug}?material=${materialPicked}`
 
 
 
