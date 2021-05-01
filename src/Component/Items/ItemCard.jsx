@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Button, Header, Card, Image} from 'semantic-ui-react'
+import { Header, Card} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
 import materialColors from '../Materials/MaterialButtons'
@@ -92,6 +92,94 @@ const ItemCard=(props)=>{
         testCard()
     )
 }
+
+export const SpecialItemCard=(props)=>{
+
+    const [materialPicked,setMaterialPicked]= useState(props.materials[0].name)
+    
+    const changeMaterial =(e)=>{
+       e.preventDefault()
+        setMaterialPicked(e.target.dataset.name)
+    }
+
+    const itemURL= `/items/${props.slug}?material=${materialPicked}`
+
+
+
+    const metaDescriptions =()=>{  
+            return props.materials.map((element,index)=> {
+                                    if(index===4){
+                                        return (
+                                                <Link to={itemURL} title= "see more styles" >
+                                                        <div className ="itemCardMaterialsButton" style={{border: "none",fontWeight: "bold"}}  key={props.name+" more button"} >
+                                                            See More
+                                                        </div>
+                                                </Link>
+                                        )
+                                    }
+                                    else if (index <4){
+                                        return (
+                                                
+                                                    <div 
+                                                    key={props.name+" "+element.name}
+                                                    title= {element.name}
+                                                    data-name={element.name}
+                                                    className ="itemCardMaterialsButton" 
+                                                    style={
+                                                        {backgroundColor: materialColors[element.name],
+                                                        opacity: materialPicked=== element.name? "50%":null}} 
+                                                        onClick={changeMaterial}  
+                                                        />
+                                        )
+                                        
+                                    }
+                            }
+            )
+        
+    }
+
+    const testCard =()=>{
+        return (
+            <>
+        
+            <Card className="specialItemCard">
+					 <div className="specialItemCardImageContainer"  >
+                         <Link to={itemURL} >
+                             <SmoothLoadingImage     
+                                className="itemImage" 
+                                src={props.extra[materialPicked].images[0]}
+                            />
+                        </Link>
+                    </div>
+					<div className="content">
+                    
+                        <Header as={Link} to={itemURL} className="itemCardHeader" size="large" >
+                            {props.name}
+                        </Header>
+						<div className="description">
+                        <div className="itemCardPrice">{"$"+parseFloat(props.price).toFixed(2)}</div>
+						</div>
+					</div>
+					<Card.Meta className="itemCardMaterials">
+                        {metaDescriptions()}   	
+					</Card.Meta>
+            </Card>  
+            
+
+            </>
+             
+
+        )
+
+
+    }
+
+    return(
+        testCard()
+    )
+}
+
+
 
 export default ItemCard
 

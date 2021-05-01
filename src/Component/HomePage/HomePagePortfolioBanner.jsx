@@ -5,17 +5,17 @@ import {Link} from 'react-router-dom'
 
 
 
-const HomePageCustomInquiryBanner =()=>{
+const HomePagePortfolioBanner =()=>{
 
     return(
-        <Grid.Row centered  columns="3">
-                    <Grid.Column as={Link} to="/inquiry" textAlign="center" width="12"  className="homepage-custom-banner" id="custom-piece-banner">
+        <Grid.Row centered  columns="16">
+                    <Grid.Column as={Link} to="/AboutUs" textAlign="center" width="12"  className="homepage-custom-banner" id="about-us-banner">
                         <div className="homepage-hero-text-container"  >
                             <p className="homepage-custom-banner-text" style={{fontSize:"1.75em"}}>
-                                Looking For a Custom-made Piece?
+                                Bartolome Jewelry is a project app made by Luis Reyes Bartolome
                             </p>
                             <p className="homepage-custom-banner-text">
-                                Come fill out a Custom Inquiry
+                                Click here to see what this is all about
                             </p>
                         </div>
                     </Grid.Column>
@@ -24,5 +24,4 @@ const HomePageCustomInquiryBanner =()=>{
 }
 
 
-export default HomePageCustomInquiryBanner
-
+export default HomePagePortfolioBanner

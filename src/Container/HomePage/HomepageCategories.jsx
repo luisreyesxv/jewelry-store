@@ -18,7 +18,7 @@ const HomePageCategories =()=>{
         const categoryComponents = categories.map((category)=>{
 
             return(
-                <Grid.Column key={"HomePage "+category.categoryName} textAlign="center" >
+                <Grid.Column key={"HomePage "+category.text} textAlign="center" >
                     {/* {category.categoryName.toUpperCase()}
                      */}
                      <HomePageCategory 

@@ -223,16 +223,40 @@ h1{
 
   }
 
-  // .card{
-  //   box-shadow: none !important;
-  // }
+.specialItemCard{
+    height: 100%;
+    width: 100%!important;
+    display: grid;
+    grid-template-rows: 1fr max-content;
+    border: solid 1px black;
+    border-radius: 5%;
+    box-shadow: 10px 5px 5px rgba($palette-accent-fourth,.5)!important;
+    background-color: white;
+}
 
+.specialItemCardImageContainer{
+  
+  width: 100%;
+  height: 300px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5% 5% 0 0;
+  background-image: linear-gradient( to left top,rgba($palette-accent-second,1), rgba($palette-accent-third,1));
+}
+
+.specialItemImage{
+  max-height:150px;
+  max-width: 150px;
+  line-height: normal;
+}
   .homepageCategoryCard{
-    // height:100%;
     box-shadow: 10px 5px 5px rgba($palette-accent-fourth,.15);
     border-radius: 5%;
-
-
     display: grid;
     grid-template-rows: 1fr max-content;
     height: 20vh;
@@ -351,13 +375,24 @@ h1{
     background-color: rgba($palette-accent-second,.1)
   }
 
-  #homepage-custom-banner{
-    background-image: url(https://burst.shopifycdn.com/photos/mens-watch-and-ring.jpg?width=500&format=pjpg&exif=0&iptc=0);
-    background-color: rgba($palette-accent-third,.75);
+  .homepage-custom-banner{
     background-size: 100% auto;
     background-position: 0 45%;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
+  }
+  #custom-piece-banner{
+    background-color: rgba($palette-accent-third,.75);
+    background-image: url(https://burst.shopifycdn.com/photos/mens-watch-and-ring.jpg?width=500&format=pjpg&exif=0&iptc=0);
+  }
+  #about-us-banner{
+    background-color: rgba($palette-accent-second,.75);
+    background-image: url(https://luisreyesbartolome.com/images/transparent%20-%20Copy.png);
+    background-position: 95% 0%;
+    background-size: 300%;
+    
+
+
   }
 
   #log-in-register-grid{
