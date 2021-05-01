@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Button} from 'semantic-ui-react'
+import { Button, Header, Card, Image} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
 import materialColors from '../Materials/MaterialButtons'
@@ -52,25 +52,44 @@ const ItemCard=(props)=>{
         
     }
 
+    const testCard =()=>{
+        return (
+            <>
+        
+            <Card className="itemCard" >
+					 <div className="itemCardImageContainer" >
+                         <Link to={itemURL} >
+                             <SmoothLoadingImage     
+                                className="itemImage" 
+                                src={props.extra[materialPicked].images[0]}
+                            />
+                        </Link>
+                    </div>
+					<div className="content">
+                    
+                        <Header as={Link} to={itemURL} className="itemCardHeader" size="tiny" >
+                            {props.name}
+                        </Header>
+						<div className="description">
+                        <div className="itemCardPrice">{"$"+parseFloat(props.price).toFixed(2)}</div>
+						</div>
+					</div>
+					<Card.Meta className="itemCardMaterials">
+                        {metaDescriptions()}   	
+					</Card.Meta>
+            </Card>  
+            
+
+            </>
+             
+
+        )
+
+
+    }
 
     return(
-        <div className="itemCard" >
-            <div className="itemCardImageContainer" >
-                <Link to={itemURL} >
-                    <SmoothLoadingImage     
-                        className="itemImage" 
-                        src={props.extra[materialPicked].images[0]}
-                    />
-                </Link>
-            </div>
-            <Link className="itemCardHeader"  to={itemURL}>
-                {props.name}
-            </Link>
-            <div className="itemCardPrice">{"$"+parseFloat(props.price).toFixed(2)}</div>
-            <div className="itemCardMaterials"  >         
-                    {metaDescriptions()}               
-            </div>
-        </div>
+        testCard()
     )
 }
 

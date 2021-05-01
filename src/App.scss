@@ -105,9 +105,7 @@ h1{
       margin-bottom: 5px;
   }
 
-  #content-not-found-page{
-   
-  }
+ 
 
   #footer{
 
@@ -132,6 +130,14 @@ h1{
     font-family: $header-font-stack !important;
     display:inline-block;
     margin-top: .5em;
+
+    a:link {
+      color: $palette-accent-fourth
+    }
+  
+    A:visited{
+      color: $palette-accent-second
+    }
   }
 
 
@@ -150,15 +156,14 @@ h1{
   .itemCard{
     height:100%;
     display: grid;
-    grid-template-rows: 1fr max-content;
+    grid-template-rows: 2fr max-content;
+    border: solid 1px black;
     border-radius: 5%;
-    box-shadow: 10px 5px 5px rgba($palette-accent-fourth,.125);
+    box-shadow: 10px 5px 5px rgba($palette-accent-fourth,.5)!important;
     background-color: white;
-    
-    // background: red;
-  }
+      }
   .itemCardMaterials{
-    display: inline-block;
+    // display: inline-block;
     margin-left: auto;
     margin-right: auto;
     margin-top: .5em;
@@ -202,8 +207,8 @@ h1{
   .itemImage{
     // width:20%;
     // display:block;
-    max-height:100px;
-    max-width: 100px;
+    max-height:90px;
+    max-width: 90px;
     // width:auto;
     // text-align: center;
     line-height: normal;
@@ -218,9 +223,9 @@ h1{
 
   }
 
-  .card{
-    box-shadow: none !important;
-  }
+  // .card{
+  //   box-shadow: none !important;
+  // }
 
   .homepageCategoryCard{
     // height:100%;
@@ -235,10 +240,9 @@ h1{
     font-family: $header-font-stack;
     color:white;
   }
-
+  
   .column:nth-child(even) .itemCardImageContainer{
     background-image: linear-gradient( to left top,rgba($palette-accent-second,1), rgba($palette-accent-third,1));
-
   }
    .column:nth-child(odd) .itemCardImageContainer{
     background-image: linear-gradient( to left top,rgba($palette-accent-third,1), rgba($palette-accent-fourth,1));
@@ -602,6 +606,10 @@ h1{
   //   // background-color: $palette-accent-fourth;
   //   background-image: linear-gradient( to left top,rgba($palette-accent-fourth,1), rgba($palette-accent-first,1));
   // }
+
+
+
+ 
 
 
   a:link {
