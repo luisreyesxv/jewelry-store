@@ -8,6 +8,7 @@ added cors and tried to make the cors dynamic. I wanted to have the domain be di
 
 # Libraries
 lodash.debounce
+react-cookie-consent
 
 
 # Credits for "outside sources"

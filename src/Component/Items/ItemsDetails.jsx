@@ -56,7 +56,7 @@ const ItemsDetails =(props)=>{
                 ["Clasp", "Fold Over"]
 
             ],
-            grills: [
+            grill: [
                 ["Width:", "1/2 inches"],
                 ["Length:", "1 3/5 inches"]
             ],

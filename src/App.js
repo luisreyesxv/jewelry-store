@@ -1,4 +1,5 @@
 import './App.scss';
+import CookieConsent from "react-cookie-consent"
 import {useLocation} from 'react-router-dom'
 import UserContext from './Context/UserContext'
 import MobileContext from './Context/MobileContext'
@@ -180,6 +181,11 @@ const App = () => {
 
     
     <div className="App">  
+    <CookieConsent >
+    We use cookies and other tracking technologies to improve your browsing experience on our website, 
+    to show you personalized content and targeted ads, to analyze our website traffic,
+     and to understand where our visitors are coming from.
+    </CookieConsent>
       
     <MobileContext.Provider value={{mobile}}>
         <UserContext.Provider  value={{user,login,logout, loggingOut}} >

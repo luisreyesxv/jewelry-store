@@ -52,7 +52,7 @@ const ItemCard=(props)=>{
             )
         
     }
-    console.log("luis",props)
+
 
     return(
       
