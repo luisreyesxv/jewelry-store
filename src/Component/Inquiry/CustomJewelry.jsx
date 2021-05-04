@@ -6,8 +6,7 @@ import logoSVG from '../Logos/logo'
 
 
 const CustomJewelry = (props)=>{
-    // const [inquiry,setInquiry]= useState({firstName: "", lastName: "", email:"", budget: "", diamond: "", material:"", description: ""})
-    const [inquiry,setInquiry]= useState({firstName: "luis", lastName: "reyes", email:"luisreyesxv@yahoo.com", budget: "2225.50", diamond: "swag swag", material:"gold", description: "long description"})
+    const [inquiry,setInquiry]= useState({firstName: "", lastName: "", email:"", budget: "", diamond: "", material:"", description: ""})
 
     const [error,setError]= useState({status:false, message: "Please make sure all fields are filled in"})
     const [success, setSuccess] = useState(false)

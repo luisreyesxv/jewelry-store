@@ -154,9 +154,11 @@ const CollectionsContainer = (props)=>{
     const [showcaseItems,setShowcaseItems] = useState()
     const [paginationIndex, setPaginationIndex] = useState({current: 1, max: 1})
     const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     useEffect(()=>{
         if(categoryNames.includes(category)){
+            setLoading(true)
         getItems({category: category})
         }
         else{
@@ -168,6 +170,7 @@ const CollectionsContainer = (props)=>{
         if(categoryNames.includes(category)){
         document.title=process.env.REACT_APP_TITLE + " " + category
         setError(false)
+        setLoading(true)
         getItems({category: category})
         }
         else setError(true)
@@ -192,17 +195,15 @@ const CollectionsContainer = (props)=>{
             .then(response=> response.json())
             .then(itemsObj =>{
 
-                console.log(itemsObj.items)
+                setLoading(false)
                 setShowcaseItems(itemsObj.items)
-                setPaginationIndex({...paginationIndex, max: itemsObj.meta.total_pages})
+                setPaginationIndex({current: page, max: itemsObj.meta.total_pages})
             })
 
 
     }
     const displayShowcaseItemCards =()=>{
         const itemCards = showcaseItems?.map((element)=>{
-            // const itemCards = testItems?.map((element)=>{
-
             return (
 
           <>
@@ -219,11 +220,11 @@ const CollectionsContainer = (props)=>{
                <>
                 <Grid.Row stretched centered={true} only="computer" columns="5"  >
                     {/* {itemCards} */}
-                    {showcaseItems? itemCards: placeholderItems()}
+                    {loading?  placeholderItems(): itemCards}
                 </Grid.Row>
                 <Grid.Row  stretched centered={true} only="mobile tablet" columns="2" stackable="true" >
                     {itemCards}
-                    {showcaseItems? itemCards: placeholderItems()}
+                    {loading?  placeholderItems(): itemCards}
                 </Grid.Row>
                 </>
            )
@@ -233,6 +234,8 @@ const CollectionsContainer = (props)=>{
 
     const changeHandler = (e,data)=>{
         const currentPage = data.activePage
+
+        console.log(data)
 
         if (currentPage !== paginationIndex.current){
             getItems({category: category, page: currentPage})
@@ -314,7 +317,7 @@ const CollectionsContainer = (props)=>{
     const renderPagination = ()=>{
         return(
                 <Pagination  
-                    defaultActivePage = {1}
+                    // defaultActivePage = {1}
                     activePage = {paginationIndex.current}
                     totalPages = {paginationIndex.max}
                     onPageChange = {changeHandler}

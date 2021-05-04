@@ -20,6 +20,15 @@ Homepage category credits
 * Grills Photo by  <a href="https://www.toothologydental.com/grills-history/"> Toothology Dental </a>
 * Custom Work Inquiry Banner Photo by <a href="https://burst.shopify.com/@ndekhors?utm_campaign=photo_credit&amp;utm_content=Picture+of+Mens+Watch+%26+Ring+-+Free+Stock+Photo&amp;utm_medium=referral&amp;utm_source=credit">Nicole De Khors</a> from <a href="https://burst.shopify.com/watch?utm_campaign=photo_credit&amp;utm_content=Picture+of+Mens+Watch+%26+Ring+-+Free+Stock+Photo&amp;utm_medium=referral&amp;utm_source=credit">Burst</a>
 
+
+Jewelry Credits
+
+* All images of grills come from [King Johnny (Johnnys Custom Jewelry)](https://johnnyscustomjewelry.com/grillz/)
+* Most images of rings come from [My Trio Rings](https://www.mytriorings.com/)
+* Most images of necklaces come from [King Ice](https://www.kingice.com/)
+* Most images of earrings come from [Ross-Simmons](https://www.ross-simons.com/)
+
+
 Every other image else (not jewelry)  comes from Nappy.co
 
 Inquiry List credits

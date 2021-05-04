@@ -100,7 +100,7 @@ const ItemsImage = (props)=>{
 
         // props.images? imagesFound() : placeholders()
         // placeholders()
-        <Grid stackable={false} columns="2" divided>
+        <Grid stackable={false} columns="equal" divided>
                 <Grid.Column width="4" >
                     <List selection={!!props.images}>
                         {props.images? thumbnails(): placeholderThumbnails()}

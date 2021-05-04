@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import {useHistory} from 'react-router-dom'
 import CartContextConsumer from '../../Context/CartContextConsumer'
 
 
@@ -9,8 +10,7 @@ import materialColors from '../Materials/MaterialButtons'
 
 
 const ItemsBasicInfo = (props)=>{
-
-    
+    const history = useHistory()
 
     const title = ()=>{
         return(
@@ -73,7 +73,7 @@ const ItemsBasicInfo = (props)=>{
     }
 
 
-    const cartOnClick =(e)=>{
+    const cartOnClick =({e,now=false})=>{
         e.preventDefault()
         props.changeCart(
             {instruction:"add",
@@ -88,6 +88,10 @@ const ItemsBasicInfo = (props)=>{
 
         )
 
+        if (now){
+            history.push('/checkout')
+        }
+
 
     }
 
@@ -100,6 +104,13 @@ const ItemsBasicInfo = (props)=>{
                         {props.item? title(): placeholderTitle()}
                     </Grid.Column>
                 </Grid.Row>
+                <Grid.Row centered="true">
+                    <Grid.Column>
+                       <em>
+                       {props.item?.detail}
+                           </em> 
+                    </Grid.Column>
+                </Grid.Row>
                 <Grid.Row>
                 
                     <Grid.Column>
@@ -110,9 +121,13 @@ const ItemsBasicInfo = (props)=>{
                     </Grid.Column>
                     
                 </Grid.Row>
-                <Grid.Row>
+                <Grid.Row textAlign="center">
                     <Grid.Column>
-                        <Button color="green" onClick={cartOnClick}>Add to Cart</Button>
+                        <Button.Group fluid>
+                            <Button color="green" onClick={e=>cartOnClick({e:e})}>Add to Cart</Button>
+                            <Button.Or/>
+                            <Button color="orange" onClick={e=>cartOnClick({e:e, now:"true"})}> Buy Now</Button>
+                        </Button.Group>
                     </Grid.Column>
                 </Grid.Row>
                 <Divider  fitted={true}/>
@@ -132,7 +147,7 @@ const ItemsBasicInfo = (props)=>{
                 </Grid.Row>
                 
                 <Grid.Row > 
-                    <Grid.Column>
+                    <Grid.Column textAlign="center">
                         <div className="itemCardMaterials"  >         
                             {props.item? metaDescriptions():null}       
                         </div>

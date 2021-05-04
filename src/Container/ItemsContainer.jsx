@@ -98,18 +98,12 @@ const ItemsContainer =(props)=>{
                       </Grid.Column>
                       <Grid.Column mobile="16" computer ="8" tablet="8">
                         <ItemsBasicInfo item={item} materialPicked={material} setMaterial={setMaterial}/>
-                        {/* <p>{item?.description + item?.description }</p> */}
-                        {/* {"luis"+material} */}
                       </Grid.Column>
                   </Grid.Row>
                   <Grid.Row>
-                    <ItemsDetails item={item}/>
+                    <ItemsDetails item={item} materialPicked={material}/>
                   </Grid.Row>
-                  <Grid.Row>
-                    <Grid.Column>
-                      <ShoppingCartItemsContainer cart={JSON.parse(localStorage.getItem("cart"))}  disabled={true}/>
-                    </Grid.Column>
-                  </Grid.Row>
+                  
                 </Grid>
               </Container>
             )

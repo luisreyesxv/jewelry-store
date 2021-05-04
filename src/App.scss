@@ -250,8 +250,8 @@ h1{
 }
 
 .specialItemImage{
-  max-height:150px;
-  max-width: 150px;
+  max-height:250px;
+  max-width: 250px;
   line-height: normal;
 }
   .homepageCategoryCard{
@@ -422,7 +422,8 @@ h1{
   }
 
   #items-page-main{
-    height: 300px;
+    height: 100%;
+    width: 100%;
   }
 
   #items-thumbnail-image-container{

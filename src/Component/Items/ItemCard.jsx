@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Header, Card} from 'semantic-ui-react'
+import { Header, Card, Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
 import materialColors from '../Materials/MaterialButtons'
@@ -10,6 +10,7 @@ import SmoothLoadingImage from '../SmoothLoadingImage'
 const ItemCard=(props)=>{
 
     const [materialPicked,setMaterialPicked]= useState(props.materials[0].name)
+   
     
     const changeMaterial =(e)=>{
        e.preventDefault()
@@ -51,45 +52,43 @@ const ItemCard=(props)=>{
             )
         
     }
-
-    const testCard =()=>{
-        return (
-            <>
-        
-            <Card className="itemCard" >
-					 <div className="itemCardImageContainer" >
-                         <Link to={itemURL} >
-                             <SmoothLoadingImage     
-                                className="itemImage" 
-                                src={props.extra[materialPicked].images[0]}
-                            />
-                        </Link>
-                    </div>
-					<div className="content">
-                    
-                        <Header as={Link} to={itemURL} className="itemCardHeader" size="tiny" >
-                            {props.name}
-                        </Header>
-						<div className="description">
-                        <div className="itemCardPrice">{"$"+parseFloat(props.price).toFixed(2)}</div>
-						</div>
-					</div>
-					<Card.Meta className="itemCardMaterials">
-                        {metaDescriptions()}   	
-					</Card.Meta>
-            </Card>  
-            
-
-            </>
-             
-
-        )
-
-
-    }
+    console.log("luis",props)
 
     return(
-        testCard()
+      
+        
+        <Card className="itemCard" >
+                 <div className="itemCardImageContainer" >
+                     <Link to={itemURL} >
+                         <SmoothLoadingImage     
+                            className="itemImage" 
+                            src={props.extra[materialPicked].images[0]}
+                        />
+                    </Link>
+                </div>
+                <Card.Content>
+                
+                    <Header as={Link} to={itemURL} className="itemCardHeader" size="tiny" >
+                        {props.name}
+                    </Header>
+                    <Card.Description>
+                            <Button as={Link} to={itemURL} size="tiny" className="shopping-cart-button"> 
+                                See More
+                            </Button>
+                    </Card.Description>
+                    
+                    <Card.Description>
+                    <div className="itemCardPrice">{"$"+parseFloat(props.price).toFixed(2)}</div>
+                    </Card.Description>
+                    
+                </Card.Content>
+                <Card.Meta className="itemCardMaterials">
+                    {metaDescriptions()}   	
+                </Card.Meta>
+        </Card>  
+        
+
+       
     )
 }
 
@@ -138,28 +137,33 @@ export const SpecialItemCard=(props)=>{
         
     }
 
-    const testCard =()=>{
-        return (
-            <>
+
+    return(
+        <>
         
             <Card className="specialItemCard">
 					 <div className="specialItemCardImageContainer"  >
                          <Link to={itemURL} >
                              <SmoothLoadingImage     
-                                className="itemImage" 
+                                className="specialItemImage" 
                                 src={props.extra[materialPicked].images[0]}
                             />
                         </Link>
                     </div>
-					<div className="content">
+					<Card.Content>
                     
                         <Header as={Link} to={itemURL} className="itemCardHeader" size="large" >
                             {props.name}
                         </Header>
-						<div className="description">
-                        <div className="itemCardPrice">{"$"+parseFloat(props.price).toFixed(2)}</div>
-						</div>
-					</div>
+                        <Card.Description>
+                            <Button as={Link} to={itemURL} size="small" className="shopping-cart-button"> 
+                                See More
+                            </Button>
+                        </Card.Description>
+						<Card.Description>
+                            <div className="itemCardPrice">{"$"+parseFloat(props.price).toFixed(2)}</div>
+						</Card.Description>
+                    </Card.Content>
 					<Card.Meta className="itemCardMaterials">
                         {metaDescriptions()}   	
 					</Card.Meta>
@@ -167,15 +171,6 @@ export const SpecialItemCard=(props)=>{
             
 
             </>
-             
-
-        )
-
-
-    }
-
-    return(
-        testCard()
     )
 }
 
