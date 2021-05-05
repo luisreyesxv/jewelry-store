@@ -1,32 +1,32 @@
 import React from 'react'
-import {Placeholder, Image,Grid, Header, Container} from 'semantic-ui-react'
+import {Grid, Header} from 'semantic-ui-react'
 
 
 import MobileContextConsumer from '../../Context/MobileContextConsumer'
 
 
-const HomePageHero = (props)=>{
+const HomePageHero = ()=>{
 
 
-    const content = ()=>{
+    const hero = ()=>{
 
         return(
-            <div className="homepage-hero-text-container">
-            <p id="homepage-hero-header">
-              Bartolome Jewelry
-             </p>
-             <div  id="homepage-hero-small-text">
-                 <p>
-                     Smashing together everyday fashion and fine jewelry, Bartolome Jewelry offers a wide collection of custom pieces and designer products.
-                 </p>
-                 <p>We design masterpieces for you. Come talk to us.</p>
-             </div>
-         
-         
-    
-         
-         </div>
 
+ 
+            <Grid.Column width="8" stretched verticalAlign="middle">
+                <Header  id="homepage-hero-header">
+                    Bartolome Jewelry
+                    <Header.Subheader id="homepage-hero-small-text">
+                        <p>
+                        Smashing together everyday fashion and fine jewelry, Bartolome Jewelry offers a wide collection of custom pieces and designer products.
+                        </p>
+                        <p>
+                        We design masterpieces for you. Come talk to us.
+                        </p>
+                    </Header.Subheader>
+                </Header>
+            </Grid.Column>
+            
         )
     }
 
@@ -34,8 +34,8 @@ const HomePageHero = (props)=>{
 
     return(
 
-        <Grid.Row id="homepage-hero" >
-            {props.mobile? content() : <Grid.Column width="16" children={content()} /> }
+        <Grid.Row columns="2" id="homepage-hero" >
+            {hero()}
         </Grid.Row>
     )
 }
