@@ -80,7 +80,7 @@ const ItemsDetails =(props)=>{
                                     <strong>{row[0]}</strong>
 
                                 </Table.Cell>
-                                <Table.Cell>
+                                <Table.Cell width="9">
                                     {row[1]}
                                 </Table.Cell>
                 </Table.Row>
@@ -95,7 +95,7 @@ const ItemsDetails =(props)=>{
                             <Table.Cell>
                                 <strong>Material:</strong>
                             </Table.Cell>
-                            <Table.Cell>
+                            <Table.Cell width="9">
                                 {props.materialPicked.toUpperCase()}
                             </Table.Cell>
                         </Table.Row>

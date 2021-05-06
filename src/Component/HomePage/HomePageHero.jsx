@@ -13,7 +13,7 @@ const HomePageHero = ()=>{
         return(
 
  
-            <Grid.Column width="8" stretched verticalAlign="middle">
+            <Grid.Column width="8" stretched={true} verticalAlign="middle">
                 <Header  id="homepage-hero-header">
                     Bartolome Jewelry
                     <Header.Subheader id="homepage-hero-small-text">

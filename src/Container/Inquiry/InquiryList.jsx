@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {Grid } from 'semantic-ui-react'
 
 
@@ -9,7 +9,13 @@ import InquiryListItem from '../../Component/Inquiry/InquiryListItem'
 
 
 const InquiryList =()=>{
-    const inqueries = [{
+
+    useEffect(()=>{
+        document.title="Inquiry -"+ process.env.REACT_APP_TITLE
+    },[])
+
+
+    const inquiries = [{
         categoryName: "Custom Jewelry",
         link: "/inquiry/CustomJewelry",
         img: "url('https://images.nappy.co/uploads/large/10815965055639570qofkckwudezszuo0nb2fuit2rwgtfyzr6piys9jzpycn7jojsofsgu1x8e7wfeivypmf6p2yfysnsxt0b5w1mussayafwmxa.jpg?auto=format&fm=jpg&w=1280&q=75')"
@@ -29,12 +35,12 @@ const InquiryList =()=>{
 
 
 
-    const displayInqueries=()=>{
+    const displayInquiries=()=>{
 
-        const inquiryComponents = inqueries.map((category)=>{
+        const inquiryComponents = inquiries.map((category)=>{
 
             return(
-                <Grid.Column key={"HomePage "+category.categoryName} textAlign="center" >
+                <Grid.Column key={"HomePage "+category.categoryName} textAlign="center"  >
                     {/* {category.categoryName.toUpperCase()}
                      */}
                      <InquiryListItem 
@@ -53,17 +59,17 @@ const InquiryList =()=>{
             
              
 
-                <p id="inquiryMessage">Bartolome Jewelry is here to help with your custom work. Whether that means wanting to specially design a one-of-a-kind jewelry, to reimagine a cherished pieced, or to retouch jewelry that means something to you. 
+                <p id="inquiryMessage">{ process.env.REACT_APP_TITLE} is here to help with your custom work. Whether that means wanting to specially design a one-of-a-kind jewelry, to reimagine a cherished pieced, or to retouch jewelry that means something to you. 
                 Reach out through one of the links below where we can see what we can do for you.   </p>
 
                 
 
             
-                <Grid  centered={true} id="inquiryListRow">
-                    <Grid.Row className = "inquiry-list-categories" stretched centered={true} only="computer tablet" columns="2"  >
+                <Grid  centered={true} >
+                    <Grid.Row className = "inquiry-list-categories" stretched centered={true} only="computer tablet" columns="equal"  >
                         {inquiryComponents }
                     </Grid.Row>
-                    <Grid.Row className = "inquiry-list-categories" stretched centered={true} only="mobile" columns="2" stackable="true" >
+                    <Grid.Row className = "inquiry-list-categories"  centered={true} only="mobile" columns="2" stackable="true" >
                         {inquiryComponents }
                     </Grid.Row>
                 </Grid>
@@ -79,7 +85,7 @@ const InquiryList =()=>{
     return (
         <>
     
-            {displayInqueries()}
+            {displayInquiries()}
     
         </>
     )

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
 
 $palette-majority: #EBE2CA;
 $palette-accent-first: #F7B85A;
@@ -16,13 +17,21 @@ $lengthSmall1: .5rem;
 $lengthSmall2: .375rem;
 $lengthSmall3: .25rem;
 
-$header-font-stack: 'Noto Sans', sans-serif;  ;
+$header-font-stack: 'Noto Sans', sans-serif;
+$body-font-stack: 'Noto Serif', serif;
 
 
 
 .App {
   width: 100vw;
+  font-family: $body-font-stack
 }
+
+p{
+  font-family: $body-font-stack
+
+}
+
 
 #sidebar-main-menu{
   background-color: $palette-accent-third
@@ -30,6 +39,8 @@ $header-font-stack: 'Noto Sans', sans-serif;  ;
 
 .menu-bar-link{
   font-size: $lengthMedium3;
+  font-family: $body-font-stack
+
 }
 #menu-bar-cart{
 color: $palette-majority;
@@ -41,6 +52,7 @@ text-align: center;
     vertical-align: middle;
     font-size: $lengthMedium3;
     margin-top: 5px;
+    
   }
 
 
@@ -61,8 +73,6 @@ h1{
 
 .page-container-grid{
   padding-bottom: 3em;
-  // background-image: radial-gradient( farthest-corner, rgba($palette-accent-first,1), rgba($palette-majority,1)) !important;
-
 }
 
 .App-link {
@@ -71,11 +81,8 @@ h1{
 
 
 #primary-menu-bar{
-  // background-image: linear-gradient( to left top,rgba($palette-accent-first,1), rgba($palette-accent-fourth,.5)); 
   background-image: linear-gradient( to left top,rgba($palette-accent-second,1), rgba($palette-accent-third,.5));
-
   border-radius: 0;
-  // margin-bottom: .75em;
 }
 
 #shopping-cart-icon
@@ -109,10 +116,10 @@ h1{
 
   #footer{
 
-    // margin-top: 5vh;
     background-color: $palette-accent-third;
     color: $palette-majority;
     font-weight: bolder;
+    
   }
 
   .subtext404{
@@ -277,14 +284,14 @@ h1{
     background-image: linear-gradient( to left top,rgba($palette-accent-fourth,1), rgba($palette-accent-first,1));
   }
 
-.homepage-categories .column:nth-child(even) .homepageCategoryCard, .inquiry-list-categories .column:nth-child(even) .inquiryListCard{
+.homepage-categories .column:nth-child(even) .homepageCategoryCard{
   // background-image: linear-gradient( to left top,rgba($palette-accent-fourth,1), rgba($palette-accent-first,1));
   // background-image:url("https://miro.medium.com/max/1400/1*doaM-B5h4HFMeMHaRTEfdQ.jpeg");
   background-color: rgba($palette-accent-second,.75);
   background-blend-mode: multiply;
   background-repeat: no-repeat;
   background-size: 100% 100%;}
-.homepage-categories .column:nth-child(odd) .homepageCategoryCard, .inquiry-list-categories .column:nth-child(odd) .inquiryListCard{
+.homepage-categories .column:nth-child(odd) .homepageCategoryCard{
   // background-image: linear-gradient( to left top,rgba($palette-accent-fourth,1), rgba($palette-accent-first,1));
   // background-image:url("https://miro.medium.com/max/1400/1*doaM-B5h4HFMeMHaRTEfdQ.jpeg");
   background-color: rgba($palette-accent-fourth,.75);
@@ -293,7 +300,7 @@ h1{
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-.homepage-categories .column:nth-child(3n+3) .homepageCategoryCard, .inquiry-list-categories .column:nth-child(3n+3) .inquiryListCard{
+.homepage-categories .column:nth-child(3n+3) .homepageCategoryCard{
   // background-image: linear-gradient( to left top,rgba($palette-accent-fourth,1), rgba($palette-accent-first,1));
   // background-image:url("https://miro.medium.com/max/1400/1*doaM-B5h4HFMeMHaRTEfdQ.jpeg");
   background-color:rgba( $palette-accent-first,.75);
@@ -579,9 +586,10 @@ h1{
       }
       
       #inquiryListRow{
-        height: 100vh;
         border-radius: 5%;
         padding: 5%;
+        font-family: $header-font-stack;
+        background-color: $palette-accent-first; 
       }
 
       #inquiryMessage{
@@ -595,8 +603,15 @@ h1{
       .inquiry-header{
 
         color: $palette-accent-third;
-        font-size: $lengthLarge3;
+        // font-size: $lengthLarge3;
         font-family: $header-font-stack;
+        background-image: radial-gradient( farthest-corner, rgba($palette-accent-third,.5), rgba($palette-accent-fourth,.5)) !important;
+        color: $palette-majority;
+       
+      }
+
+      .inquiry-list-categories{
+        margin: 1em;
       }
 
 

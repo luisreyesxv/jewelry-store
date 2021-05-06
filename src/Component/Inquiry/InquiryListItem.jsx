@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import {Card} from "semantic-ui-react"
 import {Link} from 'react-router-dom'
 
 
@@ -6,33 +7,24 @@ import {Link} from 'react-router-dom'
 
 
 const InquiryListItem =(props)=>{
-    const [hovered,setHovered]= useState(false)
-
-
 
     return (
-        <Link as="div" to={props.link}
+
+
+        <Card
+            as={Link}
+            to={props.link}
+            raised
+            style={{backgroundImage: props.img,backgroundSize: "100% 100%", margin: "1em"}}
         
-        style={
-            hovered?
-            {textDecoration:"white underline"}
-        :
-        null
-        }
-        onMouseEnter={()=>setHovered(true)}
-        onMouseLeave={()=>setHovered(false)}
         >
-        <div className="inquiryListCard" style={{backgroundImage: props.img}}>
+            <Card.Content className="inquiry-header"  style={{ height: "25vh", paddingTop: "50%"}}>
+            { props.categoryName}
+            </Card.Content>
+        </Card>
+
+
         
-                   <div style={{lineHeight:"25vh"}}>
-                   <div >{ props.categoryName}</div>
-                  
-                   </div>
-
-
-
-        </div>
-        </Link>
     )
 }
 

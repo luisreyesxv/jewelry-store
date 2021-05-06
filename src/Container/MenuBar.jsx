@@ -25,15 +25,13 @@ const MenuBar =(props)=>{
 
     const customForms = [
         {text: "Custom Jewelry Inquiry", link: "/inquiry/CustomJewelry"},
-        // {text: "Luxury Timepiece Inquiry", link: "/inquiry/LuxuryTimePiece"},
         {text: "Repair Inquiry", link: "/inquiry/Repair"},
         {text: "Repurpose Jewelry Inquiry", link: "/inquiry/Repurpose"}
     ]
 
     const collectionCategories = categories
 
-    const accountOrRegister = props.user?{text:"My Account",link: "/account"} : {text:"Sign Up",link:"/register"}
-
+    const accountLinks = props.user ? [{text:"Login",component:<LogInButton />}] : [ {text:"Sign Up",link:"/register"},{text:"Login",component:<LogInButton />}] 
 
     const mobileDropdown = ()=> {     
        return (
@@ -89,7 +87,7 @@ const MenuBar =(props)=>{
                         <SearchBarContainer />
                     </Menu.Item>
                     <ShoppingCartComponent />
-                <DropdownComponent title="Account" items={[accountOrRegister,{text:"Login",component:<LogInButton />}]} name="Account" setActive={setActiveTab}  active={activeTab} setSidebarOpen={setSidebarOpened} />
+                <DropdownComponent title="Account" items={accountLinks} name="Account" setActive={setActiveTab}  active={activeTab} setSidebarOpen={setSidebarOpened} />
 
 
 
@@ -117,7 +115,7 @@ const MenuBar =(props)=>{
                     {props.user? <Menu.Item> {props.user}</Menu.Item> : null}
                    
                     {props.mobile?
-                        <DropdownComponent title="Account" items={[accountOrRegister,{text:"Login",link: "/LogIn"}]} name="Account" setActive={setActiveTab}  active={activeTab} setSidebarOpen={setSidebarOpened} />
+                        <DropdownComponent title="Account" items={accountLinks} name="Account" setActive={setActiveTab}  active={activeTab} setSidebarOpen={setSidebarOpened} />
                     :
                     null}
                
