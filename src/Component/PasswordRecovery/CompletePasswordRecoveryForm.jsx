@@ -3,7 +3,6 @@ import {Form, Button, Message, Image, Header} from 'semantic-ui-react'
 import {Link, useParams} from 'react-router-dom'
 
 import UserContextConsumer from '../../Context/UserContextConsumer'
-import logoSVG from '../../Component/Logos/logo'
 
 
 
@@ -110,7 +109,7 @@ const CompletePasswordRecoveryForm = (props)=>{
 return (
 <>
             <Header as="h2" textAlign="center" >
-                <Image src={logoSVG}  size="massive"/> Complete Password Reset
+                 Complete Password Reset
             </Header>
     <Form loading={loading} size="large" className="log-in-register-form" onSubmit={onSubmitHandler} error={error.status}>
                 

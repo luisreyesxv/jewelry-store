@@ -613,6 +613,11 @@ h1{
       .inquiry-list-categories{
         margin: 1em;
       }
+      #loading-screen{
+        background-image: linear-gradient( to left top,rgba($palette-accent-second,.50), rgba($palette-accent-third,.50));
+        
+        
+      }
 
 
   // .column:nth-child(3n+1) > .itemCard > div > a> img{

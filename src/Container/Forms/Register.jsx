@@ -4,7 +4,6 @@ import {Link, Redirect} from 'react-router-dom'
 
 import UserContextConsumer from '../../Context/UserContextConsumer'
 import FormContainer from './FormContainer'
-import logoSVG from '../../Component/Logos/logo'
 
 
 
@@ -96,7 +95,7 @@ const Register =(props)=>{
             return(
            <>
                     <Header as="h2" textAlign="center" >
-                        <Image src={logoSVG}  size="massive"/> Register New Account
+                         Register New Account
                     </Header>
                     
                     <Form loading={loading} size="large" className="log-in-register-form" onSubmit={onSubmitHandler} error={error.status}>

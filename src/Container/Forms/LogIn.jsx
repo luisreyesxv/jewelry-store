@@ -6,8 +6,6 @@ import UserContextConsumer from '../../Context/UserContextConsumer'
 import FormContainer from './FormContainer'
 
 
-import logoSVG from '../../Component/Logos/logo'
-
 
 
 
@@ -87,7 +85,7 @@ const LogIn =(props)=>{
             return(
                <>
                     <Header as="h2" textAlign="center" >
-                        <Image src={logoSVG}  size="massive"/> Log-in to your Account
+                         Log-in to your Account
                     </Header>
                     
                         <Form loading={loading} size="large" className="log-in-register-form" onSubmit={onSubmitHandler} error={error.status}>

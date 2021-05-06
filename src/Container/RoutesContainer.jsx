@@ -13,6 +13,8 @@ import {Route,Switch, Redirect} from 'react-router-dom'
 // import InquiryContainer from './Inquiry/Inquiry'
 // import CollectionsContainer from './Collections/CollectionsContainer'
 // import AccountContainer from './AccountContainer'
+import LoadingScreen from '../Component/LoadingScreen'
+
 
 const HomePage = React.lazy(() => import('./HomePage/HomePage'))
 const ItemsContainer = React.lazy(()=> import(  './ItemsContainer'))
@@ -34,7 +36,7 @@ const RoutesContainer = ()=>{
 
 
 return (
-     <React.Suspense fallback={<span> Loading ...</span>} >
+     <React.Suspense fallback={<LoadingScreen />} >
      <Switch> 
             <Route exact path="/items/:slug" render ={(routerProps)=><ItemsContainer/>} />
             <Route path="/inquiry" render={(browserProps)=> <InquiryContainer {...browserProps}/>} />
@@ -44,6 +46,7 @@ return (
             <Route path="/Register" render={(browserProps)=> <Register />} />
             <Route path="/PasswordRecovery" render={(browserProps)=> <PasswordRecoveryContainer {...browserProps}/>} />
             <Route path="/checkout" render={(browserProps)=> <CheckoutContainer />} />
+            <Route path="/loading" render={(browserProps)=> <LoadingScreen />} />
 
 
 

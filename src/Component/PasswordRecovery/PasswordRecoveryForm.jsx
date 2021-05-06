@@ -2,8 +2,6 @@ import React, {useState} from 'react'
 import {Form, Button, Message, Image, Header} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
-import logoSVG from '../../Component/Logos/logo'
-
 
 
 
@@ -89,7 +87,7 @@ const PasswordRecoveryForm = (props)=>{
 return (
         <>
             <Header as="h2" textAlign="center" >
-                <Image src={logoSVG}  size="massive"/> Forgot Password
+               Forgot Password
             </Header>
             <Form loading={loading} size="large" className="log-in-register-form" onSubmit={onSubmitHandler} error={error.status}>
                     <Form.Input  

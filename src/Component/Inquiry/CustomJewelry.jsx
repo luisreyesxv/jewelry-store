@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Form, Button, Message, Image, Header} from 'semantic-ui-react'
-import logoSVG from '../Logos/logo'
+import {Form, Button, Message, Header} from 'semantic-ui-react'
 
 
 
@@ -52,8 +51,8 @@ const CustomJewelry = (props)=>{
 
         <>
             <Form  size="large" className="log-in-register-form" onSubmit={submitHandler} error={error.status}>
-                <Header as="h2" textAlign="center" id="inquiry-header">
-                    Custom Jewelry Inquiry <Image src={logoSVG}  size="massive"/> 
+                <Header textAlign="center" id="inquiry-header" >
+                    Custom Jewelry Inquiry
                 </Header>
 
                 <Message  size="mini">

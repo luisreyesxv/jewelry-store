@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import {Form, Button, Message, Image, Header} from 'semantic-ui-react'
-import logoSVG from '../Logos/logo'
 
 
 
@@ -45,7 +44,7 @@ const RepurposeJewelryInquiry = (props)=>{
         <>
             <Form  size="large" className="log-in-register-form" onSubmit={submitHandler} error={error.status}>
                 <Header as="h2" textAlign="center" id="inquiry-header">
-                    Repurpose Jewelry Inquiry <Image src={logoSVG}  size="massive"/> 
+                    Repurpose Jewelry Inquiry
                 </Header>
 
                 <Message  size="mini">
