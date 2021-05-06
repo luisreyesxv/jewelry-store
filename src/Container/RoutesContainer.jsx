@@ -3,16 +3,28 @@ import {Route,Switch, Redirect} from 'react-router-dom'
 
 
 
-import HomePage from './HomePage/HomePage'
-import ItemsContainer from './ItemsContainer'
-import Normal404Page from '../Component/404/Normal404Page'
-import LogIn from './Forms/LogIn'
-import Register from './Forms/Register'
-import PasswordRecoveryContainer from './Forms/PasswordRecoveryContainer'
-import CheckoutContainer from './Checkout'
-import InquiryContainer from './Inquiry/Inquiry'
-import CollectionsContainer from './Collections/CollectionsContainer'
-import AccountContainer from './AccountContainer'
+// import HomePage from './HomePage/HomePage'
+// import ItemsContainer from './ItemsContainer'
+// import Normal404Page from '../Component/404/Normal404Page'
+// import LogIn from './Forms/LogIn'
+// import Register from './Forms/Register'
+// import PasswordRecoveryContainer from './Forms/PasswordRecoveryContainer'
+// import CheckoutContainer from './Checkout'
+// import InquiryContainer from './Inquiry/Inquiry'
+// import CollectionsContainer from './Collections/CollectionsContainer'
+// import AccountContainer from './AccountContainer'
+
+const HomePage = React.lazy(() => import('./HomePage/HomePage'))
+const ItemsContainer = React.lazy(()=> import(  './ItemsContainer'))
+const Normal404Page = React.lazy(()=> import( '../Component/404/Normal404Page'))
+const LogIn = React.lazy(()=> import( './Forms/LogIn'))
+const Register = React.lazy(()=> import( './Forms/Register'))
+const PasswordRecoveryContainer = React.lazy(()=> import(  './Forms/PasswordRecoveryContainer'))
+const CheckoutContainer = React.lazy(()=> import(  './Checkout'))
+const InquiryContainer = React.lazy(()=> import( './Inquiry/Inquiry'))
+const CollectionsContainer = React.lazy(()=> import( './Collections/CollectionsContainer'))
+
+
 
 
 
@@ -22,6 +34,7 @@ const RoutesContainer = ()=>{
 
 
 return (
+     <React.Suspense fallback={<span> Loading ...</span>} >
      <Switch> 
             <Route exact path="/items/:slug" render ={(routerProps)=><ItemsContainer/>} />
             <Route path="/inquiry" render={(browserProps)=> <InquiryContainer {...browserProps}/>} />
@@ -40,6 +53,7 @@ return (
             <Route exact path='*' render ={(browserProps)=> <Normal404Page  {...browserProps}/>} />
                 
      </Switch>
+  </React.Suspense> 
 )
 
 }
