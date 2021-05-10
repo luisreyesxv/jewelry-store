@@ -5,7 +5,7 @@ import MobileContextConsumer from '../Context/MobileContextConsumer'
 import debounce from 'lodash.debounce'
 
 
-import {Search,Menu, Button, Container,Segment,Sidebar, Icon, Label} from 'semantic-ui-react'
+import {Search,Menu,Sidebar, Icon} from 'semantic-ui-react'
 
 
 

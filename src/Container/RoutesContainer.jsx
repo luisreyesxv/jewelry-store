@@ -1,18 +1,6 @@
 import React from 'react'
-import {Route,Switch, Redirect} from 'react-router-dom'
+import {Route,Switch} from 'react-router-dom'
 
-
-
-// import HomePage from './HomePage/HomePage'
-// import ItemsContainer from './ItemsContainer'
-// import Normal404Page from '../Component/404/Normal404Page'
-// import LogIn from './Forms/LogIn'
-// import Register from './Forms/Register'
-// import PasswordRecoveryContainer from './Forms/PasswordRecoveryContainer'
-// import CheckoutContainer from './Checkout'
-// import InquiryContainer from './Inquiry/Inquiry'
-// import CollectionsContainer from './Collections/CollectionsContainer'
-// import AccountContainer from './AccountContainer'
 import LoadingScreen from '../Component/LoadingScreen'
 
 

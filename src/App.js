@@ -142,9 +142,6 @@ const App = () => {
 
       if(cartIndex !== -1){
             switch(instruction) {
-              case "add":
-                tempCart[cartIndex].quantity++
-                break;
               case "modify":
                 if(quantity===0){
                   tempCart.splice(cartIndex,1)
@@ -154,6 +151,8 @@ const App = () => {
               case "delete":
                 tempCart.splice(cartIndex,1)
                 break;
+              default:
+                tempCart[cartIndex].quantity++
              
                 
             }

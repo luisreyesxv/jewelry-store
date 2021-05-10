@@ -44,22 +44,6 @@ const ItemsImage = (props)=>{
 
 
 
-    const imagesFound =()=>{
-        return(
-            <Grid stackable={false} columns="2" divided>
-                <Grid.Column width="4" >
-                    <List selection>
-                        {thumbnails()}
-                    </List>
-                </Grid.Column>
-                <Grid.Column width="10"> 
-                    <SmoothLoadingImage key="main" src={props.images[imageIndex]} id="items-page-main"/>
-                </Grid.Column>
-                
-            </Grid>
-        )
-    }
-
     const placeholderImage =()=>{
         return(
             <Placeholder>
@@ -68,38 +52,11 @@ const ItemsImage = (props)=>{
         )
     }
 
-    const placeholders =()=>{
-        return(
-            
-                <Grid stackable={false} columns="2" divided>
-                    <Grid.Column width="4" >
-                        <List selection>
-                            <List.Item>
-                            <Placeholder >
-                                <Placeholder.Image className="items-thumbnail-image"/>
-                            </Placeholder>
-                            </List.Item>
-
-                        </List>
-                    </Grid.Column>
-                    <Grid.Column width="10"> 
-                        <Placeholder>
-                            <Placeholder.Image id="items-page-main"/>
-                        </Placeholder>
-                    
-                    </Grid.Column>
-                    
-                </Grid>
-            
-        )
-    }
 
 
 
     return(
 
-        // props.images? imagesFound() : placeholders()
-        // placeholders()
         <Grid stackable={false} columns="equal" divided>
                 <Grid.Column width="4" >
                     <List selection={!!props.images}>

@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react'
-import {Grid,Container, Button} from 'semantic-ui-react'
+import React from 'react'
+import {Grid,Container} from 'semantic-ui-react'
 
 
 const OrderSummary = (props)=>{

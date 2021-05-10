@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import MobileContextConsumer from '../../Context/MobileContextConsumer'
 
 import {Accordion,Dropdown, Menu, Icon, Transition} from 'semantic-ui-react'
@@ -46,7 +46,6 @@ const DropDownComponent =(props)=>{
                 <Transition visible={props.name=== props.active} animation='slide down' duration={150} >
                 <Accordion.Content as={Menu.Item} active={props.name=== props.active}>
                 {props.items.map(component)}
-                    {/* {props.items.map((element)=> <Menu.Item className="mobile-menu-bar-link" key={"accordion "+ element.text +" option"} {...{as: Link, to: element.link}} onClick={()=> props.setSidebarOpen(false)}> {element.text}</Menu.Item>) } */}
                 </Accordion.Content>
                 </Transition>
             </Accordion>
@@ -58,11 +57,6 @@ const DropDownComponent =(props)=>{
         
 
         return(
-                // <Dropdown item className="mobile-menu-bar-link" key={"accordion "+ props.title +" option"} >
-                //      <Dropdown.Menu >
-                //          {props.component}
-                //     </Dropdown.Menu>
-                // </Dropdown>
                 <Dropdown search fluid />
 
         )

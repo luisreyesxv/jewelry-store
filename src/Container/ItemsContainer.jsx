@@ -1,15 +1,13 @@
 import React, {useState,useEffect} from 'react'
 import UserContextConsumer from '../Context/UserContextConsumer'
 
-import {Route,Switch,useParams, useLocation} from 'react-router-dom'
+import {useParams, useLocation} from 'react-router-dom'
 import {Grid,Container} from 'semantic-ui-react'
 
 import Normal404Page from '../Component/404/Normal404Page'
 import ItemsImage from '../Component/Items/ItemsImage'
 import ItemsBasicInfo from "../Component/Items/ItemsBasicInfo"
 import ItemsDetails from "../Component/Items/ItemsDetails"
-
-import ShoppingCartItemsContainer from "./ShoppingCart/ShoppingCartItemsContainer"
 
 
 
@@ -87,10 +85,6 @@ const ItemsContainer =(props)=>{
             return (
               <Container className="page-container-grid">
                 <Grid  verticalAlign="middle" className="page-container-grid" >
-                  {/* <Grid.Row centered="true">
-                      <h1>{item?.name}</h1>
-                        <p> {props.user}</p>
-                  </Grid.Row> */}
                   <Grid.Row columns="2" >
                       <Grid.Column mobile="9" computer ="8" tablet="8">
                           {/* <img src={item?.images[material]?.[0]} /> */}

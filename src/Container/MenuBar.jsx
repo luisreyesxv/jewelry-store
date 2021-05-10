@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import {Link} from 'react-router-dom'
 
 import UserContextConsumer from '../Context/UserContextConsumer'
@@ -13,7 +13,7 @@ import logoSVG from '../Component/Logos/logo'
 
 
 
-import {Menu, Button, Grid,Segment,Sidebar, Icon, Image} from 'semantic-ui-react'
+import {Menu,Sidebar, Icon, Image} from 'semantic-ui-react'
 
 
 

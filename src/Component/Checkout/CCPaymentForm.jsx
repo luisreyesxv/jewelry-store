@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {CardNumberElement, CardExpiryElement, CardCVCElement, CardElement, injectStripe} from 'react-stripe-elements'
+import {CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from 'react-stripe-elements'
 import {Form, Button, Message} from 'semantic-ui-react'
 
 const CCPaymentForm = (props)=>{
@@ -69,12 +69,6 @@ const CCPaymentForm = (props)=>{
          </Form>
         
          </>
-        // <Form  onSubmit={submitHandler} className="page-container-grid">
-        //     <Form.Field  width="16" className="log-in-register-form-label" >
-        //         <CardElement style={{base: { backgroundColor: "white", fontSize: "1.5rem"}}} onsubmit={submitHandler}/>
-        //     </Form.Field>
-        //     <Button fluid className="shopping-cart-button" type="submit" >Confirm CC Information</Button>
-        //  </Form>
 
     )
 }

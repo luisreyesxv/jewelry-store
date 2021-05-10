@@ -1,9 +1,9 @@
-import React,{useState} from 'react'
+import React from 'react'
 import {useHistory} from 'react-router-dom'
 import CartContextConsumer from '../../Context/CartContextConsumer'
 
 
-import {Grid,Placeholder, Divider, Button, List} from 'semantic-ui-react'
+import {Grid,Placeholder, Divider, Button} from 'semantic-ui-react'
 
 import materialColors from '../Materials/MaterialButtons'
 

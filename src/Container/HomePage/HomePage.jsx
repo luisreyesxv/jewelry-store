@@ -12,9 +12,6 @@ import HomePageCustomInquiryBanner from '../../Component/HomePage/HomePageCustom
 import HomePagePortfolioBanner from '../../Component/HomePage/HomePagePortfolioBanner'
 
 
-// import {useParams,useQuery, useLocation, Route, Switch} from 'react-router-dom'
-
-
 
 
 const HomePage =(props)=>{
@@ -110,36 +107,6 @@ const HomePage =(props)=>{
         
 
            return (
-            //    <>
-            //     <Grid.Row stretched centered={true} only="computer" columns="5"  >
-            //         {itemCards}
-            //     </Grid.Row>
-            //     <Grid.Row  stretched centered={true} only="mobile tablet" columns="2" stackable="true" >
-            //         {itemCards}
-            //     </Grid.Row>
-            //     </>
-
-          //XXXXXXXXXXXXXXXXXXXXX
-            //     <Grid.Row stretched centered={true} only="computer" columns="2"  >
-            //         <Grid.Column width="4">
-
-            //         <Grid.Row stretched centered={true} only="computer" columns="5"  >
-            //             {itemCards[0]}
-            //         </Grid.Row>
-            //         </Grid.Column>
-            //         <Grid.Column>
-
-            //         <Grid.Row stretched centered={true} only="computer" columns="5"  >
-            //             {itemCards}
-            //         </Grid.Row>
-            //         </Grid.Column>
-            //         </Grid.Row>
-
-            //         <Grid.Row  stretched centered={true} only="mobile tablet" columns="2" stackable="true" >
-            //             {itemCards}
-            //         </Grid.Row>
-            // </>
-
 
             <>
             <Grid  ui centered  reversed={beginning? "computer": null}>
@@ -183,27 +150,6 @@ const HomePage =(props)=>{
         </Container>
         
     )
-
-    // let {user} =  useParams()
-    // let query = new URLSearchParams(useLocation().search)
-
-    // console.log("Luis" ,props, user)
-
-    // return (
-    //     <Segment basic>
-    //     "This is the home page swag swag swag"  {query.get("title")}
-    //     <p> {props.user}</p>
-    //     <Switch>
-    //         <Route exact path={`${props.match.url}:user`}   render={(browserProps)=> "nested with params " + browserProps.match.params.user }/>
-    //         <Route exact path={`${props.match.url}`}>
-    //             normal
-    //         </Route>
-
-
-
-    //     </Switch>
-    //     </Segment>
-    // )
 }
 
 

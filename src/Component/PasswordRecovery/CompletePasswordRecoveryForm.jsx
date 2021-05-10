@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Form, Button, Message, Image, Header} from 'semantic-ui-react'
+import {Form, Button, Message, Header} from 'semantic-ui-react'
 import {Link, useParams} from 'react-router-dom'
 
 import UserContextConsumer from '../../Context/UserContextConsumer'

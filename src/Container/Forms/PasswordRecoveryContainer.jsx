@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import {Route,Switch, Redirect, Link} from 'react-router-dom'
+import {Route,Switch, Link} from 'react-router-dom'
 
 import FormContainer from './FormContainer'
 import PasswordRecoveryForm from '../../Component/PasswordRecovery/PasswordRecoveryForm'
