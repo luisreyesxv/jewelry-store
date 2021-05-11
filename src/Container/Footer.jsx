@@ -50,10 +50,16 @@ const modalClicked = (message)=>{
                                     </Grid.Column>
                                     <Grid.Column width={7}>
                                         <Header inverted as='h4' content='THIS IS NOT A REAL JEWELRY STORE' />
-                                        <p>
-                                            This is a mock-up eCommerce Site created by Luis Reyes Bartolome.
-                                        </p>
                                         
+                                            <p>
+                                                This is a mock-up eCommerce Site created by Luis Reyes Bartolome. {process.env.REACT_APP_TITLE} is an application 
+                                                just meant to showcase some standard eCommerce practices. 
+                                            </p>
+                                            <p>
+                                                It is important to note that this isn't a real jewelry store. The prices are made up, the images of the jewelry were found online
+                                                (<i> credits can be found in the footer section</i>). Though the application is really communicating with Stripe, this is using a test API account and
+                                                the transactions aren't going to actually go through. You shouldn't expect any jewelry to be shipped in the mail.
+                                            </p>
                                     </Grid.Column>
                                 </Grid.Row>
                     </Grid>

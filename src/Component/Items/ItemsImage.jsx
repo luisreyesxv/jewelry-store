@@ -15,7 +15,7 @@ const ItemsImage = (props)=>{
 
             return (
                 
-                <List.Item active={imageIndex===index} onClick={()=> setImageIndex(index)} >
+                <List.Item active={imageIndex===index} onClick={()=> setImageIndex(index)} style={{textAlign: "center"}} >
                     <SmoothLoadingImage key={"thumbnail" + index} src={image} alt={"item thumbnail #"+index} className="items-thumbnail-image"/>
                 </List.Item>
                
@@ -27,7 +27,7 @@ const ItemsImage = (props)=>{
     const placeholderThumbnails =()=>{
         return(
             <>
-                    <List.Item>
+                    <List.Item >
                         <Placeholder >
                             <Placeholder.Image className="items-thumbnail-image"/>
                         </Placeholder>
@@ -58,8 +58,8 @@ const ItemsImage = (props)=>{
     return(
 
         <Grid stackable={false} columns="equal" divided>
-                <Grid.Column width="4" >
-                    <List selection={!!props.images}>
+                <Grid.Column width="4" mobile="6" tablet="6" centered>
+                    <List selection={!!props.images} >
                         {props.images? thumbnails(): placeholderThumbnails()}
                     </List>
                 </Grid.Column>

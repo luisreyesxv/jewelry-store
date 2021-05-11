@@ -86,7 +86,7 @@ const ItemsContainer =(props)=>{
               <Container className="page-container-grid">
                 <Grid  verticalAlign="middle" className="page-container-grid" >
                   <Grid.Row columns="2" >
-                      <Grid.Column mobile="9" computer ="8" tablet="8">
+                      <Grid.Column mobile="14" computer ="8" tablet="8" style={{marginBottom: "10px"}}>
                           {/* <img src={item?.images[material]?.[0]} /> */}
                           <ItemsImage  images={item?.extra[material]?.images} />
                       </Grid.Column>
