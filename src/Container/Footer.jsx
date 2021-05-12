@@ -57,7 +57,7 @@ const modalClicked = (message)=>{
                                             </p>
                                             <p>
                                                 It is important to note that this isn't a real jewelry store. The prices are made up, the images of the jewelry were found online
-                                                (<i> credits can be found in the footer section</i>). Though the application is really communicating with Stripe, this is using a test API account and
+                                                . Though the application is really communicating with Stripe, this is using a test API account and
                                                 the transactions aren't going to actually go through. You shouldn't expect any jewelry to be shipped in the mail.
                                             </p>
                                     </Grid.Column>

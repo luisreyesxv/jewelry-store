@@ -10,12 +10,13 @@ const LoadingScreen = ()=>{
 
         <Container style={{paddingBottom:"3em"}} className="page-container-grid">
             <Grid doubling style={{height: "80vh", backgroundImage: "url(https://images.nappy.co/uploads/large/215921759780fjocv7nlya5k9xddlv26qtnkyny1ggd4ctpvzuc1jkfipspah4vhfult1u3mxzdixnp0isu8ohxnye8hfhhb7mi31tgjimzxkd7.jpg?auto=format&fm=jpg&w=1280&q=75)", backgroundSize: "100% 100%"}}>
-                
+                <Grid.Column stretched={true}>
                 <Dimmer active id="loading-screen">
                     <Loader size="massive" >                       
                         <Image src={logoSVG} size="medium" />
                     </Loader>
             </Dimmer>
+            </Grid.Column>
         </Grid>
         </Container>
         
