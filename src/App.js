@@ -91,7 +91,6 @@ const App = () => {
 
   const ping =()=>{
   
-
     if (localStorage.getItem("user")){
       const userObject = JSON.parse(localStorage.getItem("user"))
       const body = {user:{
