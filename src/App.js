@@ -123,7 +123,7 @@ const App = () => {
 
       })
       .catch((error)=>{
-
+console.log("error", error)
         logout()
         
 
