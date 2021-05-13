@@ -91,6 +91,7 @@ const App = () => {
 
   const ping =()=>{
   
+    console.log("this is the beginning of ping", localStorage.getItem("user"))
     if (localStorage.getItem("user")){
       const userObject = JSON.parse(localStorage.getItem("user"))
       const body = {user:{
@@ -123,6 +124,8 @@ const App = () => {
 
       })
       .catch((error)=>{
+        console.log("this failed", error)
+
         logout()
         
 
