@@ -1,5 +1,7 @@
 import React,{useState,useEffect,useCallback} from 'react'
 import {Link} from 'react-router-dom'
+import ReactGA from 'react-ga'
+
 import {Grid,Container, Button, Accordion, Icon} from 'semantic-ui-react'
 import {Elements, StripeProvider} from 'react-stripe-elements'
 
@@ -36,7 +38,18 @@ const CheckoutContainer = (props)=>{
     const [success,setSuccess] = useState()
     const [unAuthorized,setUnAuthorized] = useState(!props.user)
 
+
+    const googleAnalytics=({type, message })=>{
+        ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID)
+
+        ReactGA.event({
+            category: type,
+            action: message
+            })
+        
+    }
     const checkout=()=>{
+        googleAnalytics({type:"Checkout", message: "They are attempting to make a purchase" })
         const body ={orders: {items: props.cart}}
         const options = {
             method: "POST",
@@ -220,8 +233,8 @@ const CheckoutContainer = (props)=>{
                 
                 
             </Grid>
-            <PurchaseModal status={success} setSuccess={setSuccess} user={props.user} />
-            <LogInModal status={unAuthorized}  />
+            <PurchaseModal status={success} setSuccess={setSuccess} user={props.user} googleAnalytics={googleAnalytics}/>
+            <LogInModal status={unAuthorized}  googleAnalytics={googleAnalytics}/>
         </Container>
 
     )

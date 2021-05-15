@@ -23,9 +23,7 @@ const AccountContainer = (props)=>{
             credentials: 'include',
             body: JSON.stringify(body)
           }
-          
-          console.log("this is clicking on the link,", props.user)
-    
+              
         //   fetch(process.env.REACT_APP_API_URL+"password/forgot",options)
         //   .then(response=> {
         //     if(!response.ok){

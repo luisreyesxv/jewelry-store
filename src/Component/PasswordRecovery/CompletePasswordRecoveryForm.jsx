@@ -82,7 +82,6 @@ const CompletePasswordRecoveryForm = (props)=>{
     
           fetch(process.env.REACT_APP_API_URL+"password/reset",options)
           .then(response=> {
-              console.log(response)
             if(!response.ok){
                 throw new Error(response.status)
              }

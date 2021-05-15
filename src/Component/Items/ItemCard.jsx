@@ -78,7 +78,7 @@ const ItemCard=(props)=>{
                     </Card.Description>
                     
                     <Card.Description>
-                    <div className="itemCardPrice">{"$"+parseFloat(props.price).toFixed(2)}</div>
+                    <div className="itemCardPrice">{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'}).format(props.price)}</div>
                     </Card.Description>
                     
                 </Card.Content>
@@ -161,7 +161,8 @@ export const SpecialItemCard=(props)=>{
                             </Button>
                         </Card.Description>
 						<Card.Description>
-                            <div className="itemCardPrice">{"$"+parseFloat(props.price).toFixed(2)}</div>
+                            <div className="itemCardPrice">{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'}).format(props.price)}</div>
+                            {/* new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'}).format(props.price) */}
 						</Card.Description>
                     </Card.Content>
 					<Card.Meta className="itemCardMaterials">

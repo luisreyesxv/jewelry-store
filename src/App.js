@@ -1,6 +1,7 @@
 import './App.scss';
 import CookieConsent from "react-cookie-consent"
 import {useLocation} from 'react-router-dom'
+import ReactGA from 'react-ga'
 import UserContext from './Context/UserContext'
 import MobileContext from './Context/MobileContext'
 import CartContext from './Context/CartContext'
@@ -28,8 +29,10 @@ const App = () => {
 
   const {pathname} = useLocation()
 
+
   useEffect(()=>{
     ping()
+    updateGoogleAnalytics()
   },[])
 
   useEffect(()=>{
@@ -44,9 +47,14 @@ const App = () => {
 
   useLayoutEffect(()=>{
     window.scrollTo(0,0)
+    updateGoogleAnalytics()
   },[pathname])
 
-  
+  const updateGoogleAnalytics = () =>{
+    ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID)
+    ReactGA.set({page: pathname})
+    ReactGA.pageview(pathname)
+  }
 
   const login = (userObject) =>{
     localStorage.setItem("user",JSON.stringify(userObject))
@@ -123,7 +131,6 @@ const App = () => {
 
       })
       .catch((error)=>{
-console.log("error", error)
         logout()
         
 

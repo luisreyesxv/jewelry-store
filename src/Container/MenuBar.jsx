@@ -31,7 +31,9 @@ const MenuBar =(props)=>{
 
     const collectionCategories = categories
 
-    const accountLinks = props.user ? [{text:"Login",component:<LogInButton />}] : [ {text:"Sign Up",link:"/register"},{text:"Login",component:<LogInButton />}] 
+    // const accountLinks = props.user ? [{text:"Login",component:<LogInButton />}] : [ {text:"Sign Up",link:"/register"},{text:"Login",component:<LogInButton />}] 
+    const accountLinks = props.user ? [{text:"Log Out",component:<LogInButton />}]  : [ {text:"Sign Up",link:"/register"},{text:"Log In",link:"/login"}] 
+
 
     const mobileDropdown = ()=> {     
        return (

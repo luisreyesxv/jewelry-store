@@ -14,6 +14,11 @@ const PurchaseModal = (props)=>{
 
     useEffect(()=>{
 
+        if(props.status !=="loading"){
+            const message = props.status==="success"? "Purchase Order has succeeded and they are now seeing the Modal" : "Purchase Order failed"
+            props.googleAnalytics({type: "Purchase",message: message})
+        }
+
         let timer = setTimeout(()=>setLongLoad(true), 15000)
 
         setOpen(props.status)

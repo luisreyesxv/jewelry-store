@@ -28,7 +28,6 @@ const CCPaymentForm = (props)=>{
                     setErrorMessage(payload.error.message)
                 }
                 else{
-                    console.log("this is the payload", payload)
                     props.setToken(payload.token.id)
                     props.setActiveAccordion("complete")
                 }

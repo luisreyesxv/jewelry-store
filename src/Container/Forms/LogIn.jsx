@@ -10,7 +10,7 @@ import FormContainer from './FormContainer'
 
 
 const LogIn =(props)=>{
-    const [login,setLogin]= useState({email:"testing@email.com",password:"fakefakefake"})
+    const [login,setLogin]= useState({email:"",password:""})
     const [error,setError]= useState({status:false, message: "Please make sure both fields are filled in"})
     const [loading,setLoading]= useState(false)
 

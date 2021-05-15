@@ -1,10 +1,14 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {Modal, Button} from 'semantic-ui-react'
 
 
-const PurchaseModal = (props)=>{
+const LogInModal = (props)=>{
 
+    useEffect(()=>{
+        const message = props.status? "User was not logged in when they visited checkout" : "User was able to successfully log in before checkout"
+        props.googleAnalytics({type:"Checkout",message: message})
+    },[])
 
 
     return (
@@ -43,4 +47,4 @@ const PurchaseModal = (props)=>{
 
 
 
-export default PurchaseModal
+export default LogInModal

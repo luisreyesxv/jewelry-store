@@ -74,7 +74,6 @@ const ItemsContainer =(props)=>{
         }
         else if (material !== urlQueryValues.get("material")){
           setMaterial(urlQueryValues.get("material"))
-          console.log("luis",urlQueryValues.get("material"))
         }
       }
     }

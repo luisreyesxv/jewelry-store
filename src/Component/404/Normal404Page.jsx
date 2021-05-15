@@ -7,7 +7,6 @@ import {normal404Icon} from '../Logos/404'
 
 const Normal404Page =(props)=>{
 
-    console.log(props)
 
     return (
         <Container text={true}  id="content-not-found-page">

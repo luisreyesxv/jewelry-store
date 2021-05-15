@@ -94,8 +94,6 @@ const CollectionsContainer = (props)=>{
     const changeHandler = (e,data)=>{
         const currentPage = data.activePage
 
-        console.log(data)
-
         if (currentPage !== paginationIndex.current){
             getItems({category: category, page: currentPage})
         }
