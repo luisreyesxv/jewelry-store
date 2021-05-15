@@ -29,14 +29,10 @@ return (
             <Route exact path="/items/:slug" render ={(routerProps)=><ItemsContainer/>} />
             <Route path="/inquiry" render={(browserProps)=> <InquiryContainer {...browserProps}/>} />
             <Route path="/collections/:category" render={(browserProps)=> <CollectionsContainer />} />
-            <Route path="/About" render={(browserProps)=> "About Us"} />
             <Route path="/LogIn" render={(browserProps)=> <LogIn />} />
             <Route path="/Register" render={(browserProps)=> <Register />} />
             <Route path="/PasswordRecovery" render={(browserProps)=> <PasswordRecoveryContainer {...browserProps}/>} />
             <Route path="/checkout" render={(browserProps)=> <CheckoutContainer />} />
-            <Route path="/loading" render={(browserProps)=> <LoadingScreen />} />
-
-
 
 
             
