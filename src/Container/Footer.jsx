@@ -3,7 +3,7 @@ import {Grid,Segment, Container, List, Divider, Header, Modal} from 'semantic-ui
 
 
 
-const Footer = ()=>{
+const Footer = (props)=>{
 const [message, setMessage] = useState()
 const [modalOpened, setModalOpened] = useState(false)
 const [creditsOpened, setCreditsOpened] = useState(false)
@@ -43,8 +43,8 @@ const modalClicked = (message)=>{
                                     <Grid.Column width={3}>
                                     <Header inverted as='h4' content='Contact Me' />
                                         <List animated inverted>
-                                            <List.Item >Luisreyesxvi@gmail.com</List.Item>
-                                            <List.Item as='a' target="_blank" rel="noopener noreferrer"href="https://LuisReyesBartolome.com">My Portfolio Site</List.Item>
+                                            <List.Item onMouseOver={()=> props.googleAnalytics({type:"Link",message: "They highlighted my email"}) }>Luisreyesxvi@gmail.com</List.Item>
+                                            <List.Item as='a' target="_blank" rel="noopener noreferrer"href="https://LuisReyesBartolome.com" onClick={()=> props.googleAnalytics({type:"Link",message: "They clicked on my Portfolio link"}) }>My Portfolio Site</List.Item>
                                         </List>
                                         
                                     </Grid.Column>

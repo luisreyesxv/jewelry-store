@@ -3,7 +3,7 @@ import {Modal, Grid, Image} from 'semantic-ui-react'
 
 
 
-const PortfolioSiteModal =()=>{
+const PortfolioSiteModal =(props)=>{
     const [open, setOpen] = useState(true)
     return(
         <Modal
@@ -19,7 +19,7 @@ const PortfolioSiteModal =()=>{
                     
                     <Grid columns="equal" reversed="mobile" stackable>
                         <Grid.Column>
-                            <a target="_blank" rel="noopener noreferrer" href="https://LuisReyesBartolome.com">
+                            <a target="_blank" rel="noopener noreferrer" href="https://LuisReyesBartolome.com" onClick={()=> props.googleAnalytics({type:"Link",message: "They clicked on my Portfolio Modal"}) }>
                                 <Image size="large" src="https://luisreyesbartolome.com/images/transparent%20-%20Copy.png" />
                             </a>
                         </Grid.Column>

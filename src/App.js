@@ -50,10 +50,21 @@ const App = () => {
     updateGoogleAnalytics()
   },[pathname])
 
-  const updateGoogleAnalytics = () =>{
+  const updateGoogleAnalytics = ({ message, type="default"}={}) =>{
+
     ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID)
-    ReactGA.set({page: pathname})
-    ReactGA.pageview(pathname)
+    if(type==="default"){
+        ReactGA.set({page: pathname})
+        ReactGA.pageview(pathname)
+      }
+      else{
+
+        ReactGA.event({
+          category: type,
+          action: message
+          }
+        )
+      }
   }
 
   const login = (userObject) =>{
@@ -184,6 +195,8 @@ const App = () => {
 
 
 
+
+
   return (
 
     
@@ -193,7 +206,7 @@ const App = () => {
     to show you personalized content and targeted ads, to analyze our website traffic,
      and to understand where our visitors are coming from.
     </CookieConsent>
-    <PortfolioSiteModal />
+    <PortfolioSiteModal googleAnalytics={updateGoogleAnalytics}/>
       
     <MobileContext.Provider value={{mobile}}>
         <UserContext.Provider  value={{user,login,logout, loggingOut}} >
@@ -205,7 +218,7 @@ const App = () => {
               <RoutesContainer />
 
 
-              <Footer />
+              <Footer googleAnalytics={updateGoogleAnalytics}/>
           </CartContext.Provider>
         </UserContext.Provider>
       </MobileContext.Provider>
