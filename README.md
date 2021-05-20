@@ -39,6 +39,7 @@ The variables are as follows:
 | REACT_APP_STRIPE_KEY          | the public key for your Stripe API account     |
 | REACT_APP_GA_TRACKING_ID          | The tracking ID for Google Analytics (ie `UA-XXXXXXXXX-X`)     |
 
+---
 
 ## Miscellaneous
 
@@ -54,15 +55,6 @@ The variables are as follows:
     | img | This is primarily used by inquiries and category cards on homepage. This is the image for the respective property.   |
 
 <img src='./screenshots/jewelry_2.png' alt="A view of product page that also shows the material buttons">
-
-
-
-# Heads up
-added cors and tried to make the cors dynamic. I wanted to have the domain be different depending the environment. So I added the domains inside the credentials file. and nested them inside a production and development build. I think alls gonna work well. Here is a stackoverflow link explaining what I did. [stackoverflow link](https://stackoverflow.com/questions/49985642/rails-5-1-cors-how-to-set-different-origins-for-different-environments)
-
-
-* The colors for the Material Button is inside a /Component/Materials. This file should store the colors that will fill up the little button showing what the materials are. THis iwll be used a bit, and should be handy if we ever have to show multiple colors at once (like Red/Green, or zebra)
-
 
 
 
@@ -95,6 +87,8 @@ Every other image else (not jewelry)  comes from Nappy.co
 
 
 <img src='./screenshots/jewelry_3.gif' alt="Animated view of the homepage>
+
+---
 
 
 
