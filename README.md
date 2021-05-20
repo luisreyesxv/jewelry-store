@@ -1,3 +1,62 @@
+# Bartolome Jewelry - Front End
+
+<p>
+Bartolome Jewelry is a a progressive eCommerce application for a boutique jewelry business aimed at a modern audience with an inclusive brand. A application is able to search the API for items, allow users to send the vendor inquiries for custom jewelry, connect to a Stripe API to collect card information, and track user's actions through Google Analytics.
+</p>
+
+ Here is the link to the [back end](https://github.com/luisreyesxv/jewelry-store-back).
+
+
+
+
+
+
+<img src='./screenshots/jewelry_1.png' alt="Bartolome Jewelry current homepage">
+
+
+---
+
+## Libraries used
+
+* [lodash.debounce](https://github.com/lodash/lodash) v4.0.8
+* [react-cookie-consent](https://github.com/Mastermindzh/react-cookie-consent) v6.2.3
+* [react-ga](https://github.com/react-ga/react-ga) v3.3.0
+* [semantic-ui](https://github.com/Semantic-Org/Semantic-UI) "^2.0.3"
+* [react-stripe-elements](https://github.com/stripe/react-stripe-elements) v6.1.2
+
+---
+
+## Environment Variables
+<p>
+This build uses a few environment variables that you nee dto make sure you set up. For your development environment, I recommend you create a .env.development file and insert the variables in this file.
+
+The variables are as follows:
+
+| **Variable**   | **Purpose** |
+|----------------|-------------|
+| REACT_APP_API_URL | This is the URL for the backend API. (ie. `https://example.com/` )     |
+| REACT_APP_TITLE        | The name of the eCommerce Business. This will be sprinkled throughout the application including document title, menu, etc.      |
+| REACT_APP_STRIPE_KEY          | the public key for your Stripe API account     |
+| REACT_APP_GA_TRACKING_ID          | The tracking ID for Google Analytics (ie `UA-XXXXXXXXX-X`)     |
+
+
+## Miscellaneous
+
+* Each item has a button representing what material it is made of. The colors for the Material buttons are inside ```/Component/Materials/MatterialButtons.js```. The import for this information is sprinkled throughout. Currently, the colors are simple representing the simple materials, but this will be handy to change if you ever have to show multile colors/designs at once (like Red/Green, or Zebra)
+
+* The category names and respective images are found inside ```/Component/categories.js``` . each object needs the following properties
+
+
+    | **Property**   | **Purpose** |
+    |----------------|-------------|
+    | text | The string that will be displayed in links or cards     |
+    | link | If the category element is a link, it will direct to what is here     |
+    | img | This is primarily used by inquiries and category cards on homepage. This is the image for the respective property.   |
+
+<img src='./screenshots/jewelry_2.png' alt="A view of product page that also shows the material buttons">
+
+
+
 # Heads up
 added cors and tried to make the cors dynamic. I wanted to have the domain be different depending the environment. So I added the domains inside the credentials file. and nested them inside a production and development build. I think alls gonna work well. Here is a stackoverflow link explaining what I did. [stackoverflow link](https://stackoverflow.com/questions/49985642/rails-5-1-cors-how-to-set-different-origins-for-different-environments)
 
@@ -6,15 +65,11 @@ added cors and tried to make the cors dynamic. I wanted to have the domain be di
 
 
 
-# Libraries
-lodash.debounce
-react-cookie-consent
 
+# Credits for Outside Assets
+**404 SVGs** are from  <a href="https://storyset.com/web">Illustration by Freepik Storyset</a> 
 
-# Credits for "outside sources"
-Some svgs were brought from  <a href="https://storyset.com/web">Illustration by Freepik Storyset</a> as of now the 404 page
-
-Homepage category credits
+**Homepage category credits**
 
 * Watch Photo by <a href="https://burst.shopify.com/@thenomadbrodie?utm_campaign=photo_credit&amp;utm_content=Free+Tying+Up+Boot+Laces+Photo+%E2%80%94+High+Res+Pictures&amp;utm_medium=referral&amp;utm_source=credit">Brodie Vissers</a> from <a href="https://burst.shopify.com/tie?utm_campaign=photo_credit&amp;utm_content=Free+Tying+Up+Boot+Laces+Photo+%E2%80%94+High+Res+Pictures&amp;utm_medium=referral&amp;utm_source=credit">Burst</a>
 * Ring Photo by <a href="https://burst.shopify.com/@shopifypartners?utm_campaign=photo_credit&amp;utm_content=Free+Stock+Photo+of+Fist+With+Pride+Ring+%E2%80%94+HD+Images&amp;utm_medium=referral&amp;utm_source=credit">Shopify Partners</a> from <a href="https://burst.shopify.com/ring?utm_campaign=photo_credit&amp;utm_content=Free+Stock+Photo+of+Fist+With+Pride+Ring+%E2%80%94+HD+Images&amp;utm_medium=referral&amp;utm_source=credit">Burst</a>
@@ -22,7 +77,7 @@ Homepage category credits
 * Custom Work Inquiry Banner Photo by <a href="https://burst.shopify.com/@ndekhors?utm_campaign=photo_credit&amp;utm_content=Picture+of+Mens+Watch+%26+Ring+-+Free+Stock+Photo&amp;utm_medium=referral&amp;utm_source=credit">Nicole De Khors</a> from <a href="https://burst.shopify.com/watch?utm_campaign=photo_credit&amp;utm_content=Picture+of+Mens+Watch+%26+Ring+-+Free+Stock+Photo&amp;utm_medium=referral&amp;utm_source=credit">Burst</a>
 
 
-Jewelry Credits
+**Jewelry Credits**
 
 * All images of grills come from [King Johnny (Johnnys Custom Jewelry)](https://johnnyscustomjewelry.com/grillz/)
 * Most images of rings come from [My Trio Rings](https://www.mytriorings.com/)
@@ -32,11 +87,14 @@ Jewelry Credits
 
 Every other image else (not jewelry)  comes from Nappy.co
 
-Inquiry List credits
+**Inquiry List credits**
 
 * Repair Inquiry Photo by <a href="https://burst.shopify.com/@matthew_henry?utm_campaign=photo_credit&amp;utm_content=Browse+Free+HD+Images+of+Using+a+Rotary+Tool+On+Jewelry&amp;utm_medium=referral&amp;utm_source=credit">Matthew Henry</a> from <a href="https://burst.shopify.com/tools?utm_campaign=photo_credit&amp;utm_content=Browse+Free+HD+Images+of+Using+a+Rotary+Tool+On+Jewelry&amp;utm_medium=referral&amp;utm_source=credit">Burst</a>
 
 Every other image else (not jewelry)  comes from Nappy.co
+
+
+<img src='./screenshots/jewelry_3.gif' alt="Animated view of the homepage>
 
 
 
