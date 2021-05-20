@@ -5,14 +5,15 @@ import ReactGA from 'react-ga'
 
 import {normal404Icon} from '../Logos/404'
 
-useEffect(()=>{
-    ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID)
-    ReactGA.event({
-        category: "404",
-        action: window.location.href
-        })
-},[])
+
 const Normal404Page =(props)=>{
+    useEffect(()=>{
+        ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID)
+        ReactGA.event({
+            category: "404",
+            action: window.location.href
+            })
+    },[])
 
 
     return (
