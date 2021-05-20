@@ -43,9 +43,9 @@ The variables are as follows:
 
 ## Miscellaneous
 
-* Each item has a button representing what material it is made of. The colors for the Material buttons are inside ```/Component/Materials/MatterialButtons.js```. The import for this information is sprinkled throughout. Currently, the colors are simple representing the simple materials, but this will be handy to change if you ever have to show multile colors/designs at once (like Red/Green, or Zebra)
+* Each item has a button representing what material it is made of. The colors for the Material buttons are inside ```/Component/Materials/MaterialButtons.js```. The import for this information is sprinkled throughout. Currently, the colors are simple representing the simple materials, but this will be handy to change if you ever have to show multile colors/designs at once (like Red/Green, or Zebra)
 
-* The category names and respective images are found inside ```/Component/categories.js``` . each object needs the following properties
+* The category names and respective images are found inside ```/Component/categories.js``` . Each object needs the following properties
 
 
     | **Property**   | **Purpose** |
@@ -86,7 +86,7 @@ Every other image else (not jewelry)  comes from Nappy.co
 Every other image else (not jewelry)  comes from Nappy.co
 
 
-<img src='./screenshots/jewelry_3.gif' alt="Animated view of the homepage>
+<img src='./screenshots/jewelry_3.gif' alt="Animated view of the homepage">
 
 ---
 
